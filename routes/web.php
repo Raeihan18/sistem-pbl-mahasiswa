@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ControllerMahasiswa;
-use App\http\Controllers\User;
+use App\http\Controllers\ControllerUser;
 use App\http\Controllers\ControllerNilaiMahasiswa;
 
 Route::get('/', function () {
