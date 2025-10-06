@@ -9,4 +9,5 @@ class ControllerUser extends Controller
     public function index(){
      return view('user.index');
 }
+
 }
