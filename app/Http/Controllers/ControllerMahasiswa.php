@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ControllerMahasiswa extends Controller
+class ControllerNilaiMahasiswa extends Controller
 {
-    //
+    public function index(){
+
+     return view('mahasiswa.index');   
+    }
+
 }
