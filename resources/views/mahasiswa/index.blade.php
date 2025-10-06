@@ -16,29 +16,24 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>No</th>
+                        <th>Id</th>
                         <th>NIM</th>
                         <th>Nama</th>
-                        <th>Program Studi</th>
+                        <th>Kelas</th>
+                        <th>Id Kelompok</th>
+                        <th>Email</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $mahasiswa = [
-                            ['nim' => '230101001', 'nama' => 'Andi Saputra', 'prodi' => 'Informatika'],
-                            ['nim' => '230101002', 'nama' => 'Budi Santoso', 'prodi' => 'Sistem Informasi'],
-                            ['nim' => '230101003', 'nama' => 'Citra Dewi', 'prodi' => 'Teknik Komputer'],
-                            ['nim' => '230101004', 'nama' => 'Diana Puspita', 'prodi' => 'Manajemen Informatika'],
-                        ];
-                    @endphp
-
                     @foreach ($mahasiswa as $index => $mhs)
                         <tr>
-                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $mhs['id_mahasiswa'] }}</td>
                             <td>{{ $mhs['nim'] }}</td>
                             <td>{{ $mhs['nama'] }}</td>
-                            <td>{{ $mhs['prodi'] }}</td>
+                            <td>{{ $mhs['kelas'] }}</td>
+                            <td>{{ $mhs['id_kelompok'] }}</td>
+                            <td>{{ $mhs['email'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
