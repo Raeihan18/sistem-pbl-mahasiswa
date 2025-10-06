@@ -10,5 +10,12 @@ class ControllerNilaiMahasiswa extends Controller
 
      return view('nilai-mahasiswa.index');   
     }
+     public function create(){
 
+     return view('nilai-mahasiswa.create');   
+    }
+     public function edit(){
+
+     return view('nilai-mahasiswa.edit');   
+    }
 }
