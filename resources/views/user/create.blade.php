@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ url('user/store') }}" method="POST">
+            <form action="{{ url('dosen/user/store') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="nama">Nama</label>
