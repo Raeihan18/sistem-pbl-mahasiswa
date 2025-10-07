@@ -33,17 +33,17 @@
                         ];
                     @endphp
 
-                    @foreach ($users as $index => $mhs)
+                    @foreach ($users as $index => $user)
                         <tr>
-                            <td>{{ $mhs['id_user'] }}</td>
-                            <td>{{ $mhs['nama'] }}</td>
-                            <td>{{ $mhs['level'] }}</td>
-                            <td>{{ $mhs['email'] }}</td>
+                            <td>{{ $user['id_user'] }}</td>
+                            <td>{{ $user['nama'] }}</td>
+                            <td>{{ $user['level'] }}</td>
+                            <td>{{ $user['email'] }}</td>
                             <td>
-                                <a href="/dosen/user/edit" class="btn btn-sm btn-warning">
+                                <a href="/dosen/user/delete" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/dosen/user/delete/{{ $user['id_user'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>

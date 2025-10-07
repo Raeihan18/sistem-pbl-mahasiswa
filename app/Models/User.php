@@ -19,7 +19,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+public $timestamps = false;
     protected $hidden = [
         'password',
     ];

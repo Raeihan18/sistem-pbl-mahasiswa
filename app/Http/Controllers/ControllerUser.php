@@ -18,6 +18,19 @@ public function create(){
 
      return view('user.create');   
     }
+
+public function store(Request $request){
+
+    User::create([
+    'nama'=> $request->nama,
+    'email'=> $request->email,
+    'password'=>bcrypt($request->password),
+    'level'=> $request->level,
+]); 
+
+return redirect('dosen/user');  
+      
+    }
      public function edit(){
 
      return view('user.edit');   
