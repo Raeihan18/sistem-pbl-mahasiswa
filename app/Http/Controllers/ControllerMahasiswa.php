@@ -35,5 +35,12 @@ class ControllerMahasiswa extends Controller
 
      return view('mahasiswa.edit');   
     }
+
+    public function delete($id_mahasiswa){
+        $mahasiswa = Mahasiswa::find($id_mahasiswa);
+        $mahasiswa->delete();
+
+     return redirect('/dosen/mahasiswa');
+    }
 }
 

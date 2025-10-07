@@ -38,7 +38,7 @@
                                 <a href="/dosen/mahasiswa/edit" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>
