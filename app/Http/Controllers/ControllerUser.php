@@ -14,4 +14,13 @@ class ControllerUser extends Controller
      return view('user.index', compact('users'));
 }
 
+public function create(){
+
+     return view('user.create');   
+    }
+     public function edit(){
+
+     return view('user.edit');   
+    }
+
 }

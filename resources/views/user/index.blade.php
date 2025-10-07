@@ -6,7 +6,7 @@
     <h1 class="h3 mb-4 text-gray-800">User</h1>
 
     {{-- Tombol Tambah Mahasiswa --}}
-    <a href="#" class="btn btn-primary mb-3">
+    <a href="/dosen/user/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah User
     </a>
 
@@ -40,7 +40,7 @@
                             <td>{{ $mhs['level'] }}</td>
                             <td>{{ $mhs['email'] }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning">
+                                <a href="/dosen/user/edit" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
