@@ -74,12 +74,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Profil</span></a>
             </li>
-             <!-- Nav Item - logout -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/logout">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Logout</span></a>
-            </li>
+            
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

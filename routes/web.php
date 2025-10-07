@@ -15,7 +15,7 @@ Route::get('/dosen/mahasiswa/create',[ControllerMahasiswa::class, 'create']);
 Route::post('/dosen/mahasiswa/store',[ControllerMahasiswa::class, 'store']);
 Route::get('/dosen/mahasiswa/edit',[ControllerMahasiswa::class, 'edit']);
 Route::post('/dosen/mahasiswa/update',[ControllerMahasiswa::class, 'update']);
-Route::get('/dosen/mahasiswa/delete',[ControllerMahasiswa::class, 'delete']);
+Route::get('/dosen/mahasiswa/delete/id_mahasiswa',[ControllerMahasiswa::class, 'delete']);
 
 //Route User
 Route::get('/dosen/user',[ControllerUser::class, 'index']);

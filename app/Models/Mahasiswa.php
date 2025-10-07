@@ -26,7 +26,7 @@ class Mahasiswa extends Model
     ];
 
     // Jika tidak ingin timestamps (created_at & updated_at)
-    public $timestamps = true;
+    public $timestamps = false;
 
     // (Opsional) Sembunyikan password saat dikonversi ke array/JSON
     protected $hidden = [

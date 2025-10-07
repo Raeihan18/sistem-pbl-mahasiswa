@@ -17,6 +17,20 @@ class ControllerMahasiswa extends Controller
 
      return view('mahasiswa.create');   
     }
+
+    public function store(Request $request){
+        Mahasiswa::create([
+            'nim' => $request->nim,
+            'nama' => $request->nama,
+            'kelas' => $request->kelas,
+            'id_kelompok' => $request->id_kelompok,
+            'email' => $request->email,
+            'password' => bcrypt ($request->password),
+        ]);
+
+     return redirect('/dosen/mahasiswa');
+    }
+
      public function edit(){
 
      return view('mahasiswa.edit');   
