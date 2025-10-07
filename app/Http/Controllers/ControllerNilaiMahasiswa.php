@@ -28,4 +28,12 @@ class ControllerNilaiMahasiswa extends Controller
 
      return view('nilai-mahasiswa.edit');   
     }
+
+    public function delete($id_nilai_mahasiswa){
+
+        $nilai_mahasiswa = NilaiMahasiswa::find($id_nilai_mahasiswa);
+        $nilai_mahasiswa->delete();
+
+        return redirect('/dosen/nilai-mahasiswa');
+    }
 }
