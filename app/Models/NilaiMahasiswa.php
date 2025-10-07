@@ -12,6 +12,8 @@ class NilaiMahasiswa extends Model
     protected $table = 'nilai';
     protected $primaryKey = 'id_nilai';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id_mahasiswa',
         'id_user',
@@ -21,6 +23,8 @@ class NilaiMahasiswa extends Model
         'nilai_kehadiran',
         'total_nilai',
     ];
+
+    
 
     // Hitung total_nilai otomatis sebelum save
     public static function boot()
