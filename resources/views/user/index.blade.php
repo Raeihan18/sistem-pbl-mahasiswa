@@ -16,7 +16,7 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>User</th>
+                        <th>No</th>
                         <th>Nama</th>
                         <th>Level</th>
                         <th>Email</th>
@@ -35,12 +35,12 @@
 
                     @foreach ($users as $index => $user)
                         <tr>
-                            <td>{{ $user['id_user'] }}</td>
+                            <td>{{ $index+1 }}</td>
                             <td>{{ $user['nama'] }}</td>
                             <td>{{ $user['level'] }}</td>
                             <td>{{ $user['email'] }}</td>
                             <td>
-                                <a href="/dosen/user/delete" class="btn btn-sm btn-warning">
+                                <a href="/dosen/user/edit/{{ $user['id_user'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/dosen/user/delete/{{ $user['id_user'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">

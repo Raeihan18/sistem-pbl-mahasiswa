@@ -14,10 +14,20 @@ class ControllerUser extends Controller
      return view('user.index', compact('users'));
 }
 
-public function create(){
+public function update(request $request, $id_user){
 
-     return view('user.create');   
-    }
+        $user = User::find($id_user);
+        $user->nama = $request->nama;
+         $user->email = $request->email;
+         if($request->password){
+            $user->password = bcrypt(request->password);
+         };
+    
+    $user->level = $request->level;
+    $user->save();
+
+    return redirect('/dosen/user')->with('succes', 'User berhasil diupdate');
+}
 
 public function store(Request $request){
 
@@ -31,9 +41,12 @@ public function store(Request $request){
 return redirect('dosen/user');  
       
     }
-     public function edit(){
+     public function edit($id_user){
 
-     return view('user.edit');   
+       $user = User::find($id_user);  
+
+
+     return view('user.edit',compact("user"));   
     }
 
     public function delete($id_user){
