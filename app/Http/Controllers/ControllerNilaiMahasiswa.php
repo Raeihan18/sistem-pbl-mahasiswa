@@ -9,7 +9,9 @@ use App\Models\Mahasiswa;
 class ControllerNilaiMahasiswa extends Controller
 {
     public function index(){
-        $nilai_mahasiswa = NilaiMahasiswa::all();
+        $nilai_mahasiswa = NilaiMahasiswa::join('mahasiswa', 'nilai.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
+        ->select('nilai.*', 'mahasiswa.*')
+        ->get();
 
         return view('nilai-mahasiswa.index', compact('nilai_mahasiswa'));   
     }
@@ -30,6 +32,13 @@ class ControllerNilaiMahasiswa extends Controller
         $mahasiswa = Mahasiswa::all();
 
      return view('nilai-mahasiswa.edit', compact('nilai', 'mahasiswa'));   
+    }
+     public function update(Request $request, $id_nilai_mahasiswa){
+    
+        $nilai_mahasiswa = NilaiMahasiswa::find($id_nilai_mahasiswa);
+        $nilai_mahasiswa->update($request->all());
+    
+     return redirect('/dosen/nilai-mahasiswa')->with('success', 'Nilai mahasiswa berhasil diperbarui.');
     }
 
     public function delete($id_nilai_mahasiswa){

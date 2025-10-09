@@ -8,7 +8,7 @@
     {{-- Tombol Tambah Nilai Mahasiswa --}}
     <a href="/dosen/nilai-mahasiswa/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah Nilai Mahasiswa
-    </a> 
+    </a>
 
     {{-- Tabel Data  Mahasiswa (Data Dummy) --}}
     <div class="card shadow">
@@ -16,7 +16,8 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>No</th>
+                        <th>Nama</th>
                         <th>Nilai Tugas</th>
                         <th>Nilai Project</th>
                         <th>Nilai Persentasi</th>
@@ -29,17 +30,19 @@
 
                     @foreach ($nilai_mahasiswa as $index => $nilai)
                         <tr>
-                            <td>{{ $nilai['id_nilai'] }}</td>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $nilai['nama'] }}</td>
                             <td>{{ $nilai['nilai_tugas'] }}</td>
                             <td>{{ $nilai['nilai_project'] }}</td>
                             <td>{{ $nilai['nilai_presentasi'] }}</td>
                             <td>{{ $nilai['nilai_kehadiran'] }}</td>
                             <td>{{ $nilai['total_nilai'] }}</td>
                             <td>
-                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai']}}" class="btn btn-sm btn-warning">
+                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai']}}" class="btn btn-sm btn-danger"
+                                <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai'] }}"
+                                    class="btn btn-sm btn-danger"
                                     onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
