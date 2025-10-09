@@ -24,9 +24,12 @@ class ControllerNilaiMahasiswa extends Controller
     
             return redirect('/dosen/nilai-mahasiswa')->with('success', 'Nilai mahasiswa berhasil ditambahkan.');
     }
-     public function edit(){
+     public function edit($id_nilai_mahasiswa){
 
-     return view('nilai-mahasiswa.edit');   
+        $nilai = NilaiMahasiswa::find($id_nilai_mahasiswa);
+        $mahasiswa = Mahasiswa::all();
+
+     return view('nilai-mahasiswa.edit', compact('nilai', 'mahasiswa'));   
     }
 
     public function delete($id_nilai_mahasiswa){
