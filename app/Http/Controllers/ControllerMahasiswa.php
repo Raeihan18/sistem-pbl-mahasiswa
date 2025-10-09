@@ -31,10 +31,26 @@ class ControllerMahasiswa extends Controller
      return redirect('/dosen/mahasiswa');
     }
 
-     public function edit(){
+    public function edit($id_mahasiswa){
+         $mahasiswa = Mahasiswa::find($id_mahasiswa);
 
-     return view('mahasiswa.edit');   
+     return view('mahasiswa.edit', compact('mahasiswa'));   
     }
+
+     public function update(Request $request, $id_mahasiswa){
+            $mahasiswa = Mahasiswa::find($id_mahasiswa);
+            $mahasiswa->nim = $request->nim;
+            $mahasiswa->nama = $request->nama;
+            $mahasiswa->kelas = $request->kelas;
+            $mahasiswa->id_kelompok = $request->id_kelompok;
+            $mahasiswa->email = $request->email;
+            if($request->password){
+                $mahasiswa->password = bcrypt($request->password);
+            }
+            $mahasiswa->save();
+     return redirect('/dosen/mahasiswa')->with('success', 'Mahasisiwa berhasil diperbarui.');
+    }
+
 
     public function delete($id_mahasiswa){
         $mahasiswa = Mahasiswa::find($id_mahasiswa);

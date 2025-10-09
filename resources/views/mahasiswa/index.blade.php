@@ -16,7 +16,7 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>No</th>
                         <th>NIM</th>
                         <th>Nama</th>
                         <th>Kelas</th>
@@ -28,14 +28,14 @@
                 <tbody>
                     @foreach ($mahasiswa as $index => $mhs)
                         <tr>
-                            <td>{{ $mhs['id_mahasiswa'] }}</td>
+                            <td>{{ $index +1}}</td>
                             <td>{{ $mhs['nim'] }}</td>
                             <td>{{ $mhs['nama'] }}</td>
                             <td>{{ $mhs['kelas'] }}</td>
                             <td>{{ $mhs['id_kelompok'] }}</td>
                             <td>{{ $mhs['email'] }}</td>
                             <td>
-                                <a href="/dosen/mahasiswa/edit" class="btn btn-sm btn-warning">
+                                <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
