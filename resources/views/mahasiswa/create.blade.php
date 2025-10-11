@@ -32,9 +32,15 @@
                     </select>
                 </div>
 
+                {{-- Pilih Kelompok --}}
                 <div class="form-group mb-3">
-                    <label for="id_kelompok">ID Kelompok</label>
-                    <input type="text" class="form-control" id="id_kelompok" name="id_kelompok" placeholder="Masukkan ID Kelompok" required>
+                    <label for="id_kelompok">Kelompok</label>
+                    <select class="form-control" id="id_kelompok" name="id_kelompok" required>
+                        <option value="" disabled selected>Pilih Kelompok</option>
+                        @foreach ($kelompok as $klp)
+                            <option value="{{ $klp->id_kelompok }}">{{ $klp->nama_kelompok }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group mb-3">
@@ -48,7 +54,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ url('mahasiswa/index') }}" class="btn btn-secondary">Batal</a>
+                <a href="{{ url('dosen/mahasiswa') }}" class="btn btn-secondary">Batal</a>
             </form>
         </div>
     </div>

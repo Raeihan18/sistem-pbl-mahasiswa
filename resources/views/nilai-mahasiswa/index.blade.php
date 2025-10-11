@@ -18,6 +18,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Kelompok</th>
+                        <th>Mata Kuliah</th>
                         <th>Nilai Tugas</th>
                         <th>Nilai Project</th>
                         <th>Nilai Persentasi</th>
@@ -31,17 +33,19 @@
                     @foreach ($nilai_mahasiswa as $index => $nilai)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $nilai['nama'] }}</td>
+                            <td>{{ $nilai['nama_mahasiswa'] }}</td>
+                            <td>{{ $nilai['nama_kelompok'] }}</td>
+                            <td>{{ $nilai['nama_matkul'] }}</td>
                             <td>{{ $nilai['nilai_tugas'] }}</td>
                             <td>{{ $nilai['nilai_project'] }}</td>
                             <td>{{ $nilai['nilai_presentasi'] }}</td>
                             <td>{{ $nilai['nilai_kehadiran'] }}</td>
                             <td>{{ $nilai['total_nilai'] }}</td>
                             <td>
-                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai'] }}" class="btn btn-sm btn-warning">
+                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai'] }}"
+                                <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai_mahasiswa'] }}"
                                     class="btn btn-sm btn-danger"
                                     onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus

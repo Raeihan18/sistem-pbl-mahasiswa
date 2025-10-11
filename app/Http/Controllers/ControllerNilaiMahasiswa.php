@@ -5,19 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\NilaiMahasiswa;
 use App\Models\Mahasiswa;
+use App\Models\MataKuliah;
+
 
 class ControllerNilaiMahasiswa extends Controller
 {
     public function index(){
-        $nilai_mahasiswa = NilaiMahasiswa::join('mahasiswa', 'nilai.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
-        ->select('nilai.*', 'mahasiswa.*')
-        ->get();
+       $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
+    ->leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
+    ->leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
+    ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
+    ->get();
+    
+
 
         return view('nilai-mahasiswa.index', compact('nilai_mahasiswa'));   
     }
      public function create(){
         $mahasiswa = Mahasiswa::all();
-     return view('nilai-mahasiswa.create', compact('mahasiswa'));   
+        $mataKuliah = MataKuliah::all();
+
+     return view('nilai-mahasiswa.create', compact('mahasiswa','mataKuliah'));   
     }
         public function store(Request $request){
             
@@ -30,8 +38,9 @@ class ControllerNilaiMahasiswa extends Controller
 
         $nilai = NilaiMahasiswa::find($id_nilai_mahasiswa);
         $mahasiswa = Mahasiswa::all();
+        $mataKuliah = MataKuliah::all();
 
-     return view('nilai-mahasiswa.edit', compact('nilai', 'mahasiswa'));   
+     return view('nilai-mahasiswa.edit', compact('nilai', 'mahasiswa','mataKuliah'));   
     }
      public function update(Request $request, $id_nilai_mahasiswa){
     

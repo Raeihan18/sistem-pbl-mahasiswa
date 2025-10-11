@@ -5,32 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class MataKuliah extends Model
 {
     use HasFactory;
 
     // Nama tabel (jika tidak mengikuti konvensi jamak Laravel)
-    protected $table = 'mahasiswa';
+    protected $table = 'matkul';
 
     // Primary key tabel
-    protected $primaryKey = 'id_mahasiswa';
+    protected $primaryKey = 'id_matkul';
 
     // Kolom yang dapat diisi (mass assignable)
     protected $fillable = [
-        'nim',
-        'nama',
-        'kelas',
-        'id_kelompok',
-        'email',
-        'password',
-        'id_kelompok'
+        'nama_matkul',
     ];
 
     // Jika tidak ingin timestamps (created_at & updated_at)
     public $timestamps = false;
 
-    // (Opsional) Sembunyikan password saat dikonversi ke array/JSON
-    protected $hidden = [
-        'password',
-    ];
 }

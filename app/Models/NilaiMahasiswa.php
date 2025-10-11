@@ -9,8 +9,8 @@ class NilaiMahasiswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'nilai';
-    protected $primaryKey = 'id_nilai';
+    protected $table = 'nilai_mahasiswa';
+    protected $primaryKey = 'id_nilai_mahasiswa';
 
     public $timestamps = false;
 
@@ -22,6 +22,7 @@ class NilaiMahasiswa extends Model
         'nilai_presentasi',
         'nilai_kehadiran',
         'total_nilai',
+        'id_matkul'
     ];
 
     

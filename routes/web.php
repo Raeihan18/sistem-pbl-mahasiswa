@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ControllerMahasiswa;
 use App\http\Controllers\ControllerUser;
 use App\http\Controllers\ControllerNilaiMahasiswa;
+use App\http\Controllers\ControllerMataKuliah;
+use App\http\Controllers\ControllerKelompok;
+use App\http\Controllers\ControllerNilaiKelompok;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,6 +19,7 @@ Route::post('/dosen/mahasiswa/store',[ControllerMahasiswa::class, 'store']);
 Route::get('/dosen/mahasiswa/edit/{id_mahasiswa}',[ControllerMahasiswa::class, 'edit']);
 Route::put('/dosen/mahasiswa/update/{id_mahasiswa}',[ControllerMahasiswa::class, 'update']);
 Route::get('/dosen/mahasiswa/delete/{id_mahasiswa}',[ControllerMahasiswa::class, 'delete']);
+Route::post('dosen/mahasiswa/import', [ControllerMahasiswa::class, 'importCsv']);
 
 //Route User
 Route::get('/dosen/user',[ControllerUser::class, 'index']);
@@ -32,3 +36,25 @@ Route::post('/dosen/nilai-mahasiswa/store',[ControllerNilaiMahasiswa::class, 'st
 Route::get('/dosen/nilai-mahasiswa/edit/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswa::class, 'edit']);
 Route::put('/dosen/nilai-mahasiswa/update/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswa::class, 'update']);
 Route::get('/dosen/nilai-mahasiswa/delete/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswa::class, 'delete']);
+
+
+
+//Route Mata Kuliah
+Route::get('/dosen/mata-kuliah',[ControllerMataKuliah::class, 'index']);
+Route::get('/dosen/mata-kuliah/create',[ControllerMataKuliah::class, 'create']);
+Route::post('/dosen/mata-kuliah/store',[ControllerMataKuliah::class, 'store']);
+Route::get('/dosen/mata-kuliah/edit/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'edit']);
+Route::put('/dosen/mata-kuliah/update/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'update']);
+Route::get('/dosen/mata-kuliah/delete/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'delete']);
+
+//Route Kelompok
+Route::get('/dosen/kelompok',[ControllerKelompok::class, 'index']);
+Route::get('/dosen/kelompok/create',[ControllerKelompok::class, 'create']);
+Route::post('/dosen/kelompok/store',[ControllerKelompok::class, 'store']);
+Route::get('/dosen/kelompok/edit/{id_nilai_mahasiswa}',[ControllerKelompok::class, 'edit']);
+Route::put('/dosen/kelompok/update/{id_nilai_mahasiswa}',[ControllerKelompok::class, 'update']);
+Route::get('/dosen/kelompok/delete/{id_nilai_mahasiswa}',[ControllerKelompok::class, 'delete']);
+
+//Route Nilai Kelompok
+Route::get('/dosen/nilai-kelompok',[ControllerNilaiKelompok::class, 'index'])->name('nilai-kelompok.index');
+Route::get('/dosen/nilai-kelompok/generate/{id_matkul}',[ControllerNilaiKelompok::class, 'generateNilaiKelompok']);

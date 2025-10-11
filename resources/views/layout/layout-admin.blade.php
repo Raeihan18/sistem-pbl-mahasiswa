@@ -10,6 +10,12 @@
 
     <title>Sistem PBL Mahasiswa</title>
 
+    <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap 5 JS (Popper & Bundle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Custom fonts for this template -->
     <link href="/templet-admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
@@ -47,9 +53,23 @@
 
             <!-- Nav Item - Mahasiswa -->
             <li class="nav-item">
+                <a class="nav-link" href="/dosen/mata-kuliah">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Mata Kuliah</span></a>
+            </li>
+
+            <!-- Nav Item - Mahasiswa -->
+            <li class="nav-item">
                 <a class="nav-link" href="/dosen/mahasiswa">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Mahasiswa</span></a>
+            </li>
+
+            <!-- Nav Item - Mahasiswa -->
+            <li class="nav-item">
+                <a class="nav-link" href="/dosen/kelompok">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Kelompok</span></a>
             </li>
 
             <!-- Nav Item - Nilai Mahasiswa -->
@@ -57,6 +77,13 @@
                 <a class="nav-link" href="/dosen/nilai-mahasiswa">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Nilai Mahasiswa</span></a>
+            </li>
+
+            <!-- Nav Item - Nilai Mahasiswa -->
+            <li class="nav-item">
+                <a class="nav-link" href="/dosen/nilai-kelompok">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Nilai Kelompok</span></a>
             </li>
 
             <!-- Nav Item - User -->
@@ -67,11 +94,6 @@
             </li>
 
             <!-- Nav Item - Profil -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/profil">
-                    <i class="fas fa-fw fa-user-circle"></i>
-                    <span>Profil</span></a>
-            </li>
 
             <!-- Sidebar Toggler -->
             <div class="text-center d-none d-md-inline">

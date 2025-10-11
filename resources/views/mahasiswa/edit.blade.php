@@ -35,10 +35,18 @@
                     </select>
                 </div>
 
+                {{-- Pilih Kelompok --}}
                 <div class="form-group mb-3">
-                    <label for="id_kelompok">ID Kelompok</label>
-                    <input type="text" class="form-control" id="id_kelompok" name="id_kelompok"
-                        value="{{ $mahasiswa->id_kelompok }}" required>
+                    <label for="id_kelompok">Kelompok</label>
+                    <select class="form-control" id="id_kelompok" name="id_kelompok" required>
+                        <option value="" disabled>Pilih Kelompok</option>
+                        @foreach ($kelompok as $klp)
+                            <option value="{{ $klp->id_kelompok }}"
+                                {{ $mahasiswa->id_kelompok == $klp->id_kelompok ? 'selected' : '' }}>
+                                {{ $klp->nama_kelompok }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group mb-3">
