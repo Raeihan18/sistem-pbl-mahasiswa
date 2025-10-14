@@ -7,10 +7,27 @@ use App\http\Controllers\ControllerNilaiMahasiswa;
 use App\http\Controllers\ControllerMataKuliah;
 use App\http\Controllers\ControllerKelompok;
 use App\http\Controllers\ControllerNilaiKelompok;
+use App\http\Controllers\ControllerDashboard;
+use App\http\Controllers\ControllerProfil;
+use App\http\Controllers\ControllerAuth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Halaman login
+Route::get('/login', [ControllerAuth::class, 'showLoginForm'])->name('login');
+
+// Proses login
+Route::post('/login', [ControllerAuth::class, 'login'])->name('login.submit');
+
+// Logout
+Route::get('/logout', [ControllerAuth::class, 'logout'])->name('logout');
+
+
+// Route Dashboard
+
+Route::get('/dosen/dashboard',[ControllerDashboard::class, 'index']);
+
+Route::get('/dosen/profil',[ControllerProfil::class, 'index']);
 
 //Route Mahasiswa
 Route::get('/dosen/mahasiswa',[ControllerMahasiswa::class, 'index']);

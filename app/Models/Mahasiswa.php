@@ -33,4 +33,10 @@ class Mahasiswa extends Model
     protected $hidden = [
         'password',
     ];
+
+    public function kelompok()
+{
+    return $this->belongsTo(Kelompok::class, 'id_kelompok', 'id_kelompok');
+}
+
 }

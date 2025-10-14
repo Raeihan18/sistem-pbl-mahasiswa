@@ -52,4 +52,9 @@ class NilaiMahasiswa extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function mataKuliah()
+{
+    return $this->belongsTo(MataKuliah::class, 'id_matkul', 'id_matkul');
+}
 }

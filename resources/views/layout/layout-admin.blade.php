@@ -11,10 +11,10 @@
     <title>Sistem PBL Mahasiswa</title>
 
     <!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap 5 JS (Popper & Bundle) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS (Popper & Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom fonts for this template -->
     <link href="/templet-admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,6 +25,62 @@
 
     <!-- Custom styles for this page -->
     <link href="/templet-admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Custom Hover Sidebar (item saja + shadow + perbaikan overflow) -->
+    <style>
+        /* Efek hover lembut pada item sidebar */
+        .sidebar .nav-item .nav-link {
+            border-radius: 8px;
+            margin: 4px 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-item .nav-link:hover {
+            background-color: #ffffff !important;
+            color: #4e73df !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Ubah warna ikon saat hover */
+        .sidebar .nav-item .nav-link:hover i {
+            color: #4e73df !important;
+        }
+
+        /* Saat item aktif */
+        .sidebar .nav-item .nav-link.active {
+            background-color: #ffffff !important;
+            color: #4e73df !important;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* === Tambahan agar teks sidebar tidak keluar === */
+        .sidebar {
+            width: 230px;
+            /* Batasi lebar sidebar */
+            overflow-x: hidden;
+            /* Sembunyikan horizontal scroll */
+        }
+
+        .sidebar .nav-item .nav-link span {
+            display: inline-block;
+            max-width: 140px;
+            /* Batasi teks */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Tambahkan "..." jika panjang */
+            vertical-align: middle;
+        }
+
+        .sidebar .nav-item .nav-link i {
+            width: 25px;
+            text-align: center;
+        }
+
+        /* === End tambahan === */
+    </style>
 </head>
 
 <body id="page-top">
@@ -45,55 +101,61 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/dashboard">
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/dashboard') ? 'active' : '' }}" href="/dosen/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Mata Kuliah -->
+            <li class="nav-item  ">
+                <a class="nav-link {{ Request::is('dosen/mata-kuliah*') ? 'active' : '' }}" href="/dosen/mata-kuliah">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Mata Kuliah</span>
+                </a>
             </li>
 
             <!-- Nav Item - Mahasiswa -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/mata-kuliah">
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/mahasiswa*') ? 'active' : '' }}" href="/dosen/mahasiswa">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Mata Kuliah</span></a>
+                    <span>Mahasiswa</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Mahasiswa -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/mahasiswa">
+            <!-- Nav Item - Kelompok -->
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/kelompok*') ? 'active' : '' }}" href="/dosen/kelompok">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Mahasiswa</span></a>
-            </li>
-
-            <!-- Nav Item - Mahasiswa -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/kelompok">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Kelompok</span></a>
+                    <span>Kelompok</span>
+                </a>
             </li>
 
             <!-- Nav Item - Nilai Mahasiswa -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/nilai-mahasiswa">
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/nilai-mahasiswa*') ? 'active' : '' }}" href="/dosen/nilai-mahasiswa">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Nilai Mahasiswa</span></a>
+                    <span>Nilai Mahasiswa</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Nilai Mahasiswa -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/nilai-kelompok">
+            <!-- Nav Item - Nilai Kelompok -->
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/nilai-kelompok*') ? 'active' : '' }}" href="/dosen/nilai-kelompok">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Nilai Kelompok</span></a>
+                    <span>Nilai Kelompok</span>
+                </a>
             </li>
 
             <!-- Nav Item - User -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dosen/user">
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/user*') ? 'active' : '' }}" href="/dosen/user">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>User</span></a>
+                    <span>User</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Profil -->
 
             <!-- Sidebar Toggler -->
             <div class="text-center d-none d-md-inline">
@@ -110,7 +172,6 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -119,10 +180,11 @@
                     </form>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -152,7 +214,8 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -202,11 +265,13 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
     </div>
+
+    @stack('scripts')
 
     <!-- Bootstrap core JavaScript-->
     <script src="/templet-admin/vendor/jquery/jquery.min.js"></script>
@@ -225,4 +290,5 @@
     <!-- Page level custom scripts -->
     <script src="/templet-admin/js/demo/datatables-demo.js"></script>
 </body>
+
 </html>
