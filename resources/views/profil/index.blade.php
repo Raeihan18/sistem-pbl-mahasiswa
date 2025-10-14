@@ -25,22 +25,22 @@
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tr>
-                            <th width="200">NIDN/NIP</th>
-                            <td>{{ $profil['nidn'] }}</td>
+                            <th width="200">NIP</th>
+                            <td>{{ $profil['NIP'] }}</td>
                         </tr>
                         <tr>
                             <th>Mata Kuliah Diampu</th>
                             <td>
                                 <ul>
-                                    @foreach($profil['matkul'] as $m)
+                                    {{-- @foreach($profil['matkul'] as $m)
                                     <li>{{ $m }}</li>
-                                    @endforeach
+                                    @endforeach --}}
                                 </ul>
                             </td>
                         </tr>
                     </table>
 
-                    <a href="#" class="btn btn-primary mt-3">Edit Profil</a>
+                    <a href="/dosen/profil/edit/{{ $profil['id_user'] }}" class="btn btn-primary mt-3">Edit Profil</a>
                 </div>
             </div>
         </div>

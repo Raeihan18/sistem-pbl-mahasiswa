@@ -28,10 +28,10 @@ class ControllerNilaiMahasiswa extends Controller
      return view('nilai-mahasiswa.create', compact('mahasiswa','mataKuliah'));   
     }
         public function store(Request $request){
-            
+                    // dd($request->all());
+    
             // Simpan data
             NilaiMahasiswa::create($request->all());
-    
             return redirect('/dosen/nilai-mahasiswa')->with('success', 'Nilai mahasiswa berhasil ditambahkan.');
     }
      public function edit($id_nilai_mahasiswa){
