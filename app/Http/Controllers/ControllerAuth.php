@@ -38,8 +38,10 @@ class ControllerAuth extends Controller
                 return redirect('/dosen/dashboard');
             case 'pembimbing':
                 return redirect('/pembimbing/dashboard');
-            case 'keprodi':
-                return redirect('/keprodi/dashboard');
+            case 'kaprodi':
+                return redirect('/kaprodi/dashboard');
+             case 'mahasiswa':
+                return redirect('/mahasiswa/dashboard');
             default:
                 Auth::logout();
                 return back()->withErrors([

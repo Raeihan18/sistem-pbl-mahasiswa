@@ -27,7 +27,14 @@ class UserSeeder extends Seeder
                 'nama' => 'Dewi Kartika',
                 'email' => 'dewi.kartika@politala.ac.id',
                 'password' => Hash::make('password123'),
-                'level' => 'keprodi'
+                'level' => 'kaprodi'
+            ],
+
+             [
+                'nama' => 'Dewi Kartika',
+                'email' => 'ariwibowo@politala.ac.id',
+                'password' => Hash::make('password123'),
+                'level' => 'mahasiswa'
             ]
         ]);
     }

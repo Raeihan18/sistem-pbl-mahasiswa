@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ControllerMahasiswa;
+use App\http\Controllers\ControllerKaprodi;
 use App\http\Controllers\ControllerUser;
 use App\http\Controllers\ControllerNilaiMahasiswa;
 use App\http\Controllers\ControllerMataKuliah;
@@ -9,11 +10,15 @@ use App\http\Controllers\ControllerKelompok;
 use App\http\Controllers\ControllerNilaiKelompok;
 use App\http\Controllers\ControllerDashboard;
 use App\http\Controllers\ControllerProfil;
+use App\http\Controllers\ControllerUserMahasiswa;
 use App\http\Controllers\ControllerAuth;
 
 
 
 // Halaman login
+Route::get('/', function(){
+   return redirect('/login');
+});
 Route::get('/login', [ControllerAuth::class, 'showLoginForm'])->name('login');
 
 // Proses login
@@ -80,3 +85,15 @@ Route::get('/dosen/nilai-kelompok/generate/{id_matkul}',[ControllerNilaiKelompok
 Route::get('/dosen/profil',[ControllerProfil::class, 'index']);
 Route::get('/dosen/profil/edit/{id_user}',[ControllerProfil::class, 'edit']);
 Route::put('/dosen/profil/update/{id_user}',[ControllerProfil::class, 'update']);
+
+Route::get('/kaprodi/dashboard',[ControllerKaprodi::class, 'index']);
+Route::get('/kaprodi/mata-kuliah',[ControllerKaprodi::class, 'matkul']);
+Route::get('/kaprodi/mahasiswa',[ControllerKaprodi::class, 'mahasiswa']);
+Route::get('/kaprodi/kelompok',[ControllerKaprodi::class, 'kelompok']);
+Route::get('/kaprodi/nilai-mahasiswa',[ControllerKaprodi::class, 'nilaiMahasiswa']);
+Route::get('/kaprodi/nilai-kelompok',[ControllerKaprodi::class, 'nilaiKelompok']);
+Route::get('/kaprodi/user',[ControllerKaprodi::class, 'user']);
+
+Route::get('/mahasiswa/dashboard',[ControllerUserMahasiswa::class, 'index']);
+Route::get('/mahasiswa/nilai-mahasiswa',[ControllerUserMahasiswa::class, 'nilaiMahasiswa']);
+
