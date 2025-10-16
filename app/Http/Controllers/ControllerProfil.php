@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -8,73 +10,82 @@ use Illuminate\Support\Facades\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use App\Models\Profil;
 use App\Models\User;
+use App\Models\MataKuliah;
+
+
+
 
 class ControllerProfil extends Controller
 {
-     public function index()
+    public function index()
     {
-            // Data dummy, nanti bisa diambil dari session/auth
-            // $profil = [
-            //     'nama' => 'Dr. Ahmad Khaidir',
-            //     'nidn' => '1234567890',
-            //     'email' => 'ahmad.khaidir@universitas.ac.id',
-            //     'matkul' => ['Pemrograman Web', 'Basis Data', 'PBO'],
-            //     'foto' => 'default-avatar.png' // letakkan di public/images/
-            // ];
-            $authUser = auth()->user();
-            $id_user = $authUser->id_user;
-            // dd($id_user);
-        $profil = Profil::findOrFail($id_user);
+        $authUser = auth()->user();
+        $id_user = $authUser->id_user;
 
-        // // $profil = $profil->where('id_user', session('id_user'))->first();
-        // dd($profil);
-        return view('profil.index', compact('profil'));
-    }
-    public function edit($id_user){
 
-        $profil = DB::table('profil');
-        $profil = $profil->where('id_user', $id_user)->first();
-        // dd($profil);
-        return view('profil.edit', compact('profil'));
+        // ambil profil berdasarkan id_user
+        $profil = Profil::where('id_user', $id_user)->firstOrFail();
+
+
+        // ambil mata kuliah yang diampu (jika relasi sudah dibuat)
+        $matkul_dosen = $authUser->matkul()->get();
+
+
+        return view('profil.index', compact('profil', 'authUser', 'matkul_dosen'));
     }
 
-    public function update(Request $request, string $id_profil){
-        // dd($request->all());
-        $profil = Profil::find($id_profil);
-        $profil->NIP = $request->NIP;
-        $profil->matakuliah = $request->matakuliah;
-        // if($request->gambar){
-        //     $profil->gambar = $request->gambar;
-        // }
-       if($request->hasFile('potoprofil')){
-            //hapus foto lama
-            Storage::delete('potoprofil/'.$profil->potoprofil);
-            //upload foto baru  
-        $potoprofil = $request->file('potoprofil');
-        $potoprofil->storeAs('potoprofil',$potoprofil->hashName()); 
 
-        $profil->update([
-            'potoprofil' => $potoprofil->hashName(),
+    public function edit($id_user)
+    {
+        // ambil profil berdasarkan id_user
+        $profil = Profil::where('id_user', $id_user)->firstOrFail();
+
+
+        // ambil semua mata kuliah dari tabel matkul
+        $matkul = MataKuliah::all();
+
+
+        return view('profil.edit', compact('profil', 'matkul'));
+    }
+
+
+    public function update(Request $request, string $id_profil)
+    {
+        $profil = Profil::findOrFail($id_profil);
+        $user = auth()->user();
+
+
+        // Update data dasar profil
+        $dataUpdate = [
             'NIP' => $request->NIP,
-            'matakuliah' => $request->matakuliah,
-        ]);    
+        ];
 
+
+        // Upload foto baru jika ada
+        if ($request->hasFile('potoprofil')) {
+            // hapus foto lama jika ada
+            if ($profil->potoprofil && Storage::exists('potoprofil/' . $profil->potoprofil)) {
+                Storage::delete('potoprofil/' . $profil->potoprofil);
+            }
+
+
+            // simpan foto baru
+            $potoprofil = $request->file('potoprofil');
+            $potoprofil->storeAs('potoprofil', $potoprofil->hashName());
+            $dataUpdate['potoprofil'] = $potoprofil->hashName();
         }
-        
-        //    $profil->save();
- return redirect('/dosen/profil')->with('success', 'Profil berhasil diperbarui.');
 
-    //         $profil = Profil::find($id_profil);
-    //         $mahasiswa->nim = $request->nim;
-    //         $mahasiswa->nama = $request->nama;
-    //         $mahasiswa->kelas = $request->kelas;
-    //         $mahasiswa->id_kelompok = $request->id_kelompok;
-    //         $mahasiswa->email = $request->email;
-    //         if($request->password){
-    //             $mahasiswa->password = bcrypt($request->password);
-    //         }
-    //         $mahasiswa->save();
-    //  return redirect('/dosen/mahasiswa')->with('success', 'Mahasisiwa berhasil diperbarui.');
+
+        // Simpan update profil
+        $profil->update($dataUpdate);
+
+
+        // Simpan relasi mata kuliah (checkbox)
+        if ($request->has('matkul')) {
+            $user->matkul()->sync($request->matkul);
+        }
+
+
+        return redirect('/dosen/profil')->with('success', 'Profil berhasil diperbarui.');
     }
-
 }

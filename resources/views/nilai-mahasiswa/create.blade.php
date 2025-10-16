@@ -19,7 +19,8 @@
                         @foreach ($mahasiswa as $mhs)
                             <option value="{{ $mhs->id_mahasiswa }}" 
                                 data-nim="{{ $mhs->nim }}" 
-                                data-kelas="{{ $mhs->kelas }}">
+                                data-kelas="{{ $mhs->kelas }}"
+                                data-kelompok="{{ $mhs->id_kelompok }}">
                                 {{ $mhs->nama }}
                             </option>
                         @endforeach
@@ -36,6 +37,12 @@
                 <div class="form-group mb-3">
                     <label for="kelas">Kelas</label>
                     <input type="text" class="form-control" id="kelas" placeholder="Kelas akan muncul otomatis" readonly>
+                </div>
+
+                {{-- Kelompok otomatis --}}
+                <div class="form-group mb-3">
+                    <label for="kelompok">Kelompok</label>
+                    <input type="text" class="form-control" id="kelompok" placeholder="Kelompok akan muncul otomatis" readonly>
                 </div>
 
                 {{-- Pilih Mata Kuliah --}}
@@ -96,6 +103,7 @@
             const selected = this.options[this.selectedIndex];
             document.getElementById('nim').value = selected.getAttribute('data-nim') || '';
             document.getElementById('kelas').value = selected.getAttribute('data-kelas') || '';
+            document.getElementById('kelompok').value = selected.getAttribute('data-kelompok') || '';
         });
 
         // Hitung total nilai otomatis

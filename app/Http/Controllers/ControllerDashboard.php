@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Kelompok;
 use App\Models\MataKuliah;
+use App\Models\Profil;
 use App\Models\NilaiMahasiswa;
 use Illuminate\Support\Facades\DB;
 
@@ -38,6 +39,10 @@ class ControllerDashboard extends Controller
         ->take(5)
         ->get();
 
+    $authUser = auth()->user();
+    $id_user = $authUser->id_user;
+    $profil = Profil::where('id_user', $id_user)->firstOrFail();
+
     return view('dashboard.index', compact(
         'totalMahasiswa',
         'totalMataKuliah',
@@ -45,7 +50,8 @@ class ControllerDashboard extends Controller
         'nilaiRata',
         'namaMatkul',
         'nilaiRataMatkul',
-        'mahasiswaTertinggi'
+        'mahasiswaTertinggi',
+        // 'profil'
     ));
 }
 

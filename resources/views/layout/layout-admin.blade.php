@@ -134,7 +134,8 @@
 
             <!-- Nav Item - Nilai Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('dosen/nilai-mahasiswa*') ? 'active' : '' }}" href="/dosen/nilai-mahasiswa">
+                <a class="nav-link {{ Request::is('dosen/nilai-mahasiswa*') ? 'active' : '' }}"
+                    href="/dosen/nilai-mahasiswa">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
@@ -142,7 +143,8 @@
 
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('dosen/nilai-kelompok*') ? 'active' : '' }}" href="/dosen/nilai-kelompok">
+                <a class="nav-link {{ Request::is('dosen/nilai-kelompok*') ? 'active' : '' }}"
+                    href="/dosen/nilai-kelompok">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Nilai Kelompok</span>
                 </a>
@@ -198,11 +200,15 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        @php
+                            // Variabel $authUser dan $profil sudah otomatis dikirim dari View Composer
+                        @endphp
+        
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$authUser->nama}}</span>
+                                <img class="img-profile rounded-circle" src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}">
                             </a>
 
                             <!-- Dropdown - User Information -->
