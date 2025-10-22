@@ -15,7 +15,6 @@
 
     <!-- Bootstrap 5 JS (Popper & Bundle) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
 
     <!-- Custom fonts for this template -->
     <link href="/templet-admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -171,8 +170,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ $authUser->nama ?? 'Mahasiswa' }}</span>
+                                <img class="img-profile rounded-circle" src="{{ asset('storage/potoprofil/' . ($authUser->potoprofil ?? 'default-avatar.png')) }}">
                             </a>
 
                             <!-- Dropdown - User Information -->

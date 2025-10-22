@@ -94,6 +94,10 @@ Route::get('/kaprodi/nilai-mahasiswa',[ControllerKaprodi::class, 'nilaiMahasiswa
 Route::get('/kaprodi/nilai-kelompok',[ControllerKaprodi::class, 'nilaiKelompok']);
 Route::get('/kaprodi/user',[ControllerKaprodi::class, 'user']);
 
-Route::get('/mahasiswa/dashboard',[ControllerUserMahasiswa::class, 'index']);
-Route::get('/mahasiswa/nilai-mahasiswa',[ControllerUserMahasiswa::class, 'nilaiMahasiswa']);
 
+Route::get('/mahasiswa/dashboard', [ControllerUserMahasiswa::class, 'index']);
+Route::get('/mahasiswa/nilai-mahasiswa', [ControllerUserMahasiswa::class, 'nilaiMahasiswa']);
+Route::get('/mahasiswa/nilai-kelompok', [ControllerUserMahasiswa::class, 'nilaiKelompok']);
+Route::get('/mahasiswa/profil', [ControllerUserMahasiswa::class, 'profil']);
+Route::get('/mahasiswa/profil/edit/{id_mahasiswa}', [ControllerUserMahasiswa::class, 'editProfil']);
+Route::put('/mahasiswa/profil/update/{id_mahasiswa}', [ControllerUserMahasiswa::class, 'updateProfil']);

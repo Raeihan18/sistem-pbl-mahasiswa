@@ -26,7 +26,7 @@
 
                     @foreach ($nilai_mahasiswa as $index => $nilai)
                         <tr>
-                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $nilai['nama_mahasiswa'] }}</td>
                             <td>{{ $nilai['nama_kelompok'] }}</td>
                             <td>{{ $nilai['nama_matkul'] }}</td>
