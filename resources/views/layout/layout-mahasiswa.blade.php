@@ -104,7 +104,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('mahasiswa/dashboard') ? 'active' : '' }}" href="/mahasiswa/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="bi bi-house"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
@@ -112,7 +112,7 @@
             <!-- Nav Item - Nilai Mahasiswa -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('mahasiswa/nilai-mahasiswa*') ? 'active' : '' }}" href="/mahasiswa/nilai-mahasiswa">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-folder"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
             </li>
@@ -120,7 +120,7 @@
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('mahasiswa/nilai-kelompok*') ? 'active' : '' }}" href="/mahasiswa/nilai-kelompok">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-folder"></i>
                     <span>Nilai Kelompok</span>
                 </a>
             </li>
@@ -157,7 +157,7 @@
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                    <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
