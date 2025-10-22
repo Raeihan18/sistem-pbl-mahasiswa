@@ -12,6 +12,7 @@ use App\http\Controllers\ControllerDashboard;
 use App\http\Controllers\ControllerProfil;
 use App\http\Controllers\ControllerUserMahasiswa;
 use App\http\Controllers\ControllerAuth;
+use App\http\Controllers\ControllerPembimbing;
 
 
 
