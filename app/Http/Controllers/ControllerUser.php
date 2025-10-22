@@ -10,13 +10,13 @@ class ControllerUser extends Controller
     public function index()
     {
         $users = User::all();
-        return view('user.index', compact('users'));
+        return view('dosen.user.index', compact('users'));
     }
 
     public function create()
     {
         // arahkan ke halaman tambah user
-        return view('user.create');
+        return view('dosen.user.create');
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class ControllerUser extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('user.edit', compact('user'));
+        return view('dosen.user.edit', compact('user'));
     }
 
     public function update(Request $request, $id)

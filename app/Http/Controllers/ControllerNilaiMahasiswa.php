@@ -19,13 +19,13 @@ class ControllerNilaiMahasiswa extends Controller
     
 
 
-        return view('nilai-mahasiswa.index', compact('nilai_mahasiswa'));   
+        return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa'));   
     }
      public function create(){
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();
 
-     return view('nilai-mahasiswa.create', compact('mahasiswa','mataKuliah'));   
+     return view('dosen.nilai-mahasiswa.create', compact('mahasiswa','mataKuliah'));   
     }
         public function store(Request $request){
                     // dd($request->all());
@@ -40,7 +40,7 @@ class ControllerNilaiMahasiswa extends Controller
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();
 
-     return view('nilai-mahasiswa.edit', compact('nilai', 'mahasiswa','mataKuliah'));   
+     return view('dosen.nilai-mahasiswa.edit', compact('nilai', 'mahasiswa','mataKuliah'));   
     }
      public function update(Request $request, $id_nilai_mahasiswa){
     

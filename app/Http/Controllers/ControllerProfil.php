@@ -31,7 +31,7 @@ class ControllerProfil extends Controller
         $matkul_dosen = $authUser->matkul()->get();
 
 
-        return view('profil.index', compact('profil', 'authUser', 'matkul_dosen'));
+        return view('dosen.profil.index', compact('profil', 'authUser', 'matkul_dosen'));
     }
 
 
@@ -45,7 +45,7 @@ class ControllerProfil extends Controller
         $matkul = MataKuliah::all();
 
 
-        return view('profil.edit', compact('profil', 'matkul'));
+        return view('dosen.profil.edit', compact('profil', 'matkul'));
     }
 
 

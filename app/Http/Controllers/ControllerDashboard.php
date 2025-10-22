@@ -43,7 +43,7 @@ class ControllerDashboard extends Controller
     $id_user = $authUser->id_user;
     $profil = Profil::where('id_user', $id_user)->firstOrFail();
 
-    return view('dashboard.index', compact(
+    return view('dosen.dashboard.index', compact(
         'totalMahasiswa',
         'totalMataKuliah',
         'totalKelompok',

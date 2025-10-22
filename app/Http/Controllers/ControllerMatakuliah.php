@@ -10,12 +10,12 @@ class ControllerMatakuliah extends Controller
     public function index(){
         $mataKuliah = MataKuliah::get();
        
-        return view('mata-kuliah.index',compact('mataKuliah'));   
+        return view('dosen.mata-kuliah.index',compact('mataKuliah'));   
     }
 
     public function create(){
 
-        return view('mata-kuliah.create');   
+        return view('dosen.mata-kuliah.create');   
     }
 
      public function store(Request $request){
@@ -29,7 +29,7 @@ class ControllerMatakuliah extends Controller
 
         $mataKuliah = Matakuliah::find($id_matkul);
 
-     return view('mata-kuliah.edit', compact('mataKuliah'));   
+     return view('dosen.mata-kuliah.edit', compact('mataKuliah'));   
     }
 
     public function update(Request $request, $id_matkul){

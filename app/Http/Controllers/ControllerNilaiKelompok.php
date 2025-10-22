@@ -21,7 +21,7 @@ class ControllerNilaiKelompok extends Controller
             ->get();
     }
 
-    return view('nilai-kelompok.index', compact('mataKuliah', 'nilaiKelompok'));
+    return view('dosen.nilai-kelompok.index', compact('mataKuliah', 'nilaiKelompok'));
 }
 
 // Generate nilai kelompok dari nilai mahasiswa
@@ -70,7 +70,7 @@ class ControllerNilaiKelompok extends Controller
             ]);
         }
 
-        return redirect()->route('nilai-kelompok.index', ['id_matkul' => $id_matkul])
+        return redirect()->route('dosen.nilai-kelompok.index', ['id_matkul' => $id_matkul])
                          ->with('success', 'Nilai kelompok berhasil digenerate dari nilai mahasiswa!');
     }
     

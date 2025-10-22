@@ -114,9 +114,8 @@ Route::get('/pembimbing/nilai-mahasiswa/edit/{id_nilai_mahasiswa}', [ControllerP
 Route::put('/pembimbing/nilai-mahasiswa/update/{id_nilai_mahasiswa}', [ControllerPembimbing::class, 'updateNilaiMahasiswa']);
 Route::get('/pembimbing/nilai-mahasiswa/delete/{id_nilai_mahasiswa}', [ControllerPembimbing::class, 'deleteNilaiMahasiswa']);
 
-Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
-Route::get('/pembimbing/user', [ControllerPembimbing::class, 'user']);
 Route::get('/pembimbing/profil', [ControllerPembimbing::class, 'profil']);
+Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
 Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'editProfil']);
 Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
 

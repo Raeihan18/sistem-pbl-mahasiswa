@@ -11,13 +11,13 @@ class controllerKelompok extends Controller
     public function index()
     {
         $kelompok = Kelompok::get();
-        return view('kelompok.index', compact('kelompok'));
+        return view('dosen.kelompok.index', compact('kelompok'));
     }
 
     // Menampilkan form tambah kelompok
     public function create()
     {
-        return view('kelompok.create');
+        return view('dosen.kelompok.create');
     }
 
     // Menyimpan data kelompok baru
@@ -39,7 +39,7 @@ class controllerKelompok extends Controller
     public function edit($id_kelompok)
     {
         $kelompok = Kelompok::findOrFail($id_kelompok);
-        return view('kelompok.edit', compact('kelompok'));
+        return view('dosen.kelompok.edit', compact('kelompok'));
     }
 
     // Update data kelompok

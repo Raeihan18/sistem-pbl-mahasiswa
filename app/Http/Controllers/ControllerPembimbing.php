@@ -167,8 +167,9 @@ class ControllerPembimbing extends Controller
     {
         // Ambil user yang sedang login
 
-        $authUser = auth()->user();
+        $authUser = auth()->user(); 
         $id_user = $authUser->id_user;
+        // dd($authUser);
 
 
         // ambil profil berdasarkan id_user
