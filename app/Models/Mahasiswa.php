@@ -23,7 +23,8 @@ class Mahasiswa extends Model
         'id_kelompok',
         'email',
         'password',
-        'id_kelompok'
+        'id_kelompok',
+        'potoprofil'
     ];
 
     // Jika tidak ingin timestamps (created_at & updated_at)
