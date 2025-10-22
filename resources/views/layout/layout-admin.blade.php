@@ -12,9 +12,12 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Bootstrap 5 JS (Popper & Bundle) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
 
     <!-- Custom fonts for this template -->
     <link href="/templet-admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -103,7 +106,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/dashboard') ? 'active' : '' }}" href="/dosen/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="bi bi-house"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
@@ -111,7 +114,7 @@
             <!-- Nav Item - Mata Kuliah -->
             <li class="nav-item  ">
                 <a class="nav-link {{ Request::is('dosen/mata-kuliah*') ? 'active' : '' }}" href="/dosen/mata-kuliah">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-stack"></i>
                     <span>Mata Kuliah</span>
                 </a>
             </li>
@@ -119,7 +122,7 @@
             <!-- Nav Item - Mahasiswa -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/mahasiswa*') ? 'active' : '' }}" href="/dosen/mahasiswa">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="bi bi-mortarboard"></i>
                     <span>Mahasiswa</span>
                 </a>
             </li>
@@ -127,7 +130,7 @@
             <!-- Nav Item - Kelompok -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/kelompok*') ? 'active' : '' }}" href="/dosen/kelompok">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="bi bi-people-fill"></i>
                     <span>Kelompok</span>
                 </a>
             </li>
@@ -136,7 +139,7 @@
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/nilai-mahasiswa*') ? 'active' : '' }}"
                     href="/dosen/nilai-mahasiswa">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-folder"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
             </li>
@@ -145,7 +148,7 @@
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/nilai-kelompok*') ? 'active' : '' }}"
                     href="/dosen/nilai-kelompok">
-                    <i class="fas fa-fw fa-book"></i>
+                    <i class="bi bi-folder"></i>
                     <span>Nilai Kelompok</span>
                 </a>
             </li>
@@ -153,7 +156,7 @@
             <!-- Nav Item - User -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('dosen/user*') ? 'active' : '' }}" href="/dosen/user">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="bi bi-person-circle"></i>
                     <span>User</span>
                 </a>
             </li>
@@ -189,7 +192,7 @@
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                    <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -203,12 +206,13 @@
                         @php
                             // Variabel $authUser dan $profil sudah otomatis dikirim dari View Composer
                         @endphp
-        
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$authUser->nama}}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $authUser->nama }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}">
                             </a>
 
                             <!-- Dropdown - User Information -->

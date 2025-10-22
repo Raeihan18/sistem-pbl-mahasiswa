@@ -26,7 +26,7 @@
                      alt="Foto Profil"
                      class="rounded-circle mb-3"
                      width="120" height="120"
-                     style="object-fit: cover; border: 3px solid #ddd;">
+                     style="object-fit: cover; border: 3px solid #ddddddff;">
                 <div class="form-group">
                     <label for="potoprofil" class="form-label fw-bold">Ganti Foto Profil</label>
                     <input type="file" class="form-control" id="potoprofil" name="potoprofil" accept="image/*">

@@ -21,7 +21,7 @@
                                 {{ $nilai->id_mahasiswa == $mhs->id_mahasiswa ? 'selected' : '' }}>
                                 {{ $mhs->nama }}
                             </option>
-                        @endforeach
+                        @endforeach     
                     </select>
                     <small class="text-muted">Mahasiswa tidak dapat diubah.</small>
                 </div>
