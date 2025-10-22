@@ -97,3 +97,21 @@ Route::get('/kaprodi/user',[ControllerKaprodi::class, 'user']);
 Route::get('/mahasiswa/dashboard',[ControllerUserMahasiswa::class, 'index']);
 Route::get('/mahasiswa/nilai-mahasiswa',[ControllerUserMahasiswa::class, 'nilaiMahasiswa']);
 
+Route::get('/pembimbing/mata-kuliah', [ControllerPembimbing::class, 'matkul']);
+Route::get('/pembimbing/dashboard', [ControllerPembimbing::class, 'index']);
+Route::get('/pembimbing/mahasiswa', [ControllerPembimbing::class, 'mahasiswa']);
+Route::get('/pembimbing/kelompok', [ControllerPembimbing::class, 'kelompok']);
+
+Route::get('/pembimbing/nilai-mahasiswa', [ControllerPembimbing::class, 'nilaiMahasiswa']);
+Route::get('/pembimbing/nilai-mahasiswa/create', [ControllerPembimbing::class, 'createNilaiMahasiswa']);
+Route::post('/pembimbing/nilai-mahasiswa/store', [ControllerPembimbing::class, 'storeNilaiMahasiswa']);
+Route::get('/pembimbing/nilai-mahasiswa/edit/{id_nilai_mahasiswa}', [ControllerPembimbing::class, 'editNilaiMahasiswa']);
+Route::put('/pembimbing/nilai-mahasiswa/update/{id_nilai_mahasiswa}', [ControllerPembimbing::class, 'updateNilaiMahasiswa']);
+Route::get('/pembimbing/nilai-mahasiswa/delete/{id_nilai_mahasiswa}', [ControllerPembimbing::class, 'deleteNilaiMahasiswa']);
+
+Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
+Route::get('/pembimbing/user', [ControllerPembimbing::class, 'user']);
+Route::get('/pembimbing/profil', [ControllerPembimbing::class, 'profil']);
+Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'editProfil']);
+Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
+
