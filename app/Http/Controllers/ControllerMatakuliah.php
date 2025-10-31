@@ -9,8 +9,9 @@ class ControllerMatakuliah extends Controller
 {
     public function index(){
         $mataKuliah = MataKuliah::get();
+        $title = 'Mata Kuliah';
        
-        return view('dosen.mata-kuliah.index',compact('mataKuliah'));   
+        return view('dosen.mata-kuliah.index',compact('mataKuliah','title'));   
     }
 
     public function create(){
@@ -25,6 +26,8 @@ class ControllerMatakuliah extends Controller
         return redirect('/dosen/mata-kuliah')->with('success', 'Mata Kuliah berhasil ditambahkan.');
     }
 
+
+    
     public function edit($id_matkul){
 
         $mataKuliah = Matakuliah::find($id_matkul);

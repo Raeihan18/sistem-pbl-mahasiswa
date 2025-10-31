@@ -11,7 +11,8 @@ class controllerKelompok extends Controller
     public function index()
     {
         $kelompok = Kelompok::get();
-        return view('dosen.kelompok.index', compact('kelompok'));
+        $title = 'Kelompok';
+        return view('dosen.kelompok.index', compact('kelompok', 'title'));
     }
 
     // Menampilkan form tambah kelompok

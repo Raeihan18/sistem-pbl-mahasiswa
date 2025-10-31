@@ -3,7 +3,6 @@
 @section('title', 'User')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">User</h1>
 
     {{-- Tombol Tambah Mahasiswa --}}
     <a href="/dosen/user/create" class="btn btn-primary mb-3">

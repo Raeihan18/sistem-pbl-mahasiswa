@@ -14,13 +14,15 @@ use App\Models\MataKuliah;
 
 class ControllerNilaiMahasiswa extends Controller
 {
-   public function index()
-   {
-      $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
-         ->leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
-         ->leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
-         ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
-         ->get();
+    public function index(){
+       $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
+    ->leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
+    ->leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
+    ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
+    ->get();
+    
+
+
 
 
 
@@ -33,6 +35,11 @@ class ControllerNilaiMahasiswa extends Controller
    {
       $mahasiswa = Mahasiswa::all();
       $mataKuliah = MataKuliah::all();
+        return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
+    }
+     public function create(){
+        $mahasiswa = Mahasiswa::all();
+        $mataKuliah = MataKuliah::all();
 
 
       return view('dosen.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah'));
