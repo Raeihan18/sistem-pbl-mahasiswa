@@ -10,7 +10,8 @@ class ControllerUser extends Controller
     public function index()
     {
         $users = User::all();
-        return view('dosen.user.index', compact('users'));
+        $title = 'User';
+        return view('dosen.user.index', compact('users', 'title'));
     }
 
     public function create()

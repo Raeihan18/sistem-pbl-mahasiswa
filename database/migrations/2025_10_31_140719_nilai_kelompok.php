@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nilai_mahasiswa', function (Blueprint $table) {
-            $table->id('id_nilai_mahasiswa');
-            $table->unsignedBigInteger('id_mahasiswa');
+    Schema::create('nilai_kelompok', function (Blueprint $table) {
+            $table->id('id_nilai_kelompok');
+            $table->unsignedBigInteger('id_kelompok');
             $table->unsignedBigInteger('id_matkul');
             $table->unsignedBigInteger('id_user');
             $table->decimal('nilai_tugas', 10, 2);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('Pertemuan');
 
             $table->timestamps();
-            $table->foreign('id_mahasiswa')->references('id_mahasiswa')->on('mahasiswa')->onDelete('cascade');
+            $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok')->onDelete('cascade');
             $table->foreign('id_matkul')->references('id_matkul')->on('matkul')->onDelete('cascade');
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nilai_mahasiswa');
+        Schema::dropIfExists('nilai_kelompok');
     }
 };

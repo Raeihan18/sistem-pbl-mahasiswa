@@ -12,6 +12,7 @@ class ControllerNilaiKelompok extends Controller
 {
     $mataKuliah = DB::table('matkul')->get();
     $nilaiKelompok = [];
+    $title = 'Nilai Kelompok';
 // dd($request);   
     if ($request->has('id_matkul')) {
         $nilaiKelompok = DB::table('nilai_kelompok')
@@ -21,7 +22,7 @@ class ControllerNilaiKelompok extends Controller
             ->get();
     }
 
-    return view('dosen.nilai-kelompok.index', compact('mataKuliah', 'nilaiKelompok'));
+    return view('dosen.nilai-kelompok.index', compact('mataKuliah', 'nilaiKelompok', 'title'));
 }
 
 // Generate nilai kelompok dari nilai mahasiswa

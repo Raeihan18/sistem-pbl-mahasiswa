@@ -14,7 +14,8 @@ class ControllerMahasiswa extends Controller
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->get();
         // dd($mahasiswa);
-        return view('dosen.mahasiswa.index', compact('mahasiswa'));
+        $title = 'Mahasiswa';
+        return view('dosen.mahasiswa.index', compact('mahasiswa', 'title'));
     }
 
     public function create()
