@@ -40,6 +40,8 @@ class ControllerAuth extends Controller
                     return redirect('/kaprodi/dashboard');
                 case 'mahasiswa':
                     return redirect('/mahasiswa/dashboard');
+                case 'admin':
+                    return redirect('/admin/dashboard');
                 default:
                     Auth::logout();
                     return back()->withErrors(['email' => 'Level user tidak valid!']);

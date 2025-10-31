@@ -13,6 +13,10 @@ use App\http\Controllers\ControllerProfil;
 use App\http\Controllers\ControllerUserMahasiswa;
 use App\http\Controllers\ControllerAuth;
 use App\http\Controllers\ControllerPembimbing;
+use App\http\Controllers\Admin\ControllerDashboardAdmin;
+use App\http\Controllers\Admin\ControllerKelompokAdmin;
+use App\http\Controllers\Admin\ControllerMahasiswaAdmin;
+use App\http\Controllers\Admin\ControllerMataKuliahAdmin;
 
 
 
@@ -118,4 +122,9 @@ Route::get('/pembimbing/profil', [ControllerPembimbing::class, 'profil']);
 Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
 Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'editProfil']);
 Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
+
+Route::get('/admin/dashboard', [ControllerDashboardAdmin::class, 'index']);
+Route::get('/admin/kelompok', [ControllerKelompokAdmin::class, 'index']);
+Route::get('/admin/mahasiswa', [ControllerMahasiswaAdmin::class, 'index']);
+Route::get('/admin/mata-kuliah', [ControllerMataKuliahAdmin::class, 'index']);
 

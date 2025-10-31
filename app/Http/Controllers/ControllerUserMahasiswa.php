@@ -27,6 +27,7 @@ class ControllerUserMahasiswa extends Controller
         $totalMataKuliah = NilaiMahasiswa::where('id_mahasiswa', $mahasiswaId)
             ->distinct('id_matkul')
             ->count('id_matkul');
+            
 
         $nilaiRata = round(NilaiMahasiswa::where('id_mahasiswa', $mahasiswaId)->avg('total_nilai'), 2);
 

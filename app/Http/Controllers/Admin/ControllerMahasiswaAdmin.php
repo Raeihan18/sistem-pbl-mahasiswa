@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Kelompok;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\MahasiswaImport;
+use App\Http\Controllers\Controller;
 
-class ControllerMahasiswa extends Controller
+class ControllerMahasiswaAdmin extends Controller
 {
     public function index()
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->get();
         // dd($mahasiswa);
-        return view('dosen.mahasiswa.index', compact('mahasiswa'));
+        return view('admin.mahasiswa.index', compact('mahasiswa'));
     }
 
     public function create()
     {
         $kelompok = Kelompok::all(); // ambil data semua kelompok
-        return view('dosen.mahasiswa.create', compact('kelompok'));
+        return view('admin.mahasiswa.create', compact('kelompok'));
     }
 
     public function store(Request $request)
@@ -51,7 +52,7 @@ class ControllerMahasiswa extends Controller
             'password' => bcrypt($validated['password']),
         ]);
 
-        return redirect('/dosen/mahasiswa');
+        return redirect('/admin/mahasiswa');
     }
 
     public function edit($id_mahasiswa)

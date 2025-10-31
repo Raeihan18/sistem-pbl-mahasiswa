@@ -23,6 +23,7 @@ class NilaiMahasiswa extends Model
         'nilai_kehadiran',
         'total_nilai',
         'id_matkul'
+        ,'pertemuan'
     ];
 
     

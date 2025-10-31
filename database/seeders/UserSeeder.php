@@ -31,11 +31,13 @@ class UserSeeder extends Seeder
             ],
 
              [
-                'nama' => 'Dewi Kartika',
-                'email' => 'ariwibowo@politala.ac.id',
+                'nama' => 'andhika',
+                'email' => 'andhika@politala.ac.id',
                 'password' => Hash::make('password123'),
-                'level' => 'mahasiswa'
-            ]
+                'level' => 'admin'
+            ],
+
+
         ]);
     }
 }
