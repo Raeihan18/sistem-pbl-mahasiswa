@@ -21,18 +21,6 @@ class ControllerNilaiMahasiswa extends Controller
     ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
     ->get();
     $title = 'Nilai Mahasiswa';
-    
-   public function index()
-   {
-      $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
-         ->leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
-         ->leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
-         ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
-         ->get();
-
-
-
-
 
 
         return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
@@ -40,12 +28,6 @@ class ControllerNilaiMahasiswa extends Controller
      public function create(){
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();
-      return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa'));
-   }
-   public function create()
-   {
-      $mahasiswa = Mahasiswa::all();
-      $mataKuliah = MataKuliah::all();
 
 
       return view('dosen.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah'));

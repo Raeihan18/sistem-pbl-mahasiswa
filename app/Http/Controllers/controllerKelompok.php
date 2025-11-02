@@ -18,7 +18,8 @@ class controllerKelompok extends Controller
     // Menampilkan form tambah kelompok
     public function create()
     {
-        return view('dosen.kelompok.create');
+        $title = 'Kelompok';
+        return view('dosen.kelompok.create', compact('title'));
     }
 
     // Menyimpan data kelompok baru

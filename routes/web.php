@@ -17,6 +17,7 @@ use App\http\Controllers\Admin\ControllerDashboardAdmin;
 use App\http\Controllers\Admin\ControllerKelompokAdmin;
 use App\http\Controllers\Admin\ControllerMahasiswaAdmin;
 use App\http\Controllers\Admin\ControllerMataKuliahAdmin;
+use App\http\Controllers\Admin\ControllerTpk;
 
 
 
@@ -127,4 +128,6 @@ Route::get('/admin/dashboard', [ControllerDashboardAdmin::class, 'index']);
 Route::get('/admin/kelompok', [ControllerKelompokAdmin::class, 'index']);
 Route::get('/admin/mahasiswa', [ControllerMahasiswaAdmin::class, 'index']);
 Route::get('/admin/mata-kuliah', [ControllerMataKuliahAdmin::class, 'index']);
+Route::get('/admin/tpk', [ControllerTpk::class, 'index']);
+Route::get('/admin/bobot', [ControllerTpk::class, 'bobot']);
 

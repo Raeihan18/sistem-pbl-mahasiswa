@@ -20,8 +20,9 @@ class ControllerMahasiswa extends Controller
 
     public function create()
     {
+        $title = 'Mahasiswa';
         $kelompok = Kelompok::all(); // ambil data semua kelompok
-        return view('dosen.mahasiswa.create', compact('kelompok'));
+        return view('dosen.mahasiswa.create', compact('kelompok', 'title'));
     }
 
     public function store(Request $request)
