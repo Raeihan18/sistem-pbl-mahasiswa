@@ -19,12 +19,12 @@ class MahasiswaTerbaik extends Model
     // Kolom yang dapat diisi (mass assignable)
     protected $fillable = [
         'id_mahasiswa',
-        'IOT',
-        'Keamanan Data',
-        'Web Lanjut',
-        'IT Project',
-        'Partisipasi',
-        'Hasil Proyek'
+        'iot',
+        'keamanan_data',
+        'web_lanjut',
+        'it_project',
+        'partisipasi',
+        'hasil_proyek'
     ];
     
 }
