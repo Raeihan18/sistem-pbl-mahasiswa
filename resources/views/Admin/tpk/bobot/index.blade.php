@@ -5,7 +5,7 @@
 @section('content')
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/admin/bobot" class="btn btn-primary">
+        <a href="/admin/bobot/edit" class="btn btn-primary">
             <i class="fas fa-plus"></i> Edit Bobot
         </a>
     </div>
@@ -20,7 +20,6 @@
                         <th>kriteria</th>
                         <th>bobot</th>
                         <th>tipe</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,15 +29,15 @@
                             <td>{{ $bobot->kriteria }}</td>
                             <td>{{ $bobot->bobot }}</td>
                             <td>{{ $bobot->tipe }}</td>
-
+{{-- 
                             <td>
-                                {{-- <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                 <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
-                                </a> --}}
-                            </td>
+                                </a> 
+                            </td>  --}}
                         </tr>
                     @endforeach
                 </tbody>
