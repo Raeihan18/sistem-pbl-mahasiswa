@@ -42,7 +42,7 @@ class ControllerPembimbing extends Controller
             ->orderByDesc('total_nilai')
             ->take(5)
             ->get();
-
+        $title = 'Dashboard';
         return view('pembimbing.index', compact(
             'totalMahasiswa',
             'totalMataKuliah',
@@ -50,30 +50,34 @@ class ControllerPembimbing extends Controller
             'nilaiRata',
             'namaMatkul',
             'nilaiRataMatkul',
-            'mahasiswaTertinggi'
+            'mahasiswaTertinggi',
+            'title'
         ));
     }
 
     public function matkul()
     {
         $mataKuliah = MataKuliah::get();
+        $title = 'Mata Kuliah';
 
-        return view('pembimbing.mata-kuliah', compact('mataKuliah'));
+        return view('pembimbing.mata-kuliah', compact('mataKuliah', 'title'));
     }
 
     public function mahasiswa()
     {
         $mahasiswa = Mahasiswa::get();
+        $title = 'Mahasiswa';
         // dd($mahasiswa);
 
-        return view('pembimbing.mahasiswa', compact('mahasiswa'));
+        return view('pembimbing.mahasiswa', compact('mahasiswa', 'title'));
     }
 
     public function kelompok()
     {
         $kelompok = Kelompok::get();
+        $title = 'Kelompok';
 
-        return view('pembimbing.kelompok', compact('kelompok'));
+        return view('pembimbing.kelompok', compact('kelompok', 'title'));
     }
 
     public function nilaiMahasiswa()
@@ -95,8 +99,9 @@ class ControllerPembimbing extends Controller
                     ->where('id_user', $id_user);
             })
             ->get();
+        $title = 'Nilai Mahasiswa';
 
-        return view('pembimbing.nilai-mahasiswa.index', compact('nilai_mahasiswa'));
+        return view('pembimbing.nilai-mahasiswa.index', compact('nilai_mahasiswa', 'title'));
     }
 
     public function createNilaiMahasiswa()
@@ -109,8 +114,8 @@ class ControllerPembimbing extends Controller
                 ->from('detail_matkul_dosen') // sesuaikan dengan nama tabel sebenarnya
                 ->where('id_user', $id_user);
         })->get();
-
-        return view('pembimbing.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah'));
+        $title = 'Nilai Mahasiswa';
+        return view('pembimbing.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah', 'title'));
     }
 
     public function storeNilaiMahasiswa(Request $request)
@@ -153,14 +158,15 @@ class ControllerPembimbing extends Controller
                 ->select('nilai_kelompok.*', 'kelompok.nama_kelompok')
                 ->get();
         }
-
-        return view('pembimbing.nilai-kelompok', compact('mataKuliah', 'nilaiKelompok'));
+        $title = 'Nilai Kelompok';
+        return view('pembimbing.nilai-kelompok', compact('mataKuliah', 'nilaiKelompok', 'title'));
     }
 
     public function user()
     {
         $users = User::all();
-        return view('pembimbing.user', compact('users'));
+        $title = 'User';
+        return view('pembimbing.user', compact('users', 'title'));
     }
 
     public function profil()
@@ -179,7 +185,8 @@ class ControllerPembimbing extends Controller
 
         // dd($profil);
         // Ambil data lengkap dari tabel users (atau join ke profil_dosen jika ada)
-        return view('pembimbing.profil.index', compact('authUser', 'matkul_pembimbing', 'profil'));
+        $title = 'Profil';
+        return view('pembimbing.profil.index', compact('authUser', 'matkul_pembimbing', 'profil', 'title'));
     }
 
     public function editProfil($id_user)
@@ -187,8 +194,9 @@ class ControllerPembimbing extends Controller
         $pembimbing = User::findOrFail($id_user);
         $matkul = MataKuliah::all();
         $profil = Profil::where('id_user', $id_user)->firstOrFail();
+        $title = 'Profil';
 
-        return view('pembimbing.profil.edit', compact('pembimbing', 'matkul', 'profil'));
+        return view('pembimbing.profil.edit', compact('pembimbing', 'matkul', 'profil', 'title'));
     }
 
     public function updateProfil(Request $request, $id_profil)

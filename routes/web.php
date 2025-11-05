@@ -175,3 +175,8 @@ Route::get('/admin/user/delete/{id_user}',[ControllerUserAdmin::class, 'delete']
 Route::get('/admin/tpk', [ControllerTpk::class, 'index']);
 Route::get('/admin/bobot', [ControllerTpk::class, 'bobot']);
 
+Route::get('/admin/bobot', [ControllerTpk::class, 'bobot']);
+Route::get('/admin/bobot/edit', [ControllerTPK::class, 'ahp'])->name('ahp.index');
+Route::post('/admin/bobot/hitung', [ControllerTPK::class, 'hitung'])->name('ahp.hitung');
+Route::get('admin/tpk', [ControllerTPK::class, 'index'])->name('tpk.index');
+Route::get('admin/tpk/hitung', [ControllerTPK::class, 'hitungTPK'])->name('tpk.hitung');

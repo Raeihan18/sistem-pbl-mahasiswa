@@ -43,6 +43,7 @@ class ControllerDashboardAdmin extends Controller
     $authUser = auth()->user();
     $id_user = $authUser->id_user;
     $profil = Profil::where('id_user', $id_user)->firstOrFail();
+    $title = 'Profil';
 
     return view('admin.dashboard.index', compact(
         'totalMahasiswa',
@@ -52,6 +53,7 @@ class ControllerDashboardAdmin extends Controller
         'namaMatkul',
         'nilaiRataMatkul',
         'mahasiswaTertinggi',
+        'title',
         // 'profil'
     ));
 }

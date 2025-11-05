@@ -22,6 +22,7 @@ class ControllerMahasiswa extends Controller
     {
         $title = 'Mahasiswa';
         $kelompok = Kelompok::all(); // ambil data semua kelompok
+        $title = 'Tambah Mahasiswa';
         return view('dosen.mahasiswa.create', compact('kelompok', 'title'));
     }
 
@@ -60,7 +61,8 @@ class ControllerMahasiswa extends Controller
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->find($id_mahasiswa);
         $kelompok = Kelompok::all(); // ambil semua kelompok
-        return view('dosen.mahasiswa.edit', compact('mahasiswa', 'kelompok'));
+        $title = 'Edit Mahasiswa';
+        return view('dosen.mahasiswa.edit', compact('mahasiswa', 'kelompok', 'title'));
     }
 
     public function update(Request $request, $id_mahasiswa)

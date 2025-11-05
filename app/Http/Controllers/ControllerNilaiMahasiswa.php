@@ -21,6 +21,7 @@ class ControllerNilaiMahasiswa extends Controller
     ->select('nilai_mahasiswa.*', 'mahasiswa.nama as nama_mahasiswa', 'matkul.nama_matkul', 'kelompok.nama_kelompok')
     ->get();
     $title = 'Nilai Mahasiswa';
+   
 
 
         return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
@@ -28,7 +29,8 @@ class ControllerNilaiMahasiswa extends Controller
      public function create(){
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();
-      return view('dosen.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah'));
+        $title = 'Tambah Nilai Mahasiswa';
+      return view('dosen.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah', 'title'));
    }
    public function store(Request $request)
    {
@@ -101,9 +103,10 @@ class ControllerNilaiMahasiswa extends Controller
       $nilai = NilaiMahasiswa::find($id_nilai_mahasiswa);
       $mahasiswa = Mahasiswa::all();
       $mataKuliah = MataKuliah::all();
+      $title = 'Edit Nilai Mahasiswa';
 
 
-      return view('dosen.nilai-mahasiswa.edit', compact('nilai', 'mahasiswa', 'mataKuliah'));
+      return view('dosen.nilai-mahasiswa.edit', compact('nilai', 'mahasiswa', 'mataKuliah', 'title'));
    }
    public function update(Request $request, $id_nilai_mahasiswa)
    {

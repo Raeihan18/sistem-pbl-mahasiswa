@@ -237,8 +237,8 @@
                         <!-- Judul Halaman -->
                         <h1 class="h3 mb-4 text-gray-800">{{ $title }}</h1>
                         <!-- Topbar Search -->
-                        <form
-                            class="ms-auto d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-200 navbar-search">
+                        <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
+                            style="margin-left: auto; position: relative; right: 0;">
                             <div class="input-group">
                                 <input type="text" class="form-control bg-light border-0 small"
                                     placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">

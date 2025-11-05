@@ -102,7 +102,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('mahasiswa/dashboard') ? 'active' : '' }}" href="/mahasiswa/dashboard">
+                <a class="nav-link {{ Request::is('mahasiswa/dashboard') ? 'active' : '' }}"
+                    href="/mahasiswa/dashboard">
                     <i class="bi bi-house"></i>
                     <span>Dashboard</span>
                 </a>
@@ -110,7 +111,8 @@
 
             <!-- Nav Item - Nilai Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('mahasiswa/nilai-mahasiswa*') ? 'active' : '' }}" href="/mahasiswa/nilai-mahasiswa">
+                <a class="nav-link {{ Request::is('mahasiswa/nilai-mahasiswa*') ? 'active' : '' }}"
+                    href="/mahasiswa/nilai-mahasiswa">
                     <i class="bi bi-folder"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
@@ -118,7 +120,8 @@
 
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('mahasiswa/nilai-kelompok*') ? 'active' : '' }}" href="/mahasiswa/nilai-kelompok">
+                <a class="nav-link {{ Request::is('mahasiswa/nilai-kelompok*') ? 'active' : '' }}"
+                    href="/mahasiswa/nilai-kelompok">
                     <i class="bi bi-folder"></i>
                     <span>Nilai Kelompok</span>
                 </a>
@@ -149,8 +152,8 @@
                     </form>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
+                        style="margin-left: auto; position: relative; right: 0;">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -161,7 +164,6 @@
                             </div>
                         </div>
                     </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -170,8 +172,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ $authUser->nama ?? 'Mahasiswa' }}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('storage/potoprofil/' . ($authUser->potoprofil ?? 'default-avatar.png')) }}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {{ $authUser->nama ?? 'Mahasiswa' }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('storage/potoprofil/' . ($authUser->potoprofil ?? 'default-avatar.png')) }}">
                             </a>
 
                             <!-- Dropdown - User Information -->
@@ -183,8 +187,7 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

@@ -18,7 +18,7 @@ class controllerKelompok extends Controller
     // Menampilkan form tambah kelompok
     public function create()
     {
-        $title = 'Kelompok';
+        $title = 'Tambah Kelompok';
         return view('dosen.kelompok.create', compact('title'));
     }
 
@@ -41,7 +41,8 @@ class controllerKelompok extends Controller
     public function edit($id_kelompok)
     {
         $kelompok = Kelompok::findOrFail($id_kelompok);
-        return view('dosen.kelompok.edit', compact('kelompok'));
+        $title = 'Edit Kelompok';
+        return view('dosen.kelompok.edit', compact('kelompok', 'title'));
     }
 
     // Update data kelompok

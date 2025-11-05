@@ -17,7 +17,8 @@ class ControllerUser extends Controller
     public function create()
     {
         // arahkan ke halaman tambah user
-        return view('dosen.user.create');
+        $title = 'Tambah User';
+        return view('dosen.user.create', compact('title'));
     }
 
     public function store(Request $request)
@@ -35,7 +36,8 @@ class ControllerUser extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('dosen.user.edit', compact('user'));
+        $title = 'Edit User';
+        return view('dosen.user.edit', compact('user', 'title'));
     }
 
     public function update(Request $request, $id)

@@ -103,7 +103,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('pembimbing/dashboard') ? 'active' : '' }}" href="/pembimbing/dashboard">
+                <a class="nav-link {{ Request::is('pembimbing/dashboard') ? 'active' : '' }}"
+                    href="/pembimbing/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -111,7 +112,8 @@
 
             <!-- Nav Item - Mata Kuliah -->
             <li class="nav-item  ">
-                <a class="nav-link {{ Request::is('pembimbing/mata-kuliah*') ? 'active' : '' }}" href="/pembimbing/mata-kuliah">
+                <a class="nav-link {{ Request::is('pembimbing/mata-kuliah*') ? 'active' : '' }}"
+                    href="/pembimbing/mata-kuliah">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Mata Kuliah</span>
                 </a>
@@ -119,7 +121,8 @@
 
             <!-- Nav Item - Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('pembimbing/mahasiswa*') ? 'active' : '' }}" href="/pembimbing/mahasiswa">
+                <a class="nav-link {{ Request::is('pembimbing/mahasiswa*') ? 'active' : '' }}"
+                    href="/pembimbing/mahasiswa">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Mahasiswa</span>
                 </a>
@@ -127,7 +130,8 @@
 
             <!-- Nav Item - Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('pembimbing/kelompok*') ? 'active' : '' }}" href="/pembimbing/kelompok">
+                <a class="nav-link {{ Request::is('pembimbing/kelompok*') ? 'active' : '' }}"
+                    href="/pembimbing/kelompok">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Kelompok</span>
                 </a>
@@ -135,7 +139,8 @@
 
             <!-- Nav Item - Nilai Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('pembimbing/nilai-mahasiswa*') ? 'active' : '' }}" href="/pembimbing/nilai-mahasiswa">
+                <a class="nav-link {{ Request::is('pembimbing/nilai-mahasiswa*') ? 'active' : '' }}"
+                    href="/pembimbing/nilai-mahasiswa">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
@@ -143,7 +148,8 @@
 
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('pembimbing/nilai-kelompok*') ? 'active' : '' }}" href="/pembimbing/nilai-kelompok">
+                <a class="nav-link {{ Request::is('pembimbing/nilai-kelompok*') ? 'active' : '' }}"
+                    href="/pembimbing/nilai-kelompok">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Nilai Kelompok</span>
                 </a>
@@ -173,14 +179,14 @@
                     </form>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
+                        style="margin-left: auto; position: relative; right: 0;">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small"
                                 placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                    <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -194,8 +200,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{$authUser->nama ?? 'pembimbing'}}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {{ $authUser->nama ?? 'pembimbing' }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}">
                             </a>
 
                             <!-- Dropdown - User Information -->

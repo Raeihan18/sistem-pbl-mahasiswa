@@ -15,8 +15,9 @@ class ControllerMatakuliah extends Controller
     }
 
     public function create(){
+        $title = 'Tambah Mata Kuliah';
 
-        return view('dosen.mata-kuliah.create');   
+        return view('dosen.mata-kuliah.create', compact('title'));   
     }
 
      public function store(Request $request){
@@ -31,8 +32,9 @@ class ControllerMatakuliah extends Controller
     public function edit($id_matkul){
 
         $mataKuliah = Matakuliah::find($id_matkul);
+        $title = 'Edit Mata Kuliah';
 
-     return view('dosen.mata-kuliah.edit', compact('mataKuliah'));   
+     return view('dosen.mata-kuliah.edit', compact('mataKuliah','title'));   
     }
 
     public function update(Request $request, $id_matkul){
