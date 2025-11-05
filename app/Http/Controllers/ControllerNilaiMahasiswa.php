@@ -22,6 +22,8 @@ class ControllerNilaiMahasiswa extends Controller
     ->get();
     $title = 'Nilai Mahasiswa';
    
+
+
         return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
     }
      public function create(){
