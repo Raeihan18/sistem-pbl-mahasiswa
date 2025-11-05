@@ -45,6 +45,7 @@ class ControllerMatakuliahAdmin extends Controller
     public function delete($id_matkul){
 
         $mata_kuliah = MataKuliah::find($id_matkul);
+        
         $mata_kuliah->delete();
 
         return redirect('/admin/mata-kuliah')->with('success', 'Mata Kuliah berhasil ditambahkan.');
