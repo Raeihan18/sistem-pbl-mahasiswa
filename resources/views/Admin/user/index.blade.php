@@ -3,10 +3,9 @@
 @section('title', 'User')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">User</h1>
 
     {{-- Tombol Tambah Mahasiswa --}}
-    <a href="/dosen/user/create" class="btn btn-primary mb-3">
+    <a href="/admin/user/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah User
     </a>
 
@@ -46,10 +45,10 @@
                             
                             
                             <td>
-                                <a href="/dosen/user/edit/{{ $user['id_user'] }}" class="btn btn-sm btn-warning">
+                                <a href="/admin/user/edit/{{ $user['id_user'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/user/delete/{{ $user['id_user'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/admin/user/delete/{{ $user['id_user'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>

@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="/dosen/mata-kuliah/update/{{ $mataKuliah['id_matkul'] }}" method="POST">
+            <form action="/admin/mata-kuliah/update/{{ $mataKuliah['id_matkul'] }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -22,7 +22,7 @@
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-save"></i> Perbarui
                 </button>
-                <a href="/dosen/mata-kuliah" class="btn btn-secondary">
+                <a href="/admin/mata-kuliah" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </form>

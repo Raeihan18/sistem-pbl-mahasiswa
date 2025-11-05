@@ -11,7 +11,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ url('dosen/mahasiswa/store') }}" method="POST">
+            <form action="{{ url('admin/mahasiswa/store') }}" method="POST">
                 @csrf
 
                 <div class="form-group mb-3">
@@ -58,7 +58,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ url('dosen/mahasiswa') }}" class="btn btn-secondary">Batal</a>
+                <a href="{{ url('admin/mahasiswa') }}" class="btn btn-secondary">Batal</a>
             </form>
         </div>
     </div>

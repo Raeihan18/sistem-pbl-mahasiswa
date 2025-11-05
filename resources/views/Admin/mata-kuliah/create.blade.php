@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="/dosen/mata-kuliah/store" method="POST">
+            <form action="/admin/mata-kuliah/store" method="POST">
                 @csrf
 
 
@@ -19,7 +19,7 @@
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i> Simpan
                 </button>
-                <a href="/dosen/mata-kuliah" class="btn btn-secondary">
+                <a href="/admin/mata-kuliah" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </form>

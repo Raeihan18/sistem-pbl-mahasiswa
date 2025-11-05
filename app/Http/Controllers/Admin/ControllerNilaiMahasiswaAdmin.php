@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\NilaiMahasiswa;
 use App\Models\Mahasiswa;
 use App\Models\MataKuliah;
@@ -12,7 +13,7 @@ use App\Models\MataKuliah;
 
 
 
-class ControllerNilaiMahasiswa extends Controller
+class ControllerNilaiMahasiswaAdmin extends Controller
 {
     public function index(){
        $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
@@ -23,12 +24,13 @@ class ControllerNilaiMahasiswa extends Controller
     $title = 'Nilai Mahasiswa';
 
 
-        return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
+        return view('admin.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
     }
      public function create(){
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();
-      return view('dosen.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah'));
+        $title = "Tambah Nilai Mahasiswa";
+      return view('admin.nilai-mahasiswa.create', compact('mahasiswa', 'mataKuliah', 'title'));
    }
    public function store(Request $request)
    {
@@ -66,7 +68,7 @@ class ControllerNilaiMahasiswa extends Controller
 
 
       // 🔹 4. Redirect sukses
-      return redirect('/dosen/nilai-mahasiswa')
+      return redirect('/admin/nilai-mahasiswa')
          ->with('success', 'Nilai mahasiswa pertemuan ke-' . $validated['pertemuan'] . ' berhasil ditambahkan.');
    }
 
@@ -101,9 +103,9 @@ class ControllerNilaiMahasiswa extends Controller
       $nilai = NilaiMahasiswa::find($id_nilai_mahasiswa);
       $mahasiswa = Mahasiswa::all();
       $mataKuliah = MataKuliah::all();
+      $title ="Edit Nilai Mahasiswa";
 
-
-      return view('dosen.nilai-mahasiswa.edit', compact('nilai', 'mahasiswa', 'mataKuliah'));
+      return view('admin.nilai-mahasiswa.edit', compact('nilai', 'mahasiswa', 'mataKuliah', 'title'));
    }
    public function update(Request $request, $id_nilai_mahasiswa)
    {
@@ -113,7 +115,7 @@ class ControllerNilaiMahasiswa extends Controller
       $nilai_mahasiswa->update($request->all());
 
 
-      return redirect('/dosen/nilai-mahasiswa')->with('success', 'Nilai mahasiswa berhasil diperbarui.');
+      return redirect('/admin/nilai-mahasiswa')->with('success', 'Nilai mahasiswa berhasil diperbarui.');
    }
 
 
@@ -125,6 +127,6 @@ class ControllerNilaiMahasiswa extends Controller
       $nilai_mahasiswa->delete();
 
 
-      return redirect('/dosen/nilai-mahasiswa');
+      return redirect('/admin/nilai-mahasiswa');
    }
 }

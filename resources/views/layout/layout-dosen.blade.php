@@ -95,7 +95,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dosen/dashboard">
                 <div class="sidebar-brand-icon">
                     <img src="/image/logo.png" style="width: 50px" alt="">
                 </div>
@@ -106,7 +106,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}" href="/admin/dashboard">
+                <a class="nav-link {{ Request::is('dosen/dashboard') ? 'active' : '' }}" href="/dosen/dashboard">
                     <i class="bi bi-house"></i>
                     <span>Dashboard</span>
                 </a>
@@ -114,7 +114,7 @@
 
             <!-- Nav Item - Mata Kuliah -->
             <li class="nav-item  ">
-                <a class="nav-link {{ Request::is('admin/mata-kuliah*') ? 'active' : '' }}" href="/admin/mata-kuliah">
+                <a class="nav-link {{ Request::is('dosen/mata-kuliah*') ? 'active' : '' }}" href="/dosen/mata-kuliah">
                     <i class="bi bi-stack"></i>
                     <span>Mata Kuliah</span>
                 </a>
@@ -122,7 +122,7 @@
 
             <!-- Nav Item - Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/mahasiswa*') ? 'active' : '' }}" href="/admin/mahasiswa">
+                <a class="nav-link {{ Request::is('dosen/mahasiswa*') ? 'active' : '' }}" href="/dosen/mahasiswa">
                     <i class="bi bi-mortarboard"></i>
                     <span>Mahasiswa</span>
                 </a>
@@ -130,7 +130,7 @@
 
             <!-- Nav Item - Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/kelompok*') ? 'active' : '' }}" href="/admin/kelompok">
+                <a class="nav-link {{ Request::is('dosen/kelompok*') ? 'active' : '' }}" href="/dosen/kelompok">
                     <i class="bi bi-people-fill"></i>
                     <span>Kelompok</span>
                 </a>
@@ -138,8 +138,8 @@
 
             <!-- Nav Item - Nilai Mahasiswa -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/nilai-mahasiswa*') ? 'active' : '' }}"
-                    href="/admin/nilai-mahasiswa">
+                <a class="nav-link {{ Request::is('dosen/nilai-mahasiswa*') ? 'active' : '' }}"
+                    href="/dosen/nilai-mahasiswa">
                     <i class="bi bi-folder"></i>
                     <span>Nilai Mahasiswa</span>
                 </a>
@@ -147,25 +147,16 @@
 
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/nilai-kelompok*') ? 'active' : '' }}"
-                    href="/admin/nilai-kelompok">
+                <a class="nav-link {{ Request::is('dosen/nilai-kelompok*') ? 'active' : '' }}"
+                    href="/dosen/nilai-kelompok">
                     <i class="bi bi-folder"></i>
                     <span>Nilai Kelompok</span>
-                </a>
-            </li>'
-            
-            <!-- Nav Item - Nilai Kelompok -->
-            <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/mahasiswa-terbaik*') ? 'active' : '' }}"
-                    href="/admin/mahasiswa-terbaik">
-                    <i class="bi bi-folder"></i>
-                    <span>Mahasiswa Terbaik</span>
                 </a>
             </li>
 
             <!-- Nav Item - User -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}" href="/admin/user">
+                <a class="nav-link {{ Request::is('dosen/user*') ? 'active' : '' }}" href="/dosen/user">
                     <i class="bi bi-person-circle"></i>
                     <span>User</span>
                 </a>
@@ -214,7 +205,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="/admin/profil">
+                                <a class="dropdown-item" href="/dosen/profil">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil
                                 </a>

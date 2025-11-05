@@ -15,13 +15,15 @@ class ControllerMahasiswaAdmin extends Controller
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->get();
         // dd($mahasiswa);
-        return view('admin.mahasiswa.index', compact('mahasiswa'));
+        $title = "Mahasiswa";
+        return view('admin.mahasiswa.index', compact('mahasiswa', 'title'));
     }
 
     public function create()
     {
         $kelompok = Kelompok::all(); // ambil data semua kelompok
-        return view('admin.mahasiswa.create', compact('kelompok'));
+        $title = "Tambah Mahasiswa";
+        return view('admin.mahasiswa.create', compact('kelompok', 'title'));
     }
 
     public function store(Request $request)
@@ -59,7 +61,8 @@ class ControllerMahasiswaAdmin extends Controller
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->find($id_mahasiswa);
         $kelompok = Kelompok::all(); // ambil semua kelompok
-        return view('dosen.mahasiswa.edit', compact('mahasiswa', 'kelompok'));
+        $title = "Edit Mahasiswa";
+        return view('admin.mahasiswa.edit', compact('mahasiswa', 'kelompok', 'title'));
     }
 
     public function update(Request $request, $id_mahasiswa)
@@ -74,7 +77,7 @@ class ControllerMahasiswaAdmin extends Controller
             $mahasiswa->password = bcrypt($request->password);
         }
         $mahasiswa->save();
-        return redirect('/dosen/mahasiswa')->with('success', 'Mahasisiwa berhasil diperbarui.');
+        return redirect('/admin/mahasiswa')->with('success', 'Mahasisiwa berhasil diperbarui.');
     }
 
 
@@ -83,7 +86,7 @@ class ControllerMahasiswaAdmin extends Controller
         $mahasiswa = Mahasiswa::find($id_mahasiswa);
         $mahasiswa->delete();
 
-        return redirect('/dosen/mahasiswa');
+        return redirect('/admin/mahasiswa');
     }
 
     public function import(Request $request)

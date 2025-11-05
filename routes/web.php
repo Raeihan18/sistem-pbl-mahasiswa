@@ -17,6 +17,9 @@ use App\http\Controllers\Admin\ControllerDashboardAdmin;
 use App\http\Controllers\Admin\ControllerKelompokAdmin;
 use App\http\Controllers\Admin\ControllerMahasiswaAdmin;
 use App\http\Controllers\Admin\ControllerMataKuliahAdmin;
+use App\http\Controllers\Admin\ControllerNilaiMahasiswaAdmin;
+use App\http\Controllers\Admin\ControllerNilaiKelompokAdmin;
+use App\http\Controllers\Admin\ControllerUserAdmin;
 use App\http\Controllers\Admin\ControllerTpk;
 
 
@@ -125,9 +128,50 @@ Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'e
 Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
 
 Route::get('/admin/dashboard', [ControllerDashboardAdmin::class, 'index']);
+
 Route::get('/admin/kelompok', [ControllerKelompokAdmin::class, 'index']);
+Route::get('/admin/kelompok/create',[ControllerKelompokAdmin::class, 'create']);
+Route::post('/admin/kelompok/store',[ControllerKelompokAdmin::class, 'store']);
+Route::get('/admin/kelompok/edit/{id_nilai_mahasiswa}',[ControllerKelompokAdmin::class, 'edit']);
+Route::put('/admin/kelompok/update/{id_nilai_mahasiswa}',[ControllerKelompokAdmin::class, 'update']);
+Route::get('/admin/kelompok/delete/{id_nilai_mahasiswa}',[ControllerKelompokAdmin::class, 'delete']);
+
 Route::get('/admin/mahasiswa', [ControllerMahasiswaAdmin::class, 'index']);
+Route::get('/admin/mahasiswa',[ControllerMahasiswaAdmin::class, 'index']);
+Route::get('/admin/mahasiswa/create',[ControllerMahasiswaAdmin::class, 'create']);
+Route::post('/admin/mahasiswa/store',[ControllerMahasiswaAdmin::class, 'store']);
+Route::get('/admin/mahasiswa/edit/{id_mahasiswa}',[ControllerMahasiswaAdmin::class, 'edit']);
+Route::put('/admin/mahasiswa/update/{id_mahasiswa}',[ControllerMahasiswaAdmin::class, 'update']);
+Route::get('/admin/mahasiswa/delete/{id_mahasiswa}',[ControllerMahasiswaAdmin::class, 'delete']);
+Route::post('admin/mahasiswa/import', [ControllerMahasiswaAdmin::class, 'importCsv']);
+
 Route::get('/admin/mata-kuliah', [ControllerMataKuliahAdmin::class, 'index']);
+Route::get('/admin/mata-kuliah/create', [ControllerMataKuliahAdmin::class, 'create']);
+Route::post('/admin/mata-kuliah/store', [ControllerMataKuliahAdmin::class, 'store']);
+Route::put('/admin/mata-kuliah/update/{id_nilai_mahasiswa}',[ControllerMataKuliahAdmin::class, 'update']);
+Route::get('/admin/mata-kuliah/delete/{id_nilai_mahasiswa}',[ControllerMataKuliahAdmin::class, 'delete']);
+Route::get('/admin/mata-kuliah/edit/{id_nilai_mahasiswa}',[ControllerMataKuliahAdmin::class, 'edit']);
+
+//Route Nilai Mahasiswa
+Route::get('/admin/nilai-mahasiswa',[ControllerNilaiMahasiswaAdmin::class, 'index']);
+Route::get('/admin/nilai-mahasiswa/create',[ControllerNilaiMahasiswaAdmin::class, 'create']);
+Route::post('/admin/nilai-mahasiswa/store',[ControllerNilaiMahasiswaAdmin::class, 'store']);
+Route::get('/admin/nilai-mahasiswa/edit/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswaAdmin::class, 'edit']);
+Route::put('/admin/nilai-mahasiswa/update/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswaAdmin::class, 'update']);
+Route::get('/admin/nilai-mahasiswa/delete/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswaAdmin::class, 'delete']);
+
+//Route Nilai Kelompok
+Route::get('/admin/nilai-kelompok',[ControllerNilaiKelompokAdmin::class, 'index'])->name('nilai-kelompok.index');
+Route::get('/admin/nilai-kelompok/generate/{id_matkul}',[ControllerNilaiKelompokAdmin::class, 'generateNilaiKelompok']);
+
+//Route User
+Route::get('/admin/user',[ControllerUserAdmin::class, 'index']);
+Route::get('/admin/user/create',[ControllerUserAdmin::class, 'create']);
+Route::post('/admin/user/store',[ControllerUserAdmin::class, 'store']);
+Route::get('/admin/user/edit/{id_user}',[ControllerUserAdmin::class, 'edit']);
+Route::put('/admin/user/update/{id_user}',[ControllerUserAdmin::class, 'update']);
+Route::get('/admin/user/delete/{id_user}',[ControllerUserAdmin::class, 'delete']);
+
 Route::get('/admin/tpk', [ControllerTpk::class, 'index']);
 Route::get('/admin/bobot', [ControllerTpk::class, 'bobot']);
 

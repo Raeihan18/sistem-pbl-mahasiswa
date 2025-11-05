@@ -12,13 +12,15 @@ class ControllerKelompokAdmin extends Controller
     public function index()
     {
         $kelompok = Kelompok::get();
-        return view('admin.kelompok.index', compact('kelompok'));
+        $title = "nilai kelompok";
+        return view('admin.kelompok.index', compact('kelompok', 'title'));
     }
 
     // Menampilkan form tambah kelompok
     public function create()
     {
-        return view('dosen.kelompok.create');
+        $title = "Tambah Kelompok";
+        return view('admin.kelompok.create', compact('title'));
     }
 
     // Menyimpan data kelompok baru
@@ -33,14 +35,15 @@ class ControllerKelompokAdmin extends Controller
             'nama_kelompok' => $request->nama_kelompok,
         ]);
 
-        return redirect('dosen/kelompok')->with('success', 'Kelompok berhasil ditambahkan!');
+        return redirect('admin/kelompok')->with('success', 'Kelompok berhasil ditambahkan!');
     }
 
     // Menampilkan form edit kelompok
     public function edit($id_kelompok)
     {
         $kelompok = Kelompok::findOrFail($id_kelompok);
-        return view('dosen.kelompok.edit', compact('kelompok'));
+        $title = "Edit Kelompok";
+        return view('admin.kelompok.edit', compact('kelompok', 'title'));
     }
 
     // Update data kelompok
@@ -55,7 +58,7 @@ class ControllerKelompokAdmin extends Controller
             'nama_kelompok' => $request->nama_kelompok,
         ]);
 
-        return redirect('dosen/kelompok')->with('success', 'Kelompok berhasil diperbarui!');
+        return redirect('admin/kelompok')->with('success', 'Kelompok berhasil diperbarui!');
     }
 
     // Hapus data kelompok
@@ -64,6 +67,6 @@ class ControllerKelompokAdmin extends Controller
         $kelompok = Kelompok::findOrFail($id_kelompok);
         $kelompok->delete();
 
-        return redirect('dosen/kelompok')->with('success', 'Kelompok berhasil dihapus!');
+        return redirect('admin/kelompok')->with('success', 'Kelompok berhasil dihapus!');
     }
 }

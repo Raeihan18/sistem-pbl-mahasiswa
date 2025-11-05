@@ -10,27 +10,28 @@ class ControllerMatakuliahAdmin extends Controller
 {
     public function index(){
         $mataKuliah = MataKuliah::get();
-       
-        return view('admin.mata-kuliah.index',compact('mataKuliah'));   
+        $title = "Mata Kuliah";
+        return view('admin.mata-kuliah.index',compact('mataKuliah', 'title'));   
     }
 
     public function create(){
 
-        return view('admin.mata-kuliah.create');   
+        $title = "Tambah Mata Kuliah";
+        return view('admin.mata-kuliah.create', compact('title'));   
     }
 
      public function store(Request $request){
         // Simpan data
         MataKuliah::create($request->all());
-    
+        
         return redirect('/admin/mata-kuliah')->with('success', 'Mata Kuliah berhasil ditambahkan.');
     }
 
     public function edit($id_matkul){
 
         $mataKuliah = Matakuliah::find($id_matkul);
-
-     return view('admin.mata-kuliah.edit', compact('mataKuliah'));   
+        $title = "Edit Mata Kuliah";
+     return view('admin.mata-kuliah.edit', compact('mataKuliah', 'title'));   
     }
 
     public function update(Request $request, $id_matkul){

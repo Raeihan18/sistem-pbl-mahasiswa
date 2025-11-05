@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ url('dosen/mahasiswa/update', $mahasiswa->id_mahasiswa) }}" method="POST">
+            <form action="{{ url('admin/mahasiswa/update', $mahasiswa->id_mahasiswa) }}" method="POST">
                 @csrf
                 @method('PUT')
 

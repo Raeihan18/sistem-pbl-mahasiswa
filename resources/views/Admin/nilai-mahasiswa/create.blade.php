@@ -13,7 +13,7 @@
         <div class="card-body">
 
 
-            <form action="{{ url('dosen/nilai-mahasiswa/store') }}" method="POST">
+            <form action="{{ url('admin/nilai-mahasiswa/store') }}" method="POST">
                 @csrf
 
 
@@ -114,7 +114,7 @@
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-save"></i> Simpan
                 </button>
-                <a href="{{ url('dosen/nilai-mahasiswa') }}" class="btn btn-secondary">
+                <a href="{{ url('admin/nilai-mahasiswa') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Batal
                 </a>
             </form>
@@ -164,7 +164,7 @@
 
 
         // Ambil data pertemuan yang masih tersedia
-fetch(`/dosen/nilai-mahasiswa/pertemuan/${idMahasiswa}/${idMatkul}`)
+fetch(`/admin/nilai-mahasiswa/pertemuan/${idMahasiswa}/${idMatkul}`)
             .then(res => res.json())
             .then(data => {
                 pertemuanSelect.innerHTML = '';

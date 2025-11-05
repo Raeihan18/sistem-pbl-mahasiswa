@@ -6,7 +6,7 @@
     <h1 class="h3 mb-4 text-gray-800">Nilai Mahasiswa</h1>
 
     {{-- Tombol Tambah Nilai Mahasiswa --}}
-    <a href="/dosen/nilai-mahasiswa/create" class="btn btn-primary mb-3">
+    <a href="/admin/nilai-mahasiswa/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah Nilai Mahasiswa
     </a>
 
@@ -42,10 +42,10 @@
                             <td>{{ $nilai['nilai_kehadiran'] }}</td>
                             <td>{{ $nilai['total_nilai'] }}</td>
                             <td>
-                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                <a href="/admin/nilai-mahasiswa/edit/{{ $nilai['id_nilai_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai_mahasiswa'] }}"
+                                <a href="/admin/nilai-mahasiswa/delete/{{ $nilai['id_nilai_mahasiswa'] }}"
                                     class="btn btn-sm btn-danger"
                                     onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus

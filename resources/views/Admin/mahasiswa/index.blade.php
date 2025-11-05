@@ -7,7 +7,7 @@
 
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/dosen/mahasiswa/create" class="btn btn-primary">
+        <a href="/admin/mahasiswa/create" class="btn btn-primary">
             <i class="fas fa-plus"></i> Tambah Mahasiswa
         </a>
 
@@ -42,10 +42,10 @@
                             <td>{{ $mhs['nama_kelompok'] }}</td>
                             <td>{{ $mhs['email'] }}</td>
                             <td>
-                                <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                <a href="/admin/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/admin/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>
@@ -59,7 +59,7 @@
     {{-- Modal Import --}}
     <div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="{{ url('dosen/mahasiswa/import') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/mahasiswa/import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">

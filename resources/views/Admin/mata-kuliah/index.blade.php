@@ -6,7 +6,7 @@
     <h1 class="h3 mb-4 text-gray-800">Mata Kuliah</h1>
 
     {{-- Tombol Tambah Mata Kuliah --}}
-    <a href="/dosen/mata-kuliah/create" class="btn btn-primary mb-3">
+    <a href="/admin/mata-kuliah/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah Mata Kuliah
     </a>
 
@@ -28,10 +28,10 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $mk['nama_matkul'] }}</td>
                             <td>
-                                <a href="/dosen/mata-kuliah/edit/{{ $mk['id_matkul'] }}" class="btn btn-sm btn-warning">
+                                <a href="/admin/mata-kuliah/edit/{{ $mk['id_matkul'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/mata-kuliah/delete/{{ $mk['id_matkul'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/admin/mata-kuliah/delete/{{ $mk['id_matkul'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>

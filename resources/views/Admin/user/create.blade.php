@@ -3,11 +3,10 @@
 @section('title', 'Tambah User')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Tambah User</h1>
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ url('dosen/user/store') }}" method="POST">
+            <form action="{{ url('admin/user/store') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="nama">Nama</label>
@@ -29,7 +28,7 @@
                     <select class="form-control" id="level" name="level" required>
                         <option value="" disabled selected>Pilih level user</option>
                         <option value="kaprodi">Kaprodi</option>
-                        <option value="dosen">Dosen</option>
+                        <option value="admin">admin</option>
                         <option value="pembimbing">Pembimbing</option>
                     </select>
                 </div>
