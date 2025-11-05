@@ -152,12 +152,12 @@
                     <i class="bi bi-folder"></i>
                     <span>Nilai Kelompok</span>
                 </a>
-            </li>'
+            </li>
             
             <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('admin/mahasiswa-terbaik*') ? 'active' : '' }}"
-                    href="/admin/mahasiswa-terbaik">
+                <a class="nav-link {{ Request::is('admin/tpk*') ? 'active' : '' }}"
+                    href="/admin/tpk">
                     <i class="bi bi-folder"></i>
                     <span>Mahasiswa Terbaik</span>
                 </a>
