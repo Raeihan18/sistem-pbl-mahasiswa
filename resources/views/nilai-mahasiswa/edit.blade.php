@@ -85,7 +85,7 @@
     </div>
 
     <script>
-        // Hitung ulang total nilai jika ada perubahannya
+        // Hitung ulang total nilai jika ada perubahan
         document.addEventListener('input', function () {
             const tugas = parseFloat(document.getElementById('nilai_tugas').value) || 0;
             const project = parseFloat(document.getElementById('nilai_project').value) || 0;

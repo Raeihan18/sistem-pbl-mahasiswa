@@ -1,81 +1,94 @@
 @extends('layout.layout-admin')
 
-@section('title', 'Edit Nilai Mahasiswa')
+@section('title', 'Tambah Nilai Mahasiswa')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Edit Nilai Mahasiswa</h1>
+    <h1 class="h3 mb-4 text-gray-800">Tambah Nilai Mahasiswa</h1>
 
     <div class="card shadow mb-4">
         <div class="card-body">
 
-            <form action="{{ url('dosen/nilai-mahasiswa/update/' . $nilai->id_nilai_mahasiswa) }}" method="POST">
+            <form action="{{ url('dosen/nilai-mahasiswa/store') }}" method="POST">
                 @csrf
-                @method('PUT')
 
-                {{-- Mahasiswa (tidak bisa diubah) --}}
+                {{-- Pilih Mahasiswa --}}
                 <div class="form-group mb-3">
                     <label for="id_mahasiswa">Mahasiswa</label>
-                    <select class="form-control" id="id_mahasiswa" name="id_mahasiswa" required disabled>
+                    <select class="form-control" id="id_mahasiswa" name="id_mahasiswa" required>
+                        <option value="" disabled selected>Pilih Mahasiswa</option>
                         @foreach ($mahasiswa as $mhs)
-                            <option value="{{ $mhs->id_mahasiswa }}"
-                                {{ $nilai->id_mahasiswa == $mhs->id_mahasiswa ? 'selected' : '' }}>
+                            <option value="{{ $mhs->id_mahasiswa }}" 
+                                data-nim="{{ $mhs->nim }}" 
+                                data-kelas="{{ $mhs->kelas }}"
+                                data-kelompok="{{ $mhs->id_kelompok }}">
                                 {{ $mhs->nama }}
-                            </option>
-                        @endforeach     
-                    </select>
-                    <small class="text-muted">Mahasiswa tidak dapat diubah.</small>
-                </div>
-
-                {{-- Mata Kuliah --}}
-                <div class="form-group mb-3">
-                    <label for="id_matkul">Mata Kuliah</label>
-                    <select class="form-control" id="id_matkul" name="id_matkul" required>
-                        @foreach ($mataKuliah as $mk)
-                            <option value="{{ $mk->id_matkul }}"
-                                {{ $nilai->id_matkul == $mk->id_matkul ? 'selected' : '' }}>
-                                {{ $mk->nama_matkul }}
                             </option>
                         @endforeach
                     </select>
                 </div>
 
-                {{-- Nilai Tugas --}}
+                {{-- NIM otomatis --}}
+                <div class="form-group mb-3">
+                    <label for="nim">NIM</label>
+                    <input type="text" class="form-control" id="nim" placeholder="NIM akan muncul otomatis" readonly>
+                </div>
+
+                {{-- Kelas otomatis --}}
+                <div class="form-group mb-3">
+                    <label for="kelas">Kelas</label>
+                    <input type="text" class="form-control" id="kelas" placeholder="Kelas akan muncul otomatis" readonly>
+                </div>
+
+                {{-- Kelompok otomatis --}}
+                <div class="form-group mb-3">
+                    <label for="kelompok">Kelompok</label>
+                    <input type="text" class="form-control" id="kelompok" placeholder="Kelompok akan muncul otomatis" readonly>
+                </div>
+
+                {{-- Pilih Mata Kuliah --}}
+                <div class="form-group mb-3">
+                    <label for="id_matkul">Mata Kuliah</label>
+                    <select class="form-control" id="id_matkul" name="id_matkul" required>
+                        <option value="" disabled selected>Pilih Mata Kuliah</option>
+                        @foreach ($mataKuliah as $mk)
+                            <option value="{{ $mk->id_matkul }}">{{ $mk->nama_matkul }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- Input nilai --}}
                 <div class="form-group mb-3">
                     <label for="nilai_tugas">Nilai Tugas</label>
                     <input type="number" step="0.01" class="form-control" id="nilai_tugas" name="nilai_tugas"
-                        value="{{ $nilai->nilai_tugas }}" required>
+                        placeholder="Masukkan nilai tugas" required>
                 </div>
 
-                {{-- Nilai Project --}}
                 <div class="form-group mb-3">
                     <label for="nilai_project">Nilai Project</label>
                     <input type="number" step="0.01" class="form-control" id="nilai_project" name="nilai_project"
-                        value="{{ $nilai->nilai_project }}" required>
+                        placeholder="Masukkan nilai project" required>
                 </div>
 
-                {{-- Nilai Presentasi --}}
                 <div class="form-group mb-3">
                     <label for="nilai_presentasi">Nilai Presentasi</label>
                     <input type="number" step="0.01" class="form-control" id="nilai_presentasi" name="nilai_presentasi"
-                        value="{{ $nilai->nilai_presentasi }}" required>
+                        placeholder="Masukkan nilai presentasi" required>
                 </div>
 
-                {{-- Nilai Kehadiran --}}
                 <div class="form-group mb-3">
                     <label for="nilai_kehadiran">Nilai Kehadiran</label>
                     <input type="number" step="0.01" class="form-control" id="nilai_kehadiran" name="nilai_kehadiran"
-                        value="{{ $nilai->nilai_kehadiran }}" required>
+                        placeholder="Masukkan nilai kehadiran" required>
                 </div>
 
-                {{-- Total Nilai (otomatis) --}}
                 <div class="form-group mb-3">
                     <label for="total_nilai">Total Nilai</label>
                     <input type="number" step="0.01" class="form-control" id="total_nilai" name="total_nilai"
-                        value="{{ $nilai->total_nilai }}" readonly>
+                        placeholder="Akan terisi otomatis" readonly>
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save"></i> Update
+                    <i class="fas fa-save"></i> Simpan
                 </button>
                 <a href="{{ url('dosen/nilai-mahasiswa') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Batal
@@ -85,7 +98,15 @@
     </div>
 
     <script>
-        // Hitung ulang total nilai jika ada perubahannya
+        // Saat mahasiswa dipilih, tampilkan NIM dan kelas
+        document.getElementById('id_mahasiswa').addEventListener('change', function () {
+            const selected = this.options[this.selectedIndex];
+            document.getElementById('nim').value = selected.getAttribute('data-nim') || '';
+            document.getElementById('kelas').value = selected.getAttribute('data-kelas') || '';
+            document.getElementById('kelompok').value = selected.getAttribute('data-kelompok') || '';
+        });
+
+        // Hitung total nilai otomatis
         document.addEventListener('input', function () {
             const tugas = parseFloat(document.getElementById('nilai_tugas').value) || 0;
             const project = parseFloat(document.getElementById('nilai_project').value) || 0;
