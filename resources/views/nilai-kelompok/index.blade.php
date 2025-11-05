@@ -3,7 +3,7 @@
 @section('title', 'Nilai Kelompok')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Nilai Kelompok</h1>
+  
 
     {{-- Pilih Mata Kuliah --}}
     <div class="mb-3">

@@ -3,7 +3,6 @@
 @section('title', 'Nilai Mahasiswa')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Nilai Mahasiswa</h1>
 
     {{-- Tombol Tambah Nilai Mahasiswa --}}
     <a href="/admin/nilai-mahasiswa/create" class="btn btn-primary mb-3">

@@ -3,8 +3,7 @@
 @section('title', 'Mata Kuliah')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Mata Kuliah</h1>
-
+    
     {{-- Tombol Tambah Mata Kuliah --}}
     <a href="/admin/mata-kuliah/create" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah Mata Kuliah
