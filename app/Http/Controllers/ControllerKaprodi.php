@@ -38,7 +38,7 @@ class ControllerKaprodi extends Controller
         ->orderByDesc('total_nilai')
         ->take(5)
         ->get();
-
+    $title = 'Dashboard';
     return view('kaprodi.index', compact(
         'totalMahasiswa',
         'totalMataKuliah',
@@ -46,36 +46,41 @@ class ControllerKaprodi extends Controller
         'nilaiRata',
         'namaMatkul',
         'nilaiRataMatkul',
-        'mahasiswaTertinggi'
+        'mahasiswaTertinggi',
+        'title'
     ));
 }
 
     public function matkul()
     {
         $mataKuliah = MataKuliah::get();
+        $title = 'Mata Kuliah';
        
-        return view('kaprodi.mata-kuliah',compact('mataKuliah')); 
+        return view('kaprodi.mata-kuliah',compact('mataKuliah','title')); 
     }
 
     public function mahasiswa()
     {
         $mahasiswa = Mahasiswa::get();
+        $title = 'Mahasiswa';
        
-        return view('kaprodi.mahasiswa',compact('mahasiswa')); 
+        return view('kaprodi.mahasiswa',compact('mahasiswa','title')); 
     }
 
     public function kelompok()
     {
         $kelompok = Kelompok::get();
+        $title = 'Kelompok';
        
-        return view('kaprodi.kelompok',compact('kelompok')); 
+        return view('kaprodi.kelompok',compact('kelompok','title')); 
     }
 
     public function nilaiMahasiswa()
     {
         $nilai_mahasiswa = NilaiMahasiswa::get();
+        $title = 'Nilai Mahasiswa';
        
-        return view('kaprodi.nilai-mahasiswa',compact('nilai_mahasiswa')); 
+        return view('kaprodi.nilai-mahasiswa',compact('nilai_mahasiswa','title')); 
     }
 
     public function nilaiKelompok(Request $request)
@@ -90,15 +95,17 @@ class ControllerKaprodi extends Controller
             ->select('nilai_kelompok.*', 'kelompok.nama_kelompok')
             ->get();
     }
+    $title = 'Nilai Kelompok';
 
-    return view('kaprodi.nilai-kelompok', compact('mataKuliah', 'nilaiKelompok'));
+    return view('kaprodi.nilai-kelompok', compact('mataKuliah', 'nilaiKelompok','title'));
     }
 
 
     public function user()
     {
         $users = User::all();
-        return view('kaprodi.user', compact('users'));
+        $title = 'User';
+        return view('kaprodi.user', compact('users','title'));
     }
 
 

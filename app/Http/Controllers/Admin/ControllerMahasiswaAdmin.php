@@ -15,13 +15,15 @@ class ControllerMahasiswaAdmin extends Controller
     {
         $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->get();
         // dd($mahasiswa);
-        return view('admin.mahasiswa.index', compact('mahasiswa'));
+        $title = 'Mahasiswa';
+        return view('admin.mahasiswa.index', compact('mahasiswa', 'title'));
     }
 
     public function create()
     {
         $kelompok = Kelompok::all(); // ambil data semua kelompok
-        return view('admin.mahasiswa.create', compact('kelompok'));
+        $title = 'Tambah Mahasiswa';
+        return view('admin.mahasiswa.create', compact('kelompok', 'title'));
     }
 
     public function store(Request $request)

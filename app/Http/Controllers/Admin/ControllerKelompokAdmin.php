@@ -12,13 +12,15 @@ class ControllerKelompokAdmin extends Controller
     public function index()
     {
         $kelompok = Kelompok::get();
-        return view('admin.kelompok.index', compact('kelompok'));
+        $title = 'Kelompok';
+        return view('admin.kelompok.index', compact('kelompok', 'title'));
     }
 
     // Menampilkan form tambah kelompok
     public function create()
     {
-        return view('dosen.kelompok.create');
+        $title = 'Tambah Kelompok';
+        return view('dosen.kelompok.create', compact('title'));
     }
 
     // Menyimpan data kelompok baru
@@ -40,7 +42,8 @@ class ControllerKelompokAdmin extends Controller
     public function edit($id_kelompok)
     {
         $kelompok = Kelompok::findOrFail($id_kelompok);
-        return view('dosen.kelompok.edit', compact('kelompok'));
+        $title = 'Edit Kelompok';
+        return view('dosen.kelompok.edit', compact('kelompok', 'title'));
     }
 
     // Update data kelompok

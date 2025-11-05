@@ -49,14 +49,15 @@ class ControllerUserMahasiswa extends Controller
             $namaMatkul[] = $item->mataKuliah->nama_matkul;
             $nilaiRataMatkul[] = round($item->rata_nilai, 2);
         }
-
+        $title = 'Dashboard';
         return view('user-mahasiswa.index', compact(
             'mahasiswa',
             'totalMataKuliah',
             'nilaiRata',
             'nilaiKelompok',
             'namaMatkul',
-            'nilaiRataMatkul'
+            'nilaiRataMatkul',
+            'title'
         ));
     }
 
@@ -89,9 +90,9 @@ class ControllerUserMahasiswa extends Controller
             ->where('nilai_mahasiswa.id_mahasiswa', $mahasiswaId)
             ->orderBy('matkul.nama_matkul', 'asc')
             ->get();
-
+        $title = 'Nilai Mahasiswa';
         // kirim ke view
-        return view('user-mahasiswa.nilai-mahasiswa', compact('nilai_mahasiswa'));
+        return view('user-mahasiswa.nilai-mahasiswa', compact('nilai_mahasiswa', 'title'));
     }
 
     public function nilaiKelompok(Request $request)
@@ -142,16 +143,17 @@ class ControllerUserMahasiswa extends Controller
         // Karena mahasiswa tidak punya tabel profil sendiri (seperti dosen),
         // maka kita anggap data profilnya langsung dari tabel mahasiswa.
         // Kalau nanti kamu tambahkan kolom tambahan (foto, bio, dll), bisa disesuaikan lagi.
-
-        return view('user-mahasiswa.profil', compact('authUser'));
+        $title = 'Profil';
+        return view('user-mahasiswa.profil', compact('authUser', 'title'));
     }
 
     public function editProfil($id_mahasiswa)
     {
         // Ambil data mahasiswa
         $mahasiswa = Mahasiswa::findOrFail($id_mahasiswa);
+        $title = 'Edit Profil';
 
-        return view('user-mahasiswa.edit-profil', compact('mahasiswa'));
+        return view('user-mahasiswa.edit-profil', compact('mahasiswa', 'title'));
     }
 
     public function updateProfil(Request $request, $id_mahasiswa)
