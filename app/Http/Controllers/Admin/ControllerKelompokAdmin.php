@@ -12,15 +12,15 @@ class ControllerKelompokAdmin extends Controller
     public function index()
     {
         $kelompok = Kelompok::get();
-        $title = "nilai kelompok";
+        $title = 'Kelompok';
         return view('admin.kelompok.index', compact('kelompok', 'title'));
     }
 
     // Menampilkan form tambah kelompok
     public function create()
     {
-        $title = "Tambah Kelompok";
-        return view('admin.kelompok.create', compact('title'));
+        $title = 'Tambah Kelompok';
+        return view('dosen.kelompok.create', compact('title'));
     }
 
     // Menyimpan data kelompok baru
