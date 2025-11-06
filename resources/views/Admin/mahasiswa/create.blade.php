@@ -3,7 +3,7 @@
 @section('title', 'Tambah Mahasiswa')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Tambah Mahasiswa</h1>
+
      @error('nim')
     <div class="text-danger small">{{ $message }}</div>
 @enderror
