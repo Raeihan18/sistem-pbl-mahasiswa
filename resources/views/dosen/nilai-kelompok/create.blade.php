@@ -1,6 +1,6 @@
 @extends('layout.layout-admin')
 
-@section('title', 'Tambah Kelompok')
+@section('title', 'Tambah Mahasiswa Kelompok')
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Tambah Kelompok</h1>
