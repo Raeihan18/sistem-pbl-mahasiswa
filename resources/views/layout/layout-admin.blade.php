@@ -240,7 +240,7 @@
                         <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
                             style="margin-left: auto; position: relative; right: 0;">
                             <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
+                                <input type="text" class="form-control bg-light border-1 small"
                                     placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button">

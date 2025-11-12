@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_nilai_mahasiswa');
             $table->unsignedBigInteger('id_mahasiswa');
             $table->unsignedBigInteger('id_matkul');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->decimal('nilai_tugas', 10, 2);
             $table->decimal('nilai_project', 10, 2);
             $table->decimal('nilai_presentasi', 10, 2);

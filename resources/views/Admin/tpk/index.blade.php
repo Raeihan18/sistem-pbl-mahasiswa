@@ -39,7 +39,7 @@
                         <th>IT Project</th>
                         <th>Partisipasi</th>
                         <th>Hasil Proyek</th>
-                        <th>Total Nilai</th>
+                        <th>Nilai TPK</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -49,13 +49,13 @@
                             <td>
                                 {{ $mahasiswa->mahasiswa->nama ?? 'Tidak ditemukan' }}
                             </td>
-                            <td>{{ number_format($mahasiswa->IOT, 2) }}</td>
-                            <td>{{ number_format($mahasiswa->Keamanan_Data, 2) }}</td>
-                            <td>{{ number_format($mahasiswa->Web_Lanjut, 2) }}</td>
-                            <td>{{ number_format($mahasiswa->IT_Project, 2) }}</td>
-                            <td>{{ number_format($mahasiswa->Partisipasi, 2) }}</td>
-                            <td>{{ number_format($mahasiswa->Hasil_Proyek, 2) }}</td>
-                            <td><strong>{{ number_format($mahasiswa->total_nilai, 3) }}</strong></td>
+                            <td>{{ number_format($mahasiswa->iot, 2) }}</td>
+                            <td>{{ number_format($mahasiswa->keamanan_data, 2) }}</td>
+                            <td>{{ number_format($mahasiswa->web_lanjut, 2) }}</td>
+                            <td>{{ number_format($mahasiswa->it_project, 2) }}</td>
+                            <td>{{ number_format($mahasiswa->partisipasi, 2) }}</td>
+                            <td>{{ number_format($mahasiswa->hasil_proyek, 2) }}</td>
+                            <td><strong>{{ number_format($mahasiswa->total_nilai, 2) }}</strong></td>
                         </tr>
                     @empty
                         <tr>

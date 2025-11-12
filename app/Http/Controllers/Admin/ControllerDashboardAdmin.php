@@ -45,7 +45,7 @@ class ControllerDashboardAdmin extends Controller
     $profil = Profil::where('id_user', $id_user)->firstOrFail();
     $title = 'Profil';
 
-    return view('admin.dashboard.index', compact(
+    return view('Admin.dashboard.index', compact(
         'totalMahasiswa',
         'totalMataKuliah',
         'totalKelompok',
