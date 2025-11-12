@@ -24,7 +24,13 @@ class MahasiswaTerbaik extends Model
         'web_lanjut',
         'it_project',
         'partisipasi',
-        'hasil_proyek'
+        'hasil_proyek',
+        'total_nilai'
     ];
+
+        public function mahasiswa()
+{
+    return $this->belongsTo(Mahasiswa::class, 'id_mahasiswa', 'id_mahasiswa');
+}
     
 }

@@ -10,21 +10,24 @@ use Illuminate\Http\Request;
 
 class ControllerTpk extends Controller
 {
-        public function index(){
-        $mahasiswas = MahasiswaTerbaik::all();
+    public function index()
+    {
+        $mahasiswas = MahasiswaTerbaik::with('mahasiswa')
+         ->orderBy('total_nilai', 'desc') // urutkan dari nilai terbesar ke terkecil
+        ->get();
 
         // $mahasiswas = MahasiswaTerbaik::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')->get();
 
-
         // dd($mahasiswas);
         $title = 'TPK';
-        return view('admin.tpk.index',compact('mahasiswas','title'));
+        return view('admin.tpk.index', compact('mahasiswas', 'title'));
     }
 
-        public function bobot(){
+    public function bobot()
+    {
         $bobots = Bobot::all();
         $title = 'Bobot';
-        return view('admin.tpk.bobot.index',compact('bobots','title'));
+        return view('admin.tpk.bobot.index', compact('bobots', 'title'));
     }
 
 
@@ -78,7 +81,7 @@ class ControllerTpk extends Controller
         return redirect()->route('ahp.index')->with('success', 'Perhitungan bobot berhasil!');
     }
 
-       public function hitungTPK()
+    public function hitungTPK()
     {
         // Ambil bobot AHP dari tb_bobot
         $bobot = DB::table('bobot')->pluck('bobot', 'kriteria')->toArray();
@@ -87,15 +90,16 @@ class ControllerTpk extends Controller
         $data = DB::table('nilai_mahasiswa')
             ->select(
                 'id_mahasiswa',
-                DB::raw('AVG(CASE WHEN id_matkul = 1 THEN total_nilai END) AS IOT'),
-                DB::raw('AVG(CASE WHEN id_matkul = 2 THEN total_nilai END) AS Keamanan_Data'),
-                DB::raw('AVG(CASE WHEN id_matkul = 3 THEN total_nilai END) AS Web_Lanjut'),
-                DB::raw('AVG(CASE WHEN id_matkul = 4 THEN total_nilai END) AS IT_Project'),
-                DB::raw('((AVG(nilai_kehadiran) + AVG(nilai_presentasi)) / 2) AS Partisipasi'),
-                DB::raw('AVG(nilai_project) AS Hasil_Proyek')
+                DB::raw('AVG(CASE WHEN id_matkul = 1 THEN total_nilai END) AS iot'),
+                DB::raw('AVG(CASE WHEN id_matkul = 2 THEN total_nilai END) AS keamanan_data'),
+                DB::raw('AVG(CASE WHEN id_matkul = 3 THEN total_nilai END) AS web_lanjut'),
+                DB::raw('AVG(CASE WHEN id_matkul = 4 THEN total_nilai END) AS it_project'),
+                DB::raw('((AVG(nilai_kehadiran) + AVG(nilai_presentasi)) / 2) AS partisipasi'),
+                DB::raw('AVG(nilai_project) AS hasil_proyek')
             )
             ->groupBy('id_mahasiswa')
             ->get();
+
 
         // Normalisasi dan hitung SAW
         $maxValues = [];
@@ -114,12 +118,12 @@ class ControllerTpk extends Controller
 
             $hasil[] = [
                 'id_mahasiswa' => $mhs->id_mahasiswa,
-                'IOT' => round($mhs->IOT, 2),
-                'Keamanan_Data' => round($mhs->Keamanan_Data, 2),
-                'Web_Lanjut' => round($mhs->Web_Lanjut, 2),
-                'IT_Project' => round($mhs->IT_Project, 2),
-                'Partisipasi' => round($mhs->Partisipasi, 2),
-                'Hasil_Proyek' => round($mhs->Hasil_Proyek, 2),
+                'iot' => round($mhs->iot, 2),
+                'keamanan_data' => round($mhs->keamanan_data, 2),
+                'web_lanjut' => round($mhs->web_lanjut, 2),
+                'it_project' => round($mhs->it_project, 2),
+                'partisipasi' => round($mhs->partisipasi, precision: 2),
+                'hasil_proyek' => round($mhs->hasil_proyek, 2),
                 'total_nilai' => round($total, 4),
             ];
         }

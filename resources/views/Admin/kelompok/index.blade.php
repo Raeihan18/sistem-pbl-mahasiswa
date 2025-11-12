@@ -3,7 +3,6 @@
 @section('title', 'Kelompok')
 
 @section('content')
-  
 
     {{-- Tombol Tambah Kelompok --}}
     <a href="{{ url('admin/kelompok/create') }}" class="btn btn-primary mb-3">

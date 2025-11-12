@@ -72,8 +72,7 @@ class ControllerNilaiMahasiswaAdmin extends Controller
          ->with('success', 'Nilai mahasiswa pertemuan ke-' . $validated['pertemuan'] . ' berhasil ditambahkan.');
    }
 
-
-   public function getPertemuanKosong($id_mahasiswa, $id_matkul)
+public function getPertemuanKosong($id_mahasiswa, $id_matkul)
 {
     // Ambil semua pertemuan (1-16)
     $semuaPertemuan = range(1, 16);

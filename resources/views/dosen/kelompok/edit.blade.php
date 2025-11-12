@@ -3,8 +3,6 @@
 @section('title', 'Edit Kelompok')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Edit Kelompok</h1>
-
     <div class="card shadow mb-4">
         <div class="card-body">
             <form action="{{ url('dosen/kelompok/update/' . $kelompok->id_kelompok) }}" method="POST">

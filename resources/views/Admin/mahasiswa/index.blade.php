@@ -3,7 +3,6 @@
 @section('title', 'Mahasiswa')
 
 @section('content')
-   
 
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
