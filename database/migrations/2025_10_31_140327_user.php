@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('nama');
             $table->string('email');
+             $table->string('no_wa')->nullabe();
             $table->string('password');
             $table->enum('level', ['admin', 'dosen', 'kaprodi', 'pembimbing']);
 

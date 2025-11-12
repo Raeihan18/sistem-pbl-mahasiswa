@@ -163,6 +163,14 @@
                 </a>
             </li>
 
+            <li class="nav-item ">
+                <a class="nav-link {{ route('admin.tenggat.index') }}"
+                    href="{{ route('admin.tenggat.index') }}">
+                    <i class="bi bi-folder"></i>
+                    <span>Tenggat Penilaian</span>
+                </a>
+            </li>
+
             <!-- Nav Item - User -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}" href="/admin/user">

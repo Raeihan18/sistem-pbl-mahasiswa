@@ -21,6 +21,7 @@ use App\http\Controllers\Admin\ControllerNilaiMahasiswaAdmin;
 use App\http\Controllers\Admin\ControllerNilaiKelompokAdmin;
 use App\http\Controllers\Admin\ControllerUserAdmin;
 use App\http\Controllers\Admin\ControllerTpk;
+use App\http\Controllers\Admin\ControllerTenggatPenilaian;
 
 
 
@@ -180,3 +181,16 @@ Route::get('/admin/bobot/edit', [ControllerTPK::class, 'ahp'])->name('ahp.index'
 Route::post('/admin/bobot/hitung', [ControllerTPK::class, 'hitung'])->name('ahp.hitung');
 Route::get('admin/tpk', [ControllerTPK::class, 'index'])->name('tpk.index');
 Route::get('admin/tpk/hitung', [ControllerTPK::class, 'hitungTPK'])->name('tpk.hitung');
+
+Route::prefix('admin/tenggat-penilaian')->group(function () {
+   Route::get('/', [ControllerTenggatPenilaian::class, 'index'])->name('admin.tenggat.index');
+   Route::get('/create', [ControllerTenggatPenilaian::class, 'create'])->name('admin.tenggat.create');
+   Route::post('/store', [ControllerTenggatPenilaian::class, 'store'])->name('admin.tenggat.store');
+   Route::get('/edit/{id}', [ControllerTenggatPenilaian::class, 'edit'])->name('admin.tenggat.edit');
+   Route::put('/update/{id}', [ControllerTenggatPenilaian::class, 'update'])->name('admin.tenggat.update');
+   Route::get('/delete/{id}', [ControllerTenggatPenilaian::class, 'destroy'])->name('admin.tenggat.delete');
+
+   // route test kirim notif WA
+   Route::get('/test-notif', [ControllerTenggatPenilaian::class, 'testNotif'])->name('admin.tenggat.test');
+   Route::get('/broadcast', [ControllerTenggatPenilaian::class, 'broadcastDosen'])->name('admin.tenggat.broadcast');
+});
