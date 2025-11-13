@@ -3,7 +3,6 @@
 @section('title', 'Edit Mahasiswa')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Edit Mahasiswa</h1>
 
     <div class="card shadow mb-4">
         <div class="card-body">
