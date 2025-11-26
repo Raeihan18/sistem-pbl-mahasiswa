@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Mahasiswa;
+use App\Models\MahasiswaTerbaik;
 use App\Models\Kelompok;
 use App\Models\NilaiMahasiswa;
 use App\Models\MataKuliah;
@@ -109,11 +111,24 @@ class ControllerKaprodi extends Controller
         return view('kaprodi.user', compact('users','title'));
     }
 
-    public function profil()
+
+        public function MahasiswaTerbaik()
+    {
+        $mahasiswas = MahasiswaTerbaik::with('mahasiswa')
+         ->orderBy('total_nilai', 'desc') // urutkan dari nilai terbesar ke terkecil
+        ->get();
+
+        // $mahasiswas = MahasiswaTerbaik::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')->get();
+
+        // dd($mahasiswas);
+        $title = 'Mahasiswa Terbaik';
+        return view('kaprodi.tpk.index', compact('mahasiswas', 'title'));
+    }
+
+        public function profil()
     {
     $authUser = auth()->user();
         $id_user = $authUser->id_user;
-
 
         // ambil profil berdasarkan id_user
         $profil = Profil::where('id_user', $id_user)->firstOrFail();

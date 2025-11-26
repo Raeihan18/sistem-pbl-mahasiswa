@@ -155,6 +155,14 @@
                 </a>
             </li>
 
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('pembimbing/tpk*') ? 'active' : '' }}"
+                    href="/pembimbing/tpk">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Mahasiwa Terbaik</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler -->
             <div class="text-center d-none d-md-inline">
@@ -177,21 +185,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
-
-                    <!-- Topbar Search -->
-                    <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
-                        style="margin-left: auto; position: relative; right: 0;">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-1 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
+                    <h1 class="h3 mb text-gray-800">{{ $title }}</h1>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -215,8 +209,7 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

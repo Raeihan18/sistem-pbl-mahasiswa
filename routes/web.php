@@ -88,7 +88,7 @@ Route::put('/dosen/kelompok/update/{id_nilai_mahasiswa}',[ControllerKelompok::cl
 Route::get('/dosen/kelompok/delete/{id_nilai_mahasiswa}',[ControllerKelompok::class, 'delete']);
 
 //Route Nilai Kelompok
-Route::get('/dosen/nilai-kelompok',[ControllerNilaiKelompok::class, 'index'])->name('nilai-kelompok.index');
+Route::get('/dosen/nilai-kelompok',[ControllerNilaiKelompok::class, 'index'])->name('dosen.nilai-kelompok.index');
 Route::get('/dosen/nilai-kelompok/generate/{id_matkul}',[ControllerNilaiKelompok::class, 'generateNilaiKelompok']);
 
 //Route profil
@@ -103,6 +103,7 @@ Route::get('/kaprodi/kelompok',[ControllerKaprodi::class, 'kelompok']);
 Route::get('/kaprodi/nilai-mahasiswa',[ControllerKaprodi::class, 'nilaiMahasiswa']);
 Route::get('/kaprodi/nilai-kelompok',[ControllerKaprodi::class, 'nilaiKelompok']);
 Route::get('/kaprodi/user',[ControllerKaprodi::class, 'user']);
+Route::get('/kaprodi/tpk',[ControllerKaprodi::class, 'MahasiswaTerbaik']);
 
 Route::get('/kaprodi/profil',[Controllerkaprodi::class, 'profil']);
 Route::get('/kaprodi/profil/edit/{id_user}',[Controllerkaprodi::class, 'editprofil']);
@@ -131,6 +132,7 @@ Route::get('/pembimbing/profil', [ControllerPembimbing::class, 'profil']);
 Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
 Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'editProfil']);
 Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
+Route::get('/pembimbing/tpk', [ControllerPembimbing::class, 'mahasiswaTerbaik']);
 
 //Route admin
 Route::get('/admin/dashboard', [ControllerDashboardAdmin::class, 'index']);

@@ -4,6 +4,9 @@
 
 @section('content')
 
+
+
+    <div class="d-flex align-items-center mb-2">
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
         <a href="/admin/mahasiswa/create" class="btn btn-primary">
@@ -15,6 +18,18 @@
             <i class="fas fa-file-import"></i> Import Mahasiswa
         </button>
     </div>
+
+    <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light small"
+                   placeholder="Search for..." aria-label="Search">
+            <button class="btn btn-primary" type="button">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+
+</div>
 
     {{-- Tabel Data Mahasiswa (Data Dummy) --}}
     <div class="card shadow">

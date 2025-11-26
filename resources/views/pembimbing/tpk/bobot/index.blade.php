@@ -1,19 +1,13 @@
-@extends('layout.layout-dosen')
+@extends('layout.layout-admin')
 
 @section('title', 'Mahasiswa')
 
 @section('content')
-
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/dosen/mahasiswa/create" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Tambah Mahasiswa
+        <a href="/admin/bobot/edit" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Edit Bobot
         </a>
-
-        {{-- Tombol Import Mahasiswa --}}
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
-            <i class="fas fa-file-import"></i> Import Mahasiswa
-        </button>
     </div>
 
     {{-- Tabel Data Mahasiswa (Data Dummy) --}}
@@ -23,31 +17,27 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
-                        <th>NIM</th>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>Id Kelompok</th>
-                        <th>Email</th>
-                        <th>Aksi</th>
+                        <th>kriteria</th>
+                        <th>bobot</th>
+                        <th>tipe</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mahasiswa as $index => $mhs)
+                    @foreach ($bobots as $bobot)
                         <tr>
-                            <td>{{ $index +1}}</td>
-                            <td>{{ $mhs['nim'] }}</td>
-                            <td>{{ $mhs['nama'] }}</td>
-                            <td>{{ $mhs['kelas'] }}</td>
-                            <td>{{ $mhs['nama_kelompok'] }}</td>
-                            <td>{{ $mhs['email'] }}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $bobot->kriteria }}</td>
+                            <td>{{ $bobot->bobot }}</td>
+                            <td>{{ $bobot->tipe }}</td>
+{{-- 
                             <td>
-                                <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                 <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
-                                </a>
-                            </td>
+                                </a> 
+                            </td>  --}}
                         </tr>
                     @endforeach
                 </tbody>

@@ -154,6 +154,15 @@
                 </a>
             </li>
 
+                  <!-- Nav Item - Nilai Kelompok -->
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('kaprodi/tpk*') ? 'active' : '' }}"
+                    href="/kaprodi/tpk">
+                    <i class="bi bi-folder"></i>
+                    <span>Mahasiswa Terbaik</span>
+                </a>
+            </li>
+
             <!-- Nav Item - User -->
             <li class="nav-item ">
                 <a class="nav-link {{ Request::is('kaprodi/user*') ? 'active' : '' }}" href="/kaprodi/user">

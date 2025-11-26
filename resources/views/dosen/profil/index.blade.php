@@ -1,4 +1,4 @@
-@extends('layout.layout-pembimbing')
+@extends('layout.layout-dosen')
 
 
 @section('title', 'Profil pembimbing')
