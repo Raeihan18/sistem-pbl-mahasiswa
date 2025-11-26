@@ -5,9 +5,6 @@
 @section('content')
     <div class="container-fluid">
 
-        <!-- Judul Halaman -->
-        <h1 class="h3 mb-4 text-gray-800">Dashboard Sistem PBL Mahasiswa</h1>
-
         <!-- Ringkasan Statistik -->
         <div class="row">
 

@@ -89,7 +89,7 @@ Route::put('/dosen/kelompok/update/{id_nilai_mahasiswa}',[ControllerKelompok::cl
 Route::get('/dosen/kelompok/delete/{id_nilai_mahasiswa}',[ControllerKelompok::class, 'delete']);
 
 //Route Nilai Kelompok
-Route::get('/dosen/nilai-kelompok',[ControllerNilaiKelompok::class, 'index'])->name('nilai-kelompok.index');
+Route::get('/dosen/nilai-kelompok',[ControllerNilaiKelompok::class, 'index'])->name('dosen.nilai-kelompok.index');
 Route::get('/dosen/nilai-kelompok/generate/{id_matkul}',[ControllerNilaiKelompok::class, 'generateNilaiKelompok']);
 
 //Route profil

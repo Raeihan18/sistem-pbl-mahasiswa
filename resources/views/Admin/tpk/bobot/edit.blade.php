@@ -11,7 +11,7 @@
 
     <form action="{{ route('ahp.hitung') }}" method="POST">
         @csrf
-        <table class="table table-bordered text-center align-middle">
+        <table id="ahpTable" class="table table-bordered text-center align-middle">
             <thead class="table-primary">
                 <tr>
                     <th>Kriteria</th>
@@ -26,19 +26,23 @@
                         <th>{{ $row }}</th>
                         @foreach ($kriteria as $j => $col)
                             @if ($i == $j)
+                                {{-- diagonal utama = 1 --}}
                                 <td>
                                     <input type="number" class="form-control text-center" value="1" readonly>
                                 </td>
                             @elseif ($i < $j)
+                                {{-- bagian atas: user isi manual --}}
                                 <td>
-                                    <input type="number" name="nilai_{{ $i }}_{{ $j }}" 
-                                           class="form-control text-center" step="0.01" min="0.11" max="9" required>
+                                    <input type="number" 
+                                           name="nilai_{{ $i }}_{{ $j }}" 
+                                           class="form-control text-center pair-input"
+                                           data-i="{{ $i }}" 
+                                           data-j="{{ $j }}"
+                                           step="0.01" min="0.11" max="9" required>
                                 </td>
                             @else
-                                <td class="bg-light text-muted">
-                                    {{-- otomatis terisi 1/x di controller --}}
-                                    <span>-</span>
-                                </td>
+                                {{-- bagian bawah: otomatis menampilkan 1/x --}}
+                                <td class="bg-light text-muted" id="cell_{{ $i }}_{{ $j }}">-</td>
                             @endif
                         @endforeach
                     </tr>
@@ -47,7 +51,9 @@
         </table>
 
         <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary">Hitung Bobot</button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-calculator"></i> Hitung Bobot
+            </button>
         </div>
     </form>
 
@@ -70,4 +76,37 @@
         </tbody>
     </table>
 </div>
+
+{{-- === SCRIPT AHP INTERAKTIF === --}}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const inputs = document.querySelectorAll(".pair-input");
+
+    inputs.forEach(input => {
+        input.addEventListener("input", function() {
+            const i = this.dataset.i;
+            const j = this.dataset.j;
+            const val = parseFloat(this.value);
+
+            const targetCell = document.getElementById(`cell_${j}_${i}`);
+
+            if (!isNaN(val) && val > 0) {
+                const reciprocal = (1 / val).toFixed(2);
+
+                if (targetCell) {
+                    targetCell.innerHTML = reciprocal;
+                    targetCell.classList.remove("text-muted");
+                    targetCell.style.fontWeight = "bold";
+                    targetCell.style.color = "#2c3e50";
+                }
+            } else {
+                if (targetCell) {
+                    targetCell.innerHTML = "-";
+                }
+            }
+        });
+    });
+});
+
+</script>
 @endsection
