@@ -202,6 +202,7 @@
                         </button>
                     </form>
 
+                    <h1 class="h3 text-gray-800">{{ $title }}</h1>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -241,22 +242,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-flex align-items-center mb-4">
+                    <div class="d-flex align-items-center mb-2">
                         <!-- Judul Halaman -->
-                        <h1 class="h3 mb-4 text-gray-800">{{ $title }}</h1>
+                        {{-- <h1 class="h3 mb-4 text-gray-800">{{ $title }}</h1> --}}
                         <!-- Topbar Search -->
-                        <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
-                            style="margin-left: auto; position: relative; right: 0;">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-1 small"
-                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+
                     </div>
                     @yield('content')
                 </div>

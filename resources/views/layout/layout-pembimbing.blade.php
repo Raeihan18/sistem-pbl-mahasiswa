@@ -155,6 +155,14 @@
                 </a>
             </li>
 
+            <li class="nav-item ">
+                <a class="nav-link {{ Request::is('pembimbing/tpk*') ? 'active' : '' }}"
+                    href="/pembimbing/tpk">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Mahasiwa Terbaik</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler -->
             <div class="text-center d-none d-md-inline">

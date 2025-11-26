@@ -9,6 +9,7 @@ use App\Models\NilaiMahasiswa;
 use App\Models\MataKuliah;
 use App\Models\User;
 use App\Models\Profil;
+use App\Models\mahasiswaTerbaik;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -238,4 +239,19 @@ class ControllerPembimbing extends Controller
 
         return redirect('/pembimbing/profil')->with('success', 'Profil berhasil diperbarui.');
     }
+
+        public function mahasiswaTerbaik()
+    {
+        $mahasiswas = MahasiswaTerbaik::with('mahasiswa')
+         ->orderBy('total_nilai', 'desc') // urutkan dari nilai terbesar ke terkecil
+        ->get();
+
+        // $mahasiswas = MahasiswaTerbaik::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')->get();
+
+        // dd($mahasiswas);
+        $title = 'TPK';
+        return view('pembimbing.tpk.index', compact('mahasiswas', 'title'));
+    }
+
+
 }

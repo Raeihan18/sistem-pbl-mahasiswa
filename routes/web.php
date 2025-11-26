@@ -104,6 +104,7 @@ Route::get('/kaprodi/kelompok',[ControllerKaprodi::class, 'kelompok']);
 Route::get('/kaprodi/nilai-mahasiswa',[ControllerKaprodi::class, 'nilaiMahasiswa']);
 Route::get('/kaprodi/nilai-kelompok',[ControllerKaprodi::class, 'nilaiKelompok']);
 Route::get('/kaprodi/user',[ControllerKaprodi::class, 'user']);
+Route::get('/kaprodi/tpk',[ControllerKaprodi::class, 'MahasiswaTerbaik']);
 
 
 Route::get('/mahasiswa/dashboard', [ControllerUserMahasiswa::class, 'index']);
@@ -128,6 +129,7 @@ Route::get('/pembimbing/profil', [ControllerPembimbing::class, 'profil']);
 Route::get('/pembimbing/nilai-kelompok', [ControllerPembimbing::class, 'nilaiKelompok']);
 Route::get('/pembimbing/profil/edit/{id_user}', [ControllerPembimbing::class, 'editProfil']);
 Route::put('/pembimbing/profil/update/{id_user}', [ControllerPembimbing::class, 'updateProfil']);
+Route::get('/pembimbing/tpk', [ControllerPembimbing::class, 'mahasiswaTerbaik']);
 
 Route::get('/admin/dashboard', [ControllerDashboardAdmin::class, 'index']);
 
