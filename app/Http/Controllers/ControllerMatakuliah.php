@@ -29,7 +29,7 @@ class ControllerMatakuliah extends Controller
 
 
     
-    public function edit($id_matkul){
+    public function edit    ($id_matkul){
 
         $mataKuliah = Matakuliah::find($id_matkul);
         $title = 'Edit Mata Kuliah';

@@ -1,12 +1,12 @@
-@extends('layout.layout-pembimbing')
+@extends('layout.layout-admin')
 
 
-@section('title', 'Profil pembimbing')
+@section('title', 'Profil Kaprodi')
 
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="h3 mb-4 text-gray-800">Profil Dosen</h1>
+        <h1 class="h3 mb-4 text-gray-800">Profil Kaprodi</h1>
 
 
         <div class="row">
@@ -26,7 +26,7 @@
             <div class="col-lg-8">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Informasi Dosen</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Informasi Kaprodi</h6>
                     </div>
                     <div class="card-body">
                         <table class="table table-borderless">
@@ -37,9 +37,9 @@
                             <tr>
                                 <th>Mata Kuliah Diampu</th>
                                 <td>
-                                    @if (isset($matkul_pembimbing) && $matkul_pembimbing->count() > 0)
+                                    @if (isset($matkul_kaprodi) && $matkul_kaprodi->count() > 0)
                                         <ul class="mb-0">
-                                            @foreach ($matkul_pembimbing as $mk)
+                                            @foreach ($matkul_kaprodi as $mk)
                                                 <li>{{ $mk->nama_matkul }}</li>
                                             @endforeach
                                         </ul>
@@ -53,7 +53,7 @@
                         </table>
 
 
-                        <a href="/pembimbing/profil/edit/{{ $authUser['id_user'] }}" class="btn btn-primary mt-3">Edit Profil</a>
+                        <a href="/kaprodi/profil/edit/{{ $profil['id_user'] }}" class="btn btn-primary mt-3">Edit Profil</a>
                     </div>
                 </div>
             </div>

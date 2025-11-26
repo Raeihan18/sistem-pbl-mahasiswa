@@ -8,6 +8,7 @@ use App\Models\Kelompok;
 use App\Models\NilaiMahasiswa;
 use App\Models\MataKuliah;
 use App\Models\User;
+use App\Models\Profil;
 use Illuminate\Support\Facades\DB;
 
 class ControllerKaprodi extends Controller
@@ -108,7 +109,81 @@ class ControllerKaprodi extends Controller
         return view('kaprodi.user', compact('users','title'));
     }
 
+    public function profil()
+    {
+    $authUser = auth()->user();
+        $id_user = $authUser->id_user;
 
 
+        // ambil profil berdasarkan id_user
+        $profil = Profil::where('id_user', $id_user)->firstOrFail();
 
+
+        // ambil mata kuliah yang diampu (jika relasi sudah dibuat)
+        $matkul_kaprodi = $authUser->matkul()->get();
+        $title = 'Profil';
+
+
+        return view('kaprodi.profil.index', compact('profil', 'authUser', 'matkul_kaprodi', 'title'));
+    }
+
+    // public function profil()
+    // {
+        
+    // }
+
+
+    public function editprofil($id_user)
+    {
+        // ambil profil berdasarkan id_user
+        $profil = Profil::where('id_user', $id_user)->firstOrFail();
+
+
+        // ambil semua mata kuliah dari tabel matkul
+        $matkul = MataKuliah::all();
+        $title = 'Profil';
+
+        return view('kaprodi.profil.edit', compact('profil', 'matkul', 'title'));
+    }
+
+
+    public function updateprofil(Request $request, string $id_profil)
+    {
+        $profil = Profil::findOrFail($id_profil);
+        $user = auth()->user();
+
+
+        // Update data dasar profil
+        $dataUpdate = [
+            'NIP' => $request->NIP,
+        ];
+
+
+        // Upload foto baru jika ada
+        if ($request->hasFile('potoprofil')) {
+            // hapus foto lama jika ada
+            if ($profil->potoprofil && Storage::exists('potoprofil/' . $profil->potoprofil)) {
+                Storage::delete('potoprofil/' . $profil->potoprofil);
+            }
+
+
+            // simpan foto baru
+            $potoprofil = $request->file('potoprofil');
+            $potoprofil->storeAs('potoprofil', $potoprofil->hashName());
+            $dataUpdate['potoprofil'] = $potoprofil->hashName();
+        }
+
+
+        // Simpan update profil
+        $profil->update($dataUpdate);
+
+
+        // Simpan relasi mata kuliah (checkbox)
+        if ($request->has('matkul')) {
+            $user->matkul()->sync($request->matkul);
+        }
+
+
+        return redirect('/kaprodi/profil')->with('success', 'Profil berhasil diperbarui.');
+    }
 }
