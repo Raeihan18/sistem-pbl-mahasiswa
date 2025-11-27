@@ -3,12 +3,20 @@
 @section('title', 'Nilai Mahasiswa')
 
 @section('content')
-
-    {{-- Tombol Tambah Nilai Mahasiswa --}}
-    <a href="/dosen/nilai-mahasiswa/create" class="btn btn-primary mb-3">
-        <i class="fas fa-plus"></i> Tambah Nilai Mahasiswa
-    </a>
-
+    <div class="d-flex align-items-center mb-2">
+        {{-- Tombol Tambah Nilai Mahasiswa --}}
+        <a href="/dosen/nilai-mahasiswa/create" class="btn btn-primary mb-3">
+            <i class="fas fa-plus"></i> Tambah Nilai Mahasiswa
+        </a>
+        <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light small" placeholder="Search for..." aria-label="Search">
+                <button class="btn btn-primary" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
     {{-- Tabel Data  Mahasiswa (Data Dummy) --}}
     <div class="card shadow">
         <div class="card-body">
@@ -41,7 +49,8 @@
                             <td>{{ $nilai['nilai_kehadiran'] }}</td>
                             <td>{{ $nilai['total_nilai'] }}</td>
                             <td>
-                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                <a href="/dosen/nilai-mahasiswa/edit/{{ $nilai['id_nilai_mahasiswa'] }}"
+                                    class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/dosen/nilai-mahasiswa/delete/{{ $nilai['id_nilai_mahasiswa'] }}"

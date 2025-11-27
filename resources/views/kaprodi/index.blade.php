@@ -5,9 +5,6 @@
 @section('content')
     <div class="container-fluid">
 
-        <!-- Judul Halaman -->
-        <h1 class="h3 mb-4 text-gray-800">Dashboard Sistem PBL Mahasiswa</h1>
-
         <!-- Ringkasan Statistik -->
         <div class="row">
 
@@ -108,7 +105,7 @@
                         <p><strong>Sistem PBL Mahasiswa</strong> adalah platform digital yang dirancang untuk membantu dosen
                             dalam mengelola dan memantau proses pembelajaran berbasis proyek (Project Based Learning).</p>
 
-                        <p>Melalui sistem ini, dosen dapat:</p>
+                        <p>Melalui sistem ini, Kaprodi dapat:</p>
                         <ul>
                             <li>Melihat data <strong>mahasiswa</strong> dan <strong>kelompok</strong></li>
                             <li>Menilai hasil <strong>proyek dan individu</strong></li>

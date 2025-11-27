@@ -3,19 +3,27 @@
 @section('title', 'Mahasiswa')
 
 @section('content')
+    <div class="d-flex align-items-center mb-2">
+        <div class="mb-3">
+            {{-- Tombol Tambah Mahasiswa --}}
+            <a href="/dosen/mahasiswa/create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Tambah Mahasiswa
+            </a>
 
-    <div class="mb-3">
-        {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/dosen/mahasiswa/create" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Tambah Mahasiswa
-        </a>
-
-        {{-- Tombol Import Mahasiswa --}}
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
-            <i class="fas fa-file-import"></i> Import Mahasiswa
-        </button>
+            {{-- Tombol Import Mahasiswa --}}
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+                <i class="fas fa-file-import"></i> Import Mahasiswa
+            </button>
+        </div>
+        <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light small" placeholder="Search for..." aria-label="Search">
+                <button class="btn btn-primary" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
     </div>
-
     {{-- Tabel Data Mahasiswa (Data Dummy) --}}
     <div class="card shadow">
         <div class="card-body">
@@ -34,7 +42,7 @@
                 <tbody>
                     @foreach ($mahasiswa as $index => $mhs)
                         <tr>
-                            <td>{{ $index +1}}</td>
+                            <td>{{ $index + 1 }}</td>
                             <td>{{ $mhs['nim'] }}</td>
                             <td>{{ $mhs['nama'] }}</td>
                             <td>{{ $mhs['kelas'] }}</td>
@@ -44,7 +52,8 @@
                                 <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
                             </td>

@@ -154,10 +154,9 @@
                 </a>
             </li>
 
-                  <!-- Nav Item - Nilai Kelompok -->
+            <!-- Nav Item - Nilai Kelompok -->
             <li class="nav-item ">
-                <a class="nav-link {{ Request::is('kaprodi/tpk*') ? 'active' : '' }}"
-                    href="/kaprodi/tpk">
+                <a class="nav-link {{ Request::is('kaprodi/tpk*') ? 'active' : '' }}" href="/kaprodi/tpk">
                     <i class="bi bi-folder"></i>
                     <span>Mahasiswa Terbaik</span>
                 </a>
@@ -193,20 +192,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
-
-                    <!-- Topbar Search -->
-                    <form class="ms-auto d-none d-sm-inline-block form-inline my-2 my-md-0 mw-200 navbar-search"
-                        style="margin-left: auto; position: relative; right: 0;">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-1 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <h1 class="h3 mb text-gray-800">{{ $title }}</h1>   
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -105,7 +105,7 @@
                         <p><strong>Sistem PBL Mahasiswa</strong> adalah platform digital yang dirancang untuk membantu dosen
                             dalam mengelola dan memantau proses pembelajaran berbasis proyek (Project Based Learning).</p>
 
-                        <p>Melalui sistem ini, dosen dapat:</p>
+                        <p>Melalui sistem ini, Pembimbing dapat:</p>
                         <ul>
                             <li>Melihat data <strong>mahasiswa</strong> dan <strong>kelompok</strong></li>
                             <li>Menilai hasil <strong>proyek dan individu</strong></li>

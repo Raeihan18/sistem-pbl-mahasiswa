@@ -3,7 +3,16 @@
 @section('title', 'Nilai Kelompok')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Nilai Kelompok</h1>
+    <div class="d-flex align-items-center mb-2">
+        <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light small" placeholder="Search for..." aria-label="Search">
+                <button class="btn btn-primary" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
 
     {{-- Pilih Mata Kuliah --}}
     <div class="mb-3">
@@ -12,7 +21,8 @@
             <select class="form-control mr-2" id="id_matkul" name="id_matkul" required>
                 <option value="" disabled selected>Pilih Mata Kuliah</option>
                 @foreach ($mataKuliah as $matkul)
-                    <option value="{{ $matkul->id_matkul }}" {{ request('id_matkul') == $matkul->id_matkul ? 'selected' : '' }}>
+                    <option value="{{ $matkul->id_matkul }}"
+                        {{ request('id_matkul') == $matkul->id_matkul ? 'selected' : '' }}>
                         {{ $matkul->nama_matkul }}
                     </option>
                 @endforeach
@@ -21,19 +31,18 @@
         </form>
     </div>
 
-    @if(request('id_matkul'))
+    @if (request('id_matkul'))
         {{-- Tombol Generate Nilai --}}
         <div class="mb-3">
-            <a href="{{ url('dosen/nilai-kelompok/generate/' . request('id_matkul')) }}" 
-               class="btn btn-success"
-               onclick="return confirm('Yakin ingin generate nilai kelompok dari nilai mahasiswa?')">
-               <i class="fas fa-sync"></i> Generate Nilai Otomatis
+            <a href="{{ url('dosen/nilai-kelompok/generate/' . request('id_matkul')) }}" class="btn btn-success"
+                onclick="return confirm('Yakin ingin generate nilai kelompok dari nilai mahasiswa?')">
+                <i class="fas fa-sync"></i> Generate Nilai Otomatis
             </a>
         </div>
     @endif
 
     {{-- Tabel Nilai Kelompok --}}
-    @if(isset($nilaiKelompok) && count($nilaiKelompok) > 0)
+    @if (isset($nilaiKelompok) && count($nilaiKelompok) > 0)
         <div class="card shadow">
             <div class="card-body">
                 <table class="table table-bordered table-striped">
