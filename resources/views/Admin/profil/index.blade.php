@@ -34,20 +34,7 @@
                                 <th width="200">NIP</th>
                                 <td>{{ $profil['NIP'] }}</td>
                             </tr>
-                            <tr>
-                                <th>Mata Kuliah Diampu</th>
-                                <td>
-                                    @if (isset($matkul_admin) && $matkul_admin->count() > 0)
-                                        <ul class="mb-0">
-                                            @foreach ($matkul_admin as $mk)
-                                                <li>{{ $mk->nama_matkul }}</li>
-                                            @endforeach
-                                        </ul>
-                                    @else
-                                        <p class="text-muted mb-0">Belum ada mata kuliah yang diampu.</p>
-                                    @endif
-                                </td>
-                            </tr>
+                           
 
 
                         </table>

@@ -43,10 +43,12 @@ class ControllerProfil extends Controller
 
 
         // ambil semua mata kuliah dari tabel matkul
+        $dosen = User::findOrFail($id_user);
+
         $matkul = MataKuliah::all();
         $title = 'Profil';
 
-        return view('dosen.profil.edit', compact('profil', 'matkul', 'title'));
+        return view('dosen.profil.edit', compact('profil', 'matkul', 'title', 'dosen'));
     }
 
 

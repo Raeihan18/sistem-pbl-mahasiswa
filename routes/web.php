@@ -162,9 +162,9 @@ Route::put('/admin/mata-kuliah/update/{id_nilai_mahasiswa}',[ControllerMataKulia
 Route::get('/admin/mata-kuliah/delete/{id_nilai_mahasiswa}',[ControllerMataKuliahAdmin::class, 'delete']);
 Route::get('/admin/mata-kuliah/edit/{id_nilai_mahasiswa}',[ControllerMataKuliahAdmin::class, 'edit']);
 
-Route::get('/admin/profil',[ControllerProfil::class, 'index']);
-Route::get('/admin/profil/edit/{id_user}',[ControllerProfil::class, 'edit']);
-Route::put('/admin/profil/update/{id_user}',[ControllerProfil::class, 'update']);
+Route::get('/admin/profil',[ControllerProfilAdmin::class, 'index']);
+Route::get('/admin/profil/edit/{id_user}',[ControllerProfilAdmin::class, 'edit']);
+Route::put('/admin/profil/update/{id_user}',[ControllerProfilAdmin::class, 'update']);
 
 //Route Nilai Mahasiswa
 Route::get('/admin/nilai-mahasiswa',[ControllerNilaiMahasiswaAdmin::class, 'index']);

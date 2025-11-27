@@ -53,7 +53,7 @@
                         </table>
 
 
-                        <a href="/pembimbing/profil/edit/{{ $authUser['id_user'] }}" class="btn btn-primary mt-3">Edit Profil</a>
+                        <a href="/dosen/profil/edit/{{ $authUser['id_user'] }}" class="btn btn-primary mt-3">Edit Profil</a>
                     </div>
                 </div>
             </div>

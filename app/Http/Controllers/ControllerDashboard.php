@@ -40,7 +40,7 @@ class ControllerDashboard extends Controller
             ->take(5)
             ->get();
         $title = 'Dashboard';
-        return view('pembimbing.index', compact(
+        return view('dosen.dashboard.index', compact(
             'totalMahasiswa',
             'totalMataKuliah',
             'totalKelompok',

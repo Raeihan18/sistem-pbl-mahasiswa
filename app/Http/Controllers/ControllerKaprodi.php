@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\MahasiswaTerbaik;
 use App\Models\Kelompok;
+use Illuminate\Support\Facades\Storage;
 use App\Models\NilaiMahasiswa;
 use App\Models\MataKuliah;
 use App\Models\User;

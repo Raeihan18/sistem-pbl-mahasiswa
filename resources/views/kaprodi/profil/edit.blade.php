@@ -1,4 +1,4 @@
-@extends('layout.layout-admin')
+@extends('layout.layout-kaprodi')
 
 
 @section('title', 'Edit Profil Kaprodi')

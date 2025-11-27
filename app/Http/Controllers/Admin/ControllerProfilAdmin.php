@@ -39,12 +39,12 @@ class ControllerProfilAdmin extends Controller
         // ambil profil berdasarkan id_user
         $profil = Profil::where('id_user', $id_user)->firstOrFail();
 
-
+        $admin = User::where('id_user', $id_user)->firstOrFail();
         // ambil semua mata kuliah dari tabel matkul
         $matkul = MataKuliah::all();
         $title = 'Profil';
 
-        return view('admin.profil.edit', compact('profil', 'matkul', 'title'));
+        return view('admin.profil.edit', compact('profil', 'matkul', 'title', 'admin'));
     }
 
 
