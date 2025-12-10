@@ -137,7 +137,7 @@ class ControllerKaprodi extends Controller
 
         // ambil mata kuliah yang diampu (jika relasi sudah dibuat)
         $matkul_kaprodi = $authUser->matkul()->get();
-        $title = 'Profil';
+        $title = 'Profil Kaprodi';
 
 
         return view('kaprodi.profil.index', compact('profil', 'authUser', 'matkul_kaprodi', 'title'));

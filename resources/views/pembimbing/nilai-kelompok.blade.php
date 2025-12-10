@@ -16,7 +16,7 @@
 </div>
     {{-- Pilih Mata Kuliah --}}
     <div class="mb-3">
-        <form action="{{ url('dosen/nilai-kelompok') }}" method="GET" class="form-inline">
+        <form action="{{ url('pembimbing/nilai-kelompok') }}" method="GET" class="form-inline">
             <label for="id_matkul" class="mr-2">Pilih Mata Kuliah:</label>
             <select class="form-control mr-2" id="id_matkul" name="id_matkul" required>
                 <option value="" disabled selected>Pilih Mata Kuliah</option>

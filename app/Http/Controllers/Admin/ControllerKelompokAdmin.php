@@ -9,9 +9,16 @@ use App\Models\Kelompok;
 class ControllerKelompokAdmin extends Controller
 {
     // Menampilkan semua data kelompok
-    public function index()
+    public function index(Request $request)
     {
-        $kelompok = Kelompok::get();
+        $search = $request->input('search');
+
+        $kelompok = Kelompok::select('kelompok.*')
+        ->when($search, function ($query) use ($search) {
+            return $query->where('kelompok.nama_kelompok', 'LIKE', "%{$search}%");
+        })
+        ->get();
+        
         $title = 'Kelompok';
         return view('admin.kelompok.index', compact('kelompok', 'title'));
     }

@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
 public function boot(): void
 {
-    View::composer(['layout.layout-admin', 'layout.layout-pembimbing'], function ($view) {
+    View::composer(['layout.layout-admin', 'layout.layout-dosen', 'layout.layout-kaprodi', 'layout.layout-mahasiswa', 'layout.layout-pembimbing'], function ($view) {
         $authUser = auth()->user();
         $profil = null;
         $mahasiswa = null;

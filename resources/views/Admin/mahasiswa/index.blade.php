@@ -19,15 +19,16 @@
         </button>
     </div>
 
-    <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light small"
-                   placeholder="Search for..." aria-label="Search">
-            <button class="btn btn-primary" type="button">
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
-    </form>
+<form action="{{ url('/admin/mahasiswa') }}" method="GET" class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
+    <div class="input-group">
+        <input type="text" name="search" value="{{ request('search') }}" class="form-control bg-light small"
+               placeholder="Search for..." aria-label="Search">
+        <button class="btn btn-primary" type="submit">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+</form>
+
 
 </div>
 

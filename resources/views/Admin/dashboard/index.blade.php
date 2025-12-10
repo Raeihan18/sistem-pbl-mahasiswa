@@ -51,7 +51,7 @@
                         <div class="row align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    Kelompok</div>
+                                    Total Kelompok</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalKelompok }}</div>
                             </div>
                             <div class="col-auto">

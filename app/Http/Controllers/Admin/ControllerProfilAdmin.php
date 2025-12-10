@@ -27,7 +27,7 @@ class ControllerProfilAdmin extends Controller
 
         // ambil mata kuliah yang diampu (jika relasi sudah dibuat)
         $matkul_admin = $authUser->matkul()->get();
-        $title = 'Profil';
+        $title = 'Profil Admin';
 
 
         return view('admin.profil.index', compact('profil', 'authUser', 'matkul_admin', 'title'));

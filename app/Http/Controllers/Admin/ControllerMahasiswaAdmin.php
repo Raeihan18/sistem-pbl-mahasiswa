@@ -9,14 +9,28 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\MahasiswaImport;
 use App\Http\Controllers\Controller;
 
+
 class ControllerMahasiswaAdmin extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')->get();
+
+            $search = $request->input('search');
+
+        $mahasiswa = Mahasiswa::join('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
+                ->select('mahasiswa.*', 'kelompok.nama_kelompok')
+                ->when($search, function ($query) use ($search) {
+                $query->where('mahasiswa.nim', 'LIKE', "%{$search}%")
+                  ->orWhere('mahasiswa.nama', 'LIKE', "%{$search}%")
+                  ->orWhere('mahasiswa.kelas', 'LIKE', "%{$search}%")
+                  ->orWhere('kelompok.nama_kelompok', 'LIKE', "%{$search}%")
+                  ->orWhere('mahasiswa.email', 'LIKE', "%{$search}%");
+        })
+        ->orderBy('mahasiswa.id_mahasiswa', 'DESC')
+        ->get();
         // dd($mahasiswa);
         $title = 'Mahasiswa';
-        return view('admin.mahasiswa.index', compact('mahasiswa', 'title'));
+        return view('admin.mahasiswa.index', compact('mahasiswa', 'title' ));
     }
 
     public function create()
@@ -89,13 +103,14 @@ class ControllerMahasiswaAdmin extends Controller
         return redirect('/admin/mahasiswa');
     }
 
-    public function import(Request $request)
+    public function importCsv(Request $request)
     {
         $request->validate([
             'file' => 'required|mimes:xlsx,csv'
         ]);
 
         try {
+            
             Excel::import(new MahasiswaImport, $request->file('file'));
             return redirect()->back()->with('success', 'Data mahasiswa berhasil diimpor!');
         } catch (\Exception $e) {

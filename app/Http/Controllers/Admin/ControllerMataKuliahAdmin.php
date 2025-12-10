@@ -8,8 +8,15 @@ use App\Http\Controllers\Controller;
 
 class ControllerMatakuliahAdmin extends Controller
 {
-    public function index(){
-        $mataKuliah = MataKuliah::get();
+    public function index(Request $request){
+
+        $search = $request->input('search');
+        $mataKuliah = MataKuliah::select('matkul.*')
+        ->when($search, function ($query) use ($search) {
+            return $query->where('matkul.nama_matkul', 'LIKE', "%{$search}%");
+        })
+        ->get();
+
         $title = "Mata Kuliah";
         return view('admin.mata-kuliah.index',compact('mataKuliah', 'title'));   
     }

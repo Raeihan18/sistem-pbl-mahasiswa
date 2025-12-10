@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             ],
 
              [
-                'nama' => 'andhika',
+                'nama' => 'Andhika',
                 'email' => 'andhika@politala.ac.id',
                 'password' => Hash::make('password123'),
                 'no_wa' => '6285787064089',

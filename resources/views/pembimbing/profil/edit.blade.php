@@ -20,7 +20,7 @@
             @method('PUT')
 
 
-            {{-- Foto Profil --}}
+            {{-- Foto Profil  --}}
             <div class="mb-4 text-center">
                 <img src="{{ asset('storage/potoprofil/' . ($profil->potoprofil ?? 'default-avatar.png')) }}"
                      alt="Foto Profil"
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="nama" class="form-label fw-bold">Nama pembimbing</label>
-                    <input type="text" class="form-control" value="{{ $pembimbing->nama ?? '' }}" readonly>
+                    <input type="text" class="form-control" value="{{ $pembimbing->nama ?? '' }}" >
                 </div>
             </div>
 

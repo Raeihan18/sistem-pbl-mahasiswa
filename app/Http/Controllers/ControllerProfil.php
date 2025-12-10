@@ -29,7 +29,7 @@ class ControllerProfil extends Controller
 
         // ambil mata kuliah yang diampu (jika relasi sudah dibuat)
         $matkul_dosen = $authUser->matkul()->get();
-        $title = 'Profil';
+        $title = 'Profil Dosen';
 
 
         return view('dosen.profil.index', compact('profil', 'authUser', 'matkul_dosen', 'title'));

@@ -14,7 +14,9 @@ class ControllerNilaiKelompokAdmin extends Controller
     $mataKuliah = DB::table('matkul')->get();
     $nilaiKelompok = [];
     $title = 'Nilai Kelompok';
-// dd($request);   
+    $search = $request->input('search');
+
+    // dd($request);   
     if ($request->has('id_matkul')) {
         $nilaiKelompok = DB::table('nilai_kelompok')
             ->join('kelompok', 'nilai_kelompok.id_kelompok', '=', 'kelompok.id_kelompok')
