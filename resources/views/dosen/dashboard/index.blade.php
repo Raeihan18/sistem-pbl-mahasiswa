@@ -167,7 +167,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('chartNilaiMahasiswa');
             new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: {
                     labels: @json($namaMatkul),
                     datasets: [{
