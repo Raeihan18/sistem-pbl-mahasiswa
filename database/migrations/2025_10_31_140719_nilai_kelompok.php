@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id('id_nilai_kelompok');
             $table->unsignedBigInteger('id_kelompok');
             $table->unsignedBigInteger('id_matkul');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->decimal('nilai_tugas', 10, 2);
             $table->decimal('nilai_project', 10, 2);
             $table->decimal('nilai_presentasi', 10, 2);
             $table->decimal('nilai_kehadiran', 10, 2);
             $table->decimal('total_nilai', 10, 2);
-            $table->integer('Pertemuan');
+            $table->integer('Pertemuan')->nullable(); 
 
             $table->timestamps();
             $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok')->onDelete('cascade');

@@ -6,8 +6,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="h3 mb-4 text-gray-800">Profil Dosen</h1>
-
+    
 
         <div class="row">
             <div class="col-lg-4">
@@ -37,9 +36,9 @@
                             <tr>
                                 <th>Mata Kuliah Diampu</th>
                                 <td>
-                                    @if (isset($matkul_pembimbing) && $matkul_pembimbing->count() > 0)
+                                    @if (isset($matkul_dosen) && $matkul_dosen->count() > 0)
                                         <ul class="mb-0">
-                                            @foreach ($matkul_pembimbing as $mk)
+                                            @foreach ($matkul_dosen as $mk)
                                                 <li>{{ $mk->nama_matkul }}</li>
                                             @endforeach
                                         </ul>

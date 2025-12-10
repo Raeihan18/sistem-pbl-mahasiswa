@@ -186,7 +186,7 @@ class ControllerPembimbing extends Controller
 
         // dd($profil);
         // Ambil data lengkap dari tabel users (atau join ke profil_dosen jika ada)
-        $title = 'Profil';
+        $title = 'Profil Pembimbing';
         return view('pembimbing.profil.index', compact('authUser', 'matkul_pembimbing', 'profil', 'title'));
     }
 

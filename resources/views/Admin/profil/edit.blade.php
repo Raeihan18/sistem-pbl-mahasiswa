@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="nama" class="form-label fw-bold">Nama Dosen</label>
-                    <input type="text" class="form-control" value="{{ $admin->nama ?? '' }}" readonly>
+                    <input type="text" class="form-control" value="{{ $admin->nama ?? '' }}" >
                 </div>
             </div>
 
