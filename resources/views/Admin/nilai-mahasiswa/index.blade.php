@@ -152,7 +152,7 @@
 
                                                 @foreach ($listNilai as $nl)
                                                     <tr>
-                                                        <td>{{ $nl->pertemuan }}</td>
+                                                        <td>{{ $nl->Pertemuan }}</td>
                                                         <td>{{ $nl->nilai_tugas }}</td>
                                                         <td>{{ $nl->nilai_project }}</td>
                                                         <td>{{ $nl->nilai_presentasi }}</td>

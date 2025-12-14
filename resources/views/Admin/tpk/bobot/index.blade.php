@@ -8,6 +8,9 @@
         <a href="/admin/bobot/edit" class="btn btn-primary">
             <i class="fas fa-plus"></i> Edit Bobot
         </a>
+         <a href="/admin/bobot/create" class="btn btn-success">
+            <i class="fas fa-plus"></i> Tambah Atribut
+        </a>
     </div>
 
     {{-- Tabel Data Mahasiswa (Data Dummy) --}}
@@ -20,6 +23,7 @@
                         <th>kriteria</th>
                         <th>bobot</th>
                         <th>tipe</th>
+                        <th>aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,15 +33,15 @@
                             <td>{{ $bobot->kriteria }}</td>
                             <td>{{ $bobot->bobot }}</td>
                             <td>{{ $bobot->tipe }}</td>
-{{-- 
+
                             <td>
-                                 <a href="/dosen/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
+                                 <a href="/admin/bobot/edit-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/dosen/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/admin/bobot/delete-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a> 
-                            </td>  --}}
+                            </td> 
                         </tr>
                     @endforeach
                 </tbody>

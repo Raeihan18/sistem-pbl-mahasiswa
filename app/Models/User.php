@@ -23,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'nama',
         'email',
+        'no_wa',
         'password',
     ];
     public $timestamps = false;

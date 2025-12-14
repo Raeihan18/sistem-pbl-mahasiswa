@@ -30,7 +30,7 @@
                         <th>Nama</th>
                         <th>Level</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        <th>No WA</th>
                         <th>Aksi</th>
                         
                     </tr>
@@ -51,7 +51,7 @@
                             <td>{{ $user['nama'] }}</td>
                             <td>{{ $user['level'] }}</td>
                             <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['email'] }}</td>
+                            <td>{{ $user['no_wa'] }}</td>
                             
                             
                             

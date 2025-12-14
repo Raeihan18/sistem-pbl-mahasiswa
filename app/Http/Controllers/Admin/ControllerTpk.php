@@ -30,6 +30,44 @@ class ControllerTpk extends Controller
         return view('admin.tpk.bobot.index', compact('bobots', 'title'));
     }
 
+    public function createbobot(){
+
+        $title = "Tambah Atribut";
+        return view('admin.tpk.bobot.create-atribut', compact('title'));   
+    }
+
+     public function storebobot(Request $request){
+        // Simpan data
+        Bobot::create($request->all());
+        
+        return redirect('/admin/bobot')->with('success', 'Atribut TPK berhasil ditambahkan.');
+    }
+
+    public function editbobot($id_bobot){
+
+        $bobot = Bobot::find($id_bobot);
+        $title = "Edit Mata Kuliah";
+     return view('admin.tpk.bobot.edit-atribut', compact('bobot', 'title'));   
+    }
+
+    public function updatebobot(Request $request, $id_bobot){
+    
+        $bobot = Bobot::find($id_bobot);
+        $bobot->update($request->all());
+    
+     return redirect('/admin/bobot')->with('success', 'Atribut berhasil diperbarui.');
+    }
+
+    public function deletebobot($id_bobot){
+
+        $bobot = Bobot::find($id_bobot);
+        
+        $bobot->delete();
+
+        return redirect('/admin/bobot')->with('success', 'Atribut berhasil Dihapus.');
+    }
+
+
 
     public function ahp()
     {
@@ -78,7 +116,7 @@ class ControllerTpk extends Controller
             ]);
         }
 
-        return redirect()->route('ahp.index')->with('success', 'Perhitungan bobot berhasil!');
+        return redirect()->route('tpk.index')->with('success', 'Perhitungan bobot berhasil!');
     }
 
     public function hitungTPK()

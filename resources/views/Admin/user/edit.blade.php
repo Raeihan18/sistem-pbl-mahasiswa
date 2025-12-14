@@ -23,6 +23,12 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="email">No Wa</label>
+                    <input type="text" class="form-control" id="no_wa" name="no_wa" 
+                           value="{{ old('no_wa', $user->no_wa) }}" required>
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="password">Password (opsional)</label>
                     <input type="password" class="form-control" id="password" name="password" 
                            placeholder="Kosongkan jika tidak ingin mengubah password">

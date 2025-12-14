@@ -19,6 +19,11 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="no_wa">No Wa</label>
+                    <input type="text" class="form-control" id="no_wa" name="no_wa" placeholder="Masukkan nomor wa (cth. 628512345678)" required>
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
                 </div>

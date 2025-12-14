@@ -26,6 +26,7 @@ class ControllerUser extends Controller
         User::create([
             'nama' => $request->nama,
             'email' => $request->email,
+            'no_wa' => $request->no_wa,
             'password' => bcrypt($request->password),
             'level' => $request->level,
         ]);
@@ -45,6 +46,7 @@ class ControllerUser extends Controller
         $user = User::findOrFail($id);
         $user->nama = $request->nama;
         $user->email = $request->email;
+        $user->no_wa = $request->no_wa;
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);
         }
