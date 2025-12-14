@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\NilaiMahasiswa;
 use App\Models\Mahasiswa;
 use App\Models\MataKuliah;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\LaporanNilaiMahasiswaExport;
 
 
 
 class ControllerNilaiMahasiswa extends Controller
 {
-    public function index(){
+    public function indexold(){
        $nilai_mahasiswa = NilaiMahasiswa::leftJoin('mahasiswa', 'nilai_mahasiswa.id_mahasiswa', '=', 'mahasiswa.id_mahasiswa')
     ->leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
     ->leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
@@ -26,6 +27,77 @@ class ControllerNilaiMahasiswa extends Controller
 
         return view('dosen.nilai-mahasiswa.index', compact('nilai_mahasiswa','title'));   
     }
+
+    public function index(Request $request)
+{
+    // Ambil filter kelas (jika ada)
+    $kelas = $request->kelas;
+
+    // Daftar kelas
+    $kelasList = ["all", "TI-3A", "TI-3B", "TI-3C", "TI-3D", "TI-3E"];
+
+    $search = $request->search;
+
+
+    // Ambil mahasiswa + kelompok
+$mahasiswas = Mahasiswa::leftJoin('kelompok', 'mahasiswa.id_kelompok', '=', 'kelompok.id_kelompok')
+    ->select('mahasiswa.*', 'kelompok.nama_kelompok')
+    ->when($kelas && $kelas !== 'all', function ($q) use ($kelas) {
+        $q->where('mahasiswa.kelas', $kelas);
+    })
+    ->when($search, function ($q) use ($search) {
+        $q->where(function($q2) use ($search) {
+            $q2->where('mahasiswa.nama', 'LIKE', "%{$search}%")
+               ->orWhere('kelompok.nama_kelompok', 'LIKE', "%{$search}%");
+        });
+    })
+    ->orderBy('mahasiswa.nama')
+    ->get();
+
+    // Ambil nilai mahasiswa → group: mahasiswa → matkul → pertemuan
+    $nilai = NilaiMahasiswa::leftJoin('matkul', 'nilai_mahasiswa.id_matkul', '=', 'matkul.id_matkul')
+        ->select('nilai_mahasiswa.*', 'matkul.nama_matkul')
+        ->orderBy('nilai_mahasiswa.id_mahasiswa')
+        ->orderBy('nilai_mahasiswa.id_matkul')
+        ->orderBy('nilai_mahasiswa.pertemuan')
+        ->get()
+        ->groupBy('id_mahasiswa')
+        ->map(function ($matkulGroup) {
+            return $matkulGroup->groupBy('id_matkul');
+        });
+
+    // Hitung rata-rata global per mahasiswa
+    $rataMahasiswa = NilaiMahasiswa::selectRaw('
+            id_mahasiswa,
+            AVG((nilai_tugas + nilai_project + nilai_presentasi + nilai_kehadiran) / 4) as rata_rata
+        ')
+        ->groupBy('id_mahasiswa')
+        ->pluck('rata_rata', 'id_mahasiswa');
+
+    // Hitung rata-rata per mahasiswa per matkul
+    $rataMatkul = NilaiMahasiswa::selectRaw('
+            id_mahasiswa,
+            id_matkul,
+            AVG((nilai_tugas + nilai_project + nilai_presentasi + nilai_kehadiran) / 4) as rata_rata
+        ')
+        ->groupBy('id_mahasiswa', 'id_matkul')
+        ->get()
+        ->groupBy('id_mahasiswa')
+        ->map(function ($group) {
+            return $group->pluck('rata_rata', 'id_matkul');
+        });
+
+    $title = "Nilai Mahasiswa";
+
+    return view(
+        'dosen.nilai-mahasiswa.index',
+        compact('mahasiswas', 'nilai', 'kelasList', 'kelas', 'title', 'rataMahasiswa', 'rataMatkul', 'search')
+    );
+}
+public function exportExcel()
+{
+    return Excel::download(new LaporanNilaiMahasiswaExport, 'laporan_nilai_mahasiswa.xlsx');
+}
      public function create(){
         $mahasiswa = Mahasiswa::all();
         $mataKuliah = MataKuliah::all();

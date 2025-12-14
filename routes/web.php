@@ -70,7 +70,7 @@ Route::get('/dosen/nilai-mahasiswa/edit/{id_nilai_mahasiswa}',[ControllerNilaiMa
 Route::put('/dosen/nilai-mahasiswa/update/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswa::class, 'update']);
 Route::get('/dosen/nilai-mahasiswa/delete/{id_nilai_mahasiswa}',[ControllerNilaiMahasiswa::class, 'delete']);
 Route::get('/dosen/nilai-mahasiswa/pertemuan/{idMahasiswa}/{idMatkul}',[ControllerNilaiMahasiswa::class, 'getPertemuanKosong']);
-
+Route::get('/dosen/nilai-mahasiswa/export', [ControllerNilaiMahasiswa::class, 'exportExcel'])->name('dosen.nilai-kelompok.export');
 
 
 //Route Mata Kuliah
