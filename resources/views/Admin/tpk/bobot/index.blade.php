@@ -6,7 +6,7 @@
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
         <a href="/admin/bobot/edit" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Edit Bobot
+            <i class="fas fa-plus"></i> Edit Kriteria
         </a>
          <a href="/admin/bobot/create" class="btn btn-success">
             <i class="fas fa-plus"></i> Tambah Atribut
