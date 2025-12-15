@@ -10,7 +10,7 @@
         <div>
             {{-- Tombol Edit Bobot --}}
             <a href="/admin/bobot" class="btn btn-secondary me-2">
-                <i class="fas fa-balance-scale"></i> Edit Bobot
+                <i class="fas fa-balance-scale"></i> Edit Kriteria
             </a>
 
             {{-- Tombol Trigger Hitung TPK --}}
