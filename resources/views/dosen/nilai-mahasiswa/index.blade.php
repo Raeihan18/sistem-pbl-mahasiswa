@@ -152,7 +152,7 @@
 
                                                 @foreach ($listNilai as $nl)
                                                     <tr>
-                                                        <td>{{ $nl->pertemuan }}</td>
+                                                        <td>{{ $nl->Pertemuan }}</td>
                                                         <td>{{ $nl->nilai_tugas }}</td>
                                                         <td>{{ $nl->nilai_project }}</td>
                                                         <td>{{ $nl->nilai_presentasi }}</td>
@@ -161,10 +161,10 @@
                                                             {{ number_format(($nl->nilai_tugas + $nl->nilai_project + $nl->nilai_presentasi + $nl->nilai_kehadiran) / 4, 2) }}
                                                         </td>
                                                         <td>
-                                                            <a href="/admin/nilai-mahasiswa/edit/{{ $nl->id_nilai_mahasiswa }}"
+                                                            <a href="/dosen/nilai-mahasiswa/edit/{{ $nl->id_nilai_mahasiswa }}"
                                                                class="btn btn-warning btn-sm">✏️ Edit</a>
 
-                                                            <a href="/admin/nilai-mahasiswa/delete/{{ $nl->id_nilai_mahasiswa }}"
+                                                            <a href="/dosen/nilai-mahasiswa/delete/{{ $nl->id_nilai_mahasiswa }}"
                                                                onclick="return confirm('Yakin ingin menghapus data ini?')"
                                                                class="btn btn-danger btn-sm">🗑️ Hapus</a>
                                                         </td>

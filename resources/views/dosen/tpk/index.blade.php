@@ -1,4 +1,4 @@
-@extends('layout.layout-admin')
+@extends('layout.layout-dosen')
 
 @section('title', 'Mahasiswa Terbaik')
 
@@ -9,12 +9,12 @@
 
         <div>
             {{-- Tombol Edit Bobot --}}
-            <a href="/admin/bobot" class="btn btn-secondary me-2">
+            <a href="/dosen/bobot" class="btn btn-secondary me-2">
                 <i class="fas fa-balance-scale"></i> Edit Kriteria
             </a>
 
             {{-- Tombol Trigger Hitung TPK --}}
-            <a href="{{ url('admin/tpk/hitung') }}" class="btn btn-primary"
+            <a href="{{ url('dosen/tpk/hitung') }}" class="btn btn-primary"
                onclick="return confirm('Hitung ulang TPK berdasarkan data terbaru?')">
                 <i class="fas fa-calculator"></i> Hitung TPK
             </a>

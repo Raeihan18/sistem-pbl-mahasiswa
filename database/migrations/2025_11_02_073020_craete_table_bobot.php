@@ -14,7 +14,7 @@ return new class extends Migration
             Schema::create('bobot', function (Blueprint $table) {
             $table->id('id_bobot');
             $table->string('kriteria');
-            $table->decimal('bobot', 10, 2);
+            $table->decimal('bobot', 10, 2)->nulabele();
             $table->string('tipe');
             $table->timestamps();
     });     

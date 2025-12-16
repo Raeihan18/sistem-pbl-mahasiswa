@@ -153,6 +153,12 @@
                     <span>Nilai Kelompok</span>
                 </a>
             </li>
+                        <li class="nav-item ">
+                <a class="nav-link {{ Request::is('dosen/tpk*') ? 'active' : '' }}" href="/dosen/tpk">
+                    <i class="bi bi-folder"></i>
+                    <span>Mahasiswa Terbaik</span>
+                </a>
+            </li>
 
             <!-- Nav Item - User -->
             <li class="nav-item ">

@@ -1,4 +1,4 @@
-@extends('layout.layout-admin')
+@extends('layout.layout-dosen')
 
 @section('title', 'Tambah Mata Kuliah')
 
@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="/admin/bobot/create" method="POST">
+            <form action="/dosen/bobot/create" method="POST">
                 @csrf
 
 
@@ -26,7 +26,7 @@
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i> Simpan
                 </button>
-                <a href="/admin/mata-kuliah" class="btn btn-secondary">
+                <a href="/dosen/mata-kuliah" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </form>

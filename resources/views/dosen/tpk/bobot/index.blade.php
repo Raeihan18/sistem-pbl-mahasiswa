@@ -1,14 +1,14 @@
-@extends('layout.layout-admin')
+@extends('layout.layout-dosen')
 
 @section('title', 'Mahasiswa')
 
 @section('content')
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/admin/bobot/edit" class="btn btn-primary">
+        <a href="/dosen/bobot/edit" class="btn btn-primary">
             <i class="fas fa-plus"></i> Edit Bobot
         </a>
-         <a href="/admin/bobot/create" class="btn btn-success">
+         <a href="/dosen/bobot/create" class="btn btn-success">
             <i class="fas fa-plus"></i> Tambah Atribut
         </a>
     </div>
@@ -35,10 +35,10 @@
                             <td>{{ $bobot->tipe }}</td>
 
                             <td>
-                                 <a href="/admin/bobot/edit-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-warning">
+                                 <a href="/dosen/bobot/edit-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
-                                <a href="/admin/bobot/delete-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <a href="/dosen/bobot/delete-atribut/{{ $bobot['id_bobot'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a> 
                             </td> 

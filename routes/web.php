@@ -13,6 +13,7 @@ use App\http\Controllers\ControllerProfil;
 use App\http\Controllers\ControllerUserMahasiswa;
 use App\http\Controllers\ControllerAuth;
 use App\http\Controllers\ControllerPembimbing;
+use App\http\Controllers\ControllerTpkDosen;
 use App\http\Controllers\Admin\ControllerDashboardAdmin;
 use App\http\Controllers\Admin\ControllerKelompokAdmin;
 use App\http\Controllers\Admin\ControllerMahasiswaAdmin;
@@ -23,6 +24,7 @@ use App\http\Controllers\Admin\ControllerUserAdmin;
 use App\http\Controllers\Admin\ControllerTpk;
 use App\http\Controllers\Admin\ControllerTenggatPenilaian;
 use App\http\Controllers\Admin\ControllerProfilAdmin;
+
 
 // Halaman login
 Route::get('/', function(){
@@ -80,6 +82,19 @@ Route::post('/dosen/mata-kuliah/store',[ControllerMataKuliah::class, 'store']);
 Route::get('/dosen/mata-kuliah/edit/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'edit']);
 Route::put('/dosen/mata-kuliah/update/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'update']);
 Route::get('/dosen/mata-kuliah/delete/{id_nilai_mahasiswa}',[ControllerMataKuliah::class, 'delete']);
+
+Route::get('/dosen/tpk', [ControllerTpkDosen::class, 'index']);
+Route::get('/dosen/bobot', [ControllerTpkDosen::class, 'bobot']);
+
+Route::get('/dosen/bobot/create', [ControllerTpkDosen::class, 'createbobot']);
+Route::post('/dosen/bobot/create', [ControllerTpkDosen::class, 'storebobot']);
+Route::get('/dosen/bobot/delete-atribut/{id_bobot}', [ControllerTpkDosen::class, 'deletebobot']);
+Route::get('/dosen/bobot/edit-atribut/{id_bobot}', [ControllerTpkDosen::class, 'editbobot']);
+Route::put('/dosen/bobot/update-atribut/{id_bobot}', [ControllerTpkDosen::class, 'updatebobot']);
+Route::get('/dosen/bobot/edit', [ControllerTpkDosen::class, 'ahp'])->name('ahp.index');
+Route::post('/dosen/bobot/hitung', [ControllerTpkDosen::class, 'hitung'])->name('ahp.hitung');
+Route::get('/dosen/tpk', [ControllerTpkDosen::class, 'index'])->name('tpk.index');
+Route::get('/dosen/tpk/hitung', [ControllerTpkDosen::class, 'hitungTPK'])->name('tpk.hitung');
 
 //Route Kelompok
 Route::get('/dosen/kelompok',[ControllerKelompok::class, 'index']);

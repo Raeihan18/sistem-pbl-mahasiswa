@@ -1,4 +1,4 @@
-@extends('layout.layout-admin')
+@extends('layout.layout-dosen')
 
 @section('title', 'Edit Bobot')
 
@@ -6,7 +6,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="/admin/bobot/update-atribut/{{ $bobot['id_bobot'] }}" method="POST">
+            <form action="/dosen/bobot/update-atribut/{{ $bobot['id_bobot'] }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -28,7 +28,7 @@
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-save"></i> Perbarui
                 </button>
-                <a href="/admin/bobot" class="btn btn-secondary">
+                <a href="/dosen/bobot" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
             </form>
