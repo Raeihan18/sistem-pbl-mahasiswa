@@ -9,7 +9,7 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <form action="{{ route('ahp.hitung') }}" method="POST">
+    <form action="{{ route('dosen.ahp.hitung') }}" method="POST">
         @csrf
         <table id="ahpTable" class="table table-bordered text-center align-middle">
             <thead class="table-primary">

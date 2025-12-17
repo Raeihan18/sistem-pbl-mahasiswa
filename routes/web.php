@@ -91,10 +91,10 @@ Route::post('/dosen/bobot/create', [ControllerTpkDosen::class, 'storebobot']);
 Route::get('/dosen/bobot/delete-atribut/{id_bobot}', [ControllerTpkDosen::class, 'deletebobot']);
 Route::get('/dosen/bobot/edit-atribut/{id_bobot}', [ControllerTpkDosen::class, 'editbobot']);
 Route::put('/dosen/bobot/update-atribut/{id_bobot}', [ControllerTpkDosen::class, 'updatebobot']);
-Route::get('/dosen/bobot/edit', [ControllerTpkDosen::class, 'ahp'])->name('ahp.index');
-Route::post('/dosen/bobot/hitung', [ControllerTpkDosen::class, 'hitung'])->name('ahp.hitung');
-Route::get('/dosen/tpk', [ControllerTpkDosen::class, 'index'])->name('tpk.index');
-Route::get('/dosen/tpk/hitung', [ControllerTpkDosen::class, 'hitungTPK'])->name('tpk.hitung');
+Route::get('/dosen/bobot/edit', [ControllerTpkDosen::class, 'ahp'])->name('dosen.ahp.index');
+Route::post('/dosen/bobot/hitung', [ControllerTpkDosen::class, 'hitung'])->name('dosen.ahp.hitung');
+Route::get('/dosen/tpk', [ControllerTpkDosen::class, 'index'])->name('dosen.tpk.index');
+Route::get('/dosen/tpk/hitung', [ControllerTpkDosen::class, 'hitungTPK'])->name('dosen.tpk.hitung');
 
 //Route Kelompok
 Route::get('/dosen/kelompok',[ControllerKelompok::class, 'index']);

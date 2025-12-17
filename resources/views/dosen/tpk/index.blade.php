@@ -14,7 +14,7 @@
             </a>
 
             {{-- Tombol Trigger Hitung TPK --}}
-            <a href="{{ url('dosen/tpk/hitung') }}" class="btn btn-primary"
+            <a href="{{ route('dosen.tpk.hitung') }}" class="btn btn-primary"
                onclick="return confirm('Hitung ulang TPK berdasarkan data terbaru?')">
                 <i class="fas fa-calculator"></i> Hitung TPK
             </a>

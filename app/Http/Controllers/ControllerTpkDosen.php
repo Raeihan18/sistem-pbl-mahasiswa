@@ -116,7 +116,7 @@ class ControllerTpkDosen extends Controller
             ]);
         }
 
-        return redirect()->route('tpk.index')->with('success', 'Perhitungan bobot berhasil!');
+        return redirect()->route('dosen.tpk.index')->with('success', 'Perhitungan bobot berhasil!');
     }
 
     public function hitungTPK()
@@ -170,6 +170,6 @@ class ControllerTpkDosen extends Controller
         DB::table('mahasiswa-terbaik')->truncate();
         DB::table('mahasiswa-terbaik')->insert($hasil);
 
-        return redirect()->route('tpk.index')->with('success', 'Perhitungan TPK berhasil dilakukan!');
+        return redirect()->route('dosen.tpk.index')->with('success', 'Perhitungan TPK berhasil dilakukan!');
     }
 }
