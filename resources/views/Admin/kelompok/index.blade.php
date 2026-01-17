@@ -6,9 +6,9 @@
 
    <div class="d-flex align-items-center mb-2">
      {{-- Tombol Tambah Kelompok --}}
-    <a href="{{ url('admin/kelompok/create') }}" class="btn btn-primary mb-3">
+    {{-- <a href="{{ url('admin/kelompok/create') }}" class="btn btn-primary mb-3">
         <i class="fas fa-plus"></i> Tambah Kelompok
-    </a>
+    </a> --}}
 
 
 <form action="{{ url('/admin/kelompok') }}" method="GET" class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
@@ -38,7 +38,7 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $klp['nama_kelompok'] }}</td>
-                            <td>
+                            {{-- <td>
                                 <a href="{{ url('admin/kelompok/edit/' . $klp['id_kelompok']) }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
@@ -47,7 +47,7 @@
                                    onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

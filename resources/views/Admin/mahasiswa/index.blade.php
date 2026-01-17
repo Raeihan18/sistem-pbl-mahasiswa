@@ -9,14 +9,14 @@
     <div class="d-flex align-items-center mb-2">
     <div class="mb-3">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/admin/mahasiswa/create" class="btn btn-primary">
+        {{-- <a href="/admin/mahasiswa/create" class="btn btn-primary">
             <i class="fas fa-plus"></i> Tambah Mahasiswa
-        </a>
+        </a> --}}
 
         {{-- Tombol Import Mahasiswa --}}
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+        {{-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
             <i class="fas fa-file-import"></i> Import Mahasiswa
-        </button>
+        </button> --}}
     </div>
 
 <form action="{{ url('/admin/mahasiswa') }}" method="GET" class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
@@ -44,7 +44,7 @@
                         <th>Kelas</th>
                         <th>Id Kelompok</th>
                         <th>Email</th>
-                        <th>Aksi</th>
+                        {{-- <th>Aksi</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -56,14 +56,14 @@
                             <td>{{ $mhs['kelas'] }}</td>
                             <td>{{ $mhs['nama_kelompok'] }}</td>
                             <td>{{ $mhs['email'] }}</td>
-                            <td>
+                            {{-- <td>
                                 <a href="/admin/mahasiswa/edit/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a href="/admin/mahasiswa/delete/{{ $mhs['id_mahasiswa'] }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

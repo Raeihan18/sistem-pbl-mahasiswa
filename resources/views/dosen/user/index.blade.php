@@ -5,9 +5,9 @@
 @section('content')
     <div class="d-flex align-items-center mb-2">
         {{-- Tombol Tambah Mahasiswa --}}
-        <a href="/dosen/user/create" class="btn btn-primary mb-3">
+        {{-- <a href="/dosen/user/create" class="btn btn-primary mb-3">
             <i class="fas fa-plus"></i> Tambah User
-        </a>
+        </a> --}}
         <form class="ms-auto d-none d-sm-inline-block mw-200" style="width: 250px;">
             <div class="input-group">
                 <input type="text" class="form-control bg-light small" placeholder="Search for..." aria-label="Search">
@@ -28,7 +28,7 @@
                         <th>Level</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Aksi</th>
+                        {{-- <th>Aksi</th> --}}
 
                     </tr>
                 </thead>
@@ -52,7 +52,7 @@
 
 
 
-                            <td>
+                            {{-- <td>
                                 <a href="/dosen/user/edit/{{ $user['id_user'] }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
@@ -60,7 +60,7 @@
                                     onclick="return confirm('Yakin ingin menghapus data ini?')">
                                     <i class="fas fa-trash"></i> Hapus
                                 </a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>
